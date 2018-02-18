@@ -1,9 +1,10 @@
 import { Component } from '@stencil/core';
-
+// import '@stencil/sass'
+import '@stencil/router'
 
 @Component({
   tag: 'my-app',
-  styleUrl: 'my-app.css'
+  styleUrl: 'my-app.scss'
 })
 export class MyApp {
 
