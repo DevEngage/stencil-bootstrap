@@ -11,16 +11,15 @@ export class AppHome {
     return (
       <div class='app-home'>
         <p>
-          Welcome to the Stencil App Starter.
-          You can use this starter to build entire apps all with
-          web components using Stencil!
-          Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
+          Welcome to the last bootstrap component library. Thanks to Stencil, we can now have our bootstrap components
+          work everywhere; including, angular, react, vue, and the future.
         </p>
 
         <stencil-route-link url='/profile/stencil'>
           <button>
             Profile page
           </button>
+          <button class="btn">test</button>
         </stencil-route-link>
       </div>
     );
