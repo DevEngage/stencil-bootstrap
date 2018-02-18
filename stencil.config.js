@@ -1,6 +1,6 @@
 exports.config = {
   collections: [
-    { name: '@stencil/router' }
+  //   { name: '@stencil/router' }
   ]
 };
 

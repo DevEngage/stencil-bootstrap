@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@stencil/core": "0.6.0",
-    "@stencil/router": "latest"
+    "@stencil/router": "latest",
+    "bootstrap": "^4.0.0"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
@@ -28,12 +29,12 @@
     "type": "git",
     "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
   },
-  "author": "Ionic Team",
+  "author": "DevEngage",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/DevEngage/stencil-bootstrap"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
+  "homepage": "https://github.com/DevEngage/stencil-bootstrap",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

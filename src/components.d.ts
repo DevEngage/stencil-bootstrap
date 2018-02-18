@@ -4,8 +4,6 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import '@stencil/router';
-
 import {
   MatchResults,
 } from '@stencil/router';
@@ -17,36 +15,6 @@ declare global {
   }
 }
 
-
-
-import {
-  AppHome as AppHome
-} from './components/app-home/app-home';
-
-declare global {
-  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
-  }
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
-  }
-  interface ElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-home": JSXElements.AppHomeAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppHomeAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
 
 
 import {
@@ -103,6 +71,36 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  AppHome as AppHome
+} from './pages/home/app-home';
+
+declare global {
+  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
+  }
+  var HTMLAppHomeElement: {
+    prototype: HTMLAppHomeElement;
+    new (): HTMLAppHomeElement;
+  };
+  interface HTMLElementTagNameMap {
+    "app-home": HTMLAppHomeElement;
+  }
+  interface ElementTagNameMap {
+    "app-home": HTMLAppHomeElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "app-home": JSXElements.AppHomeAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppHomeAttributes extends HTMLAttributes {
       
     }
   }
