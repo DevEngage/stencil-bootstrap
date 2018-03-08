@@ -45,6 +45,7 @@ declare global {
   }
   namespace JSXElements {
     export interface StbModalAttributes extends HTMLAttributes {
+      animation?: any;
       ariaHidden?: string;
       ariaLabelledBy?: string;
       effect?: string;

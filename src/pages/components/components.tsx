@@ -13,6 +13,12 @@ export class StbPageComponents {
     modal.show();
   }
 
+  closeModal() {
+    const modal = document.querySelector('stb-modal');
+    console.log(modal);
+    modal.hide();
+  }
+
   render() {
     return (
       <div>
@@ -26,7 +32,7 @@ export class StbPageComponents {
           <div slot="modal-dialog" class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" onClick={this.closeModal}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -34,7 +40,7 @@ export class StbPageComponents {
               ...
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" onClick={this.closeModal}>Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>

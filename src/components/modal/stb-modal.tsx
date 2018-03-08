@@ -1,7 +1,7 @@
 import {Component, Prop, Element, Event, EventEmitter, Listen, Method} from '@stencil/core';
 
 // const NAME                         = 'modal';
-const VERSION                      = '4.0.0';
+// const VERSION                      = '4.0.0';
 // const DATA_KEY                     = 'bs.modal';
 // const EVENT_KEY                    = `.${DATA_KEY}`;
 // const DATA_API_KEY                 = '.data-api';
@@ -10,12 +10,12 @@ const VERSION                      = '4.0.0';
 // const BACKDROP_TRANSITION_DURATION = 150;
 // const ESCAPE_KEYCODE               = 27; // KeyboardEvent.which value for Escape (Esc) key
 
-const Default = {
-  backdrop : true,
-  keyboard : true,
-  focus    : true,
-  show     : true
-};
+// const Default = {
+//   backdrop : true,
+//   keyboard : true,
+//   focus    : true,
+//   show     : true
+// };
 
 // const DefaultType = {
 //   backdrop : '(boolean|string)',
@@ -66,7 +66,9 @@ const ClassName = {
 export class StbModal {
 
   private backdrop = null;
-
+  private isBodyOverflowing = null;
+  private scrollbarWidth = null;
+  private isTransitioning = false;
   private isVisible = false;
 
   body: HTMLElement = document.body;
@@ -84,22 +86,16 @@ export class StbModal {
 
   @Prop() options: any;
 
-  private isTransitioning = false;
+  @Prop() animation = {
+    prefix: 'animated',
+    showDuration: '400',
+    show: 'fadeInDown',
+    hideDuration: '4000',
+    hide: 'fadeOut'
+  };
 
 
-  // Getters
-
-  static get VERSION() {
-    return VERSION
-  }
-
-  static get Default() {
-    return Default
-  }
-
-  // Public
-
-  toggle(relatedTarget) {
+  public toggle(relatedTarget) {
     return this.isVisible ? this.hide(relatedTarget) : this.show(relatedTarget)
   }
 
@@ -107,11 +103,11 @@ export class StbModal {
     console.log(this.stbModalElement);
     this.stbModalElement.classList.add('modal');
     this.stbModalElement.classList.add(this.effect);
-    // this.show();
   }
 
   @Method()
-  show(relatedTarget?): void {
+  public show(relatedTarget?): void {
+    const modalDialogElement = this.stbModalElement.getElementsByClassName('modal-dialog')[0];
     // if (this.isTransitioning || this.isVisible) {
     //   return
     // }
@@ -123,27 +119,37 @@ export class StbModal {
     // }
     this.stbModalElement.style.display = 'block';
     this.body.classList.add('model-open');
+    modalDialogElement.classList.add(this.animation.prefix);
+    modalDialogElement.classList.add(this.animation.show);
     this.stbModalElement.classList.add('show');
     this.showEvent.emit(relatedTarget);
     this.isVisible = true;
+
+    this.adjustDialog();
+    this.checkScrollbar();
+    // this.setScrollbar();
 
     this.showBackdrop(() => this.showElement(relatedTarget))
   }
 
   @Method()
-  hide(reason?): void {
+  public hide(reason?): void {
     if (this.isTransitioning || !this.isVisible) {
       return
     }
 
+    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
+    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
     this.stbModalElement.classList.remove(ClassName.SHOW);
-    this.body.classList.remove('model-open');
-    this.hideEvent.emit(reason);
-    this.isVisible = false;
-    this.hideModal();
+    // setTimeout(() => {
+      this.body.classList.remove('model-open');
+      this.hideEvent.emit(reason);
+      this.isVisible = false;
+      this.hideModal();
+    // }, this.animation.hideDuration);
   }
 
-  hideModal() {
+  private hideModal() {
     this.stbModalElement.style.display = 'none';
     // this.stbModalElement.setAttribute('aria-hidden', true);
     this.isTransitioning = false;
@@ -299,6 +305,67 @@ export class StbModal {
       this.backdrop = null
     }
   }
+
+  private adjustDialog() {
+    const isModalOverflowing =
+      this.stbModalElement.scrollHeight > document.documentElement.clientHeight;
+
+    if (!this.isBodyOverflowing && isModalOverflowing) {
+      this.stbModalElement.style.paddingLeft = `${this.scrollbarWidth}px`
+    }
+
+    if (this.isBodyOverflowing && !isModalOverflowing) {
+      this.stbModalElement.style.paddingRight = `${this.scrollbarWidth}px`
+    }
+  }
+
+  private checkScrollbar() {
+    const rect = document.body.getBoundingClientRect();
+    this.isBodyOverflowing = rect.left + rect.right < window.innerWidth;
+    this.scrollbarWidth = this.getScrollbarWidth();
+  }
+
+  private getScrollbarWidth() { // thx d.walsh
+    const scrollDiv = document.createElement('div');
+    scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  }
+
+  // setScrollbar() {
+  //   if (this.isBodyOverflowing) {
+  //     // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
+  //     //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
+  //
+  //     // Adjust fixed content padding
+  //     $(Selector.FIXED_CONTENT).each((index, element) => {
+  //       const actualPadding = $(element)[0].style.paddingRight
+  //       const calculatedPadding = $(element).css('padding-right')
+  //       $(element).data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`)
+  //     })
+  //
+  //     // Adjust sticky content margin
+  //     $(Selector.STICKY_CONTENT).each((index, element) => {
+  //       const actualMargin = $(element)[0].style.marginRight
+  //       const calculatedMargin = $(element).css('margin-right')
+  //       $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) - this._scrollbarWidth}px`)
+  //     })
+  //
+  //     // Adjust navbar-toggler margin
+  //     $(Selector.NAVBAR_TOGGLER).each((index, element) => {
+  //       const actualMargin = $(element)[0].style.marginRight
+  //       const calculatedMargin = $(element).css('margin-right')
+  //       $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) + this._scrollbarWidth}px`)
+  //     })
+  //
+  //     // Adjust body padding
+  //     const actualPadding = document.body.style.paddingRight
+  //     const calculatedPadding = $('body').css('padding-right')
+  //     $('body').data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`)
+  //   }
+  // }
 
   componentDidUnload(): void {
     this.body.classList.remove('model-open');
