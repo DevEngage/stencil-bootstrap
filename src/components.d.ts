@@ -49,7 +49,7 @@ declare global {
 
 import {
   MyApp as MyApp
-} from './components/my-app/my-app';
+} from './pages/my-app/my-app';
 
 declare global {
   interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
@@ -71,7 +71,7 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
@@ -101,7 +101,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
