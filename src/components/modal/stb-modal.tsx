@@ -74,6 +74,7 @@ export class StbModal {
     //   return
     // }
     this.stbModalElement.style.display = 'block';
+    this.stbModalElement.style.overflow = 'auto';
     this.body.classList.add('model-open');
     modalDialogElement.classList.add(this.animation.showDuration);
     modalDialogElement.classList.add(this.animation.prefix);
@@ -109,6 +110,7 @@ export class StbModal {
 
   private hideModal() {
     this.stbModalElement.style.display = 'none';
+    this.stbModalElement.style.overflow = 'hidden';
     this.stbModalElement.setAttribute('aria-hidden', 'true');
     this.isTransitioning = false;
     this.showBackdrop(() => {
