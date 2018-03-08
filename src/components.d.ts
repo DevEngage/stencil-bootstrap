@@ -3,75 +3,85 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
-
-import {
-  MatchResults,
-} from '@stencil/router';
-
 declare global {
+  namespace JSX {
+    interface Element {}
+    export interface IntrinsicElements {}
+  }
+  namespace JSXElements {}
+
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
     componentOnReady(done: (ele?: this) => void): void;
   }
+
+  interface HTMLAttributes {}
 }
 
+import '@stencil/router';
 
 
 import {
-  AppProfile as AppProfile
-} from './components/app-profile/app-profile';
+  StbModal as StbModal
+} from './components/modal/stb-modal';
 
 declare global {
-  interface HTMLAppProfileElement extends AppProfile, HTMLStencilElement {
+  interface HTMLStbModalElement extends StbModal, HTMLStencilElement {
   }
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
+  var HTMLStbModalElement: {
+    prototype: HTMLStbModalElement;
+    new (): HTMLStbModalElement;
   };
   interface HTMLElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
+    "stb-modal": HTMLStbModalElement;
   }
   interface ElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
+    "stb-modal": HTMLStbModalElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-profile": JSXElements.AppProfileAttributes;
+      "stb-modal": JSXElements.StbModalAttributes;
     }
   }
   namespace JSXElements {
-    export interface AppProfileAttributes extends HTMLAttributes {
-      match?: MatchResults;
+    export interface StbModalAttributes extends HTMLAttributes {
+      ariaHidden?: string;
+      ariaLabelledBy?: string;
+      effect?: string;
+      keyboard?: boolean;
+      modalDialogCentered?: string;
+      options?: any;
+      size?: 'sm' | 'lg';
     }
   }
 }
 
 
 import {
-  MyApp as MyApp
-} from './pages/my-app/my-app';
+  StbPageComponents as StbPageComponents
+} from './pages/components/components';
 
 declare global {
-  interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
+  interface HTMLStbPageComponentsElement extends StbPageComponents, HTMLStencilElement {
   }
-  var HTMLMyAppElement: {
-    prototype: HTMLMyAppElement;
-    new (): HTMLMyAppElement;
+  var HTMLStbPageComponentsElement: {
+    prototype: HTMLStbPageComponentsElement;
+    new (): HTMLStbPageComponentsElement;
   };
   interface HTMLElementTagNameMap {
-    "my-app": HTMLMyAppElement;
+    "stb-page-components": HTMLStbPageComponentsElement;
   }
   interface ElementTagNameMap {
-    "my-app": HTMLMyAppElement;
+    "stb-page-components": HTMLStbPageComponentsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-app": JSXElements.MyAppAttributes;
+      "stb-page-components": JSXElements.StbPageComponentsAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyAppAttributes extends HTMLAttributes {
-
+    export interface StbPageComponentsAttributes extends HTMLAttributes {
+      
     }
   }
 }
@@ -101,7 +111,37 @@ declare global {
   }
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
 
+
+import {
+  MyApp as MyApp
+} from './pages/my-app/my-app';
+
+declare global {
+  interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
+  }
+  var HTMLMyAppElement: {
+    prototype: HTMLMyAppElement;
+    new (): HTMLMyAppElement;
+  };
+  interface HTMLElementTagNameMap {
+    "my-app": HTMLMyAppElement;
+  }
+  interface ElementTagNameMap {
+    "my-app": HTMLMyAppElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "my-app": JSXElements.MyAppAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MyAppAttributes extends HTMLAttributes {
+      
     }
   }
 }
