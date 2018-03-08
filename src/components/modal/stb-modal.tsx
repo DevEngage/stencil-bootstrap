@@ -1,43 +1,5 @@
 import {Component, Prop, Element, Event, EventEmitter, Listen, Method} from '@stencil/core';
 
-// const NAME                         = 'modal';
-// const VERSION                      = '4.0.0';
-// const DATA_KEY                     = 'bs.modal';
-// const EVENT_KEY                    = `.${DATA_KEY}`;
-// const DATA_API_KEY                 = '.data-api';
-// const JQUERY_NO_CONFLICT           = $.fn[NAME];
-// const TRANSITION_DURATION          = 300;
-// const BACKDROP_TRANSITION_DURATION = 150;
-// const ESCAPE_KEYCODE               = 27; // KeyboardEvent.which value for Escape (Esc) key
-
-// const Default = {
-//   backdrop : true,
-//   keyboard : true,
-//   focus    : true,
-//   show     : true
-// };
-
-// const DefaultType = {
-//   backdrop : '(boolean|string)',
-//   keyboard : 'boolean',
-//   focus    : 'boolean',
-//   show     : 'boolean'
-// };
-
-// const StbEvent = {
-//   HIDE              : `hide${EVENT_KEY}`,
-//   HIDDEN            : `hidden${EVENT_KEY}`,
-//   SHOW              : `show${EVENT_KEY}`,
-//   SHOWN             : `shown${EVENT_KEY}`,
-//   FOCUSIN           : `focusin${EVENT_KEY}`,
-//   RESIZE            : `resize${EVENT_KEY}`,
-//   CLICK_DISMISS     : `click.dismiss${EVENT_KEY}`,
-//   KEYDOWN_DISMISS   : `keydown.dismiss${EVENT_KEY}`,
-//   MOUSEUP_DISMISS   : `mouseup.dismiss${EVENT_KEY}`,
-//   MOUSEDOWN_DISMISS : `mousedown.dismiss${EVENT_KEY}`,
-//   CLICK_DATA_API    : `click${EVENT_KEY}${DATA_API_KEY}`
-// };
-
 const ClassName = {
   SCROLLBAR_MEASURER : 'modal-scrollbar-measure',
   BACKDROP           : 'modal-backdrop',
@@ -46,14 +8,14 @@ const ClassName = {
   SHOW               : 'show'
 };
 
-// const Selector = {
-//   DIALOG             : '.modal-dialog',
-//   DATA_TOGGLE        : '[data-toggle="modal"]',
-//   DATA_DISMISS       : '[data-dismiss="modal"]',
-//   FIXED_CONTENT      : '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-//   STICKY_CONTENT     : '.sticky-top',
-//   NAVBAR_TOGGLER     : '.navbar-toggler'
-// };
+const Selector = {
+  DIALOG             : '.modal-dialog',
+  DATA_TOGGLE        : '[data-toggle="modal"]',
+  DATA_DISMISS       : '[data-dismiss="modal"]',
+  FIXED_CONTENT      : '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+  STICKY_CONTENT     : '.sticky-top',
+  NAVBAR_TOGGLER     : '.navbar-toggler'
+};
 
 @Component({
   tag: 'stb-modal',
@@ -88,9 +50,9 @@ export class StbModal {
 
   @Prop() animation = {
     prefix: 'animated',
-    showDuration: '400',
+    showDuration: 'duration-500ms',
     show: 'fadeInDown',
-    hideDuration: '4000',
+    hideDuration: 'duration-500ms',
     hide: 'fadeOut'
   };
 
@@ -111,14 +73,9 @@ export class StbModal {
     // if (this.isTransitioning || this.isVisible) {
     //   return
     // }
-    // const containerSelector = this.options.container || 'body';
-    // const containerEl = document.querySelector(containerSelector);
-    //
-    // if (!containerEl) {
-    //   throw new Error(`The specified modal container "${containerSelector}" was not found in the DOM.`);
-    // }
     this.stbModalElement.style.display = 'block';
     this.body.classList.add('model-open');
+    modalDialogElement.classList.add(this.animation.showDuration);
     modalDialogElement.classList.add(this.animation.prefix);
     modalDialogElement.classList.add(this.animation.show);
     this.stbModalElement.classList.add('show');
@@ -127,9 +84,9 @@ export class StbModal {
 
     this.adjustDialog();
     this.checkScrollbar();
-    // this.setScrollbar();
+    this.setScrollbar();
 
-    this.showBackdrop(() => this.showElement(relatedTarget))
+    this.showBackdrop(() => this.showElement());
   }
 
   @Method()
@@ -138,6 +95,7 @@ export class StbModal {
       return
     }
 
+    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.showDuration);
     this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
     this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
     this.stbModalElement.classList.remove(ClassName.SHOW);
@@ -151,13 +109,12 @@ export class StbModal {
 
   private hideModal() {
     this.stbModalElement.style.display = 'none';
-    // this.stbModalElement.setAttribute('aria-hidden', true);
+    this.stbModalElement.setAttribute('aria-hidden', 'true');
     this.isTransitioning = false;
     this.showBackdrop(() => {
       this.body.classList.remove(ClassName.OPEN);
-      // this._resetAdjustments();
-      // this._resetScrollbar();
-      // $(this._element).trigger(Event.HIDDEN)
+      this.resetAdjustments();
+      this.resetScrollbar();
     })
   }
 
@@ -168,51 +125,25 @@ export class StbModal {
     }
   }
 
-  private showElement(relatedTarget?) {
-    console.log(relatedTarget)
-  //   console.log(relatedTarget)
-  //   // const transition = Util.supportsTransitionEnd() &&
-  //   //   $(this._element).hasClass(ClassName.FADE);
+  private showElement() {
+
+    if (!this.stbModalElement.parentNode ||
+      this.stbModalElement.parentNode.nodeType !== Node.ELEMENT_NODE) {
+      // Don't move modal's DOM position
+      document.body.appendChild(this.stbModalElement)
+    }
   //
-  //   if (!this.stbModalElement.parentNode ||
-  //     this.stbModalElement.parentNode.nodeType !== Node.ELEMENT_NODE) {
-  //     // Don't move modal's DOM position
-  //     document.body.appendChild(this.stbModalElement)
-  //   }
-  //
-  //   this.stbModalElement.style.display = 'block';
-  //   this.stbModalElement.removeAttribute('aria-hidden');
-  //   this.stbModalElement.scrollTop = 0;
-  //
-  //   // if (transition) {
-  //   //   Util.reflow(this._element)
-  //   // }
-  //
-  //   this.stbModalElement.classList.add(ClassName.SHOW);
-  //
+    this.stbModalElement.style.display = 'block';
+    this.stbModalElement.removeAttribute('aria-hidden');
+    this.stbModalElement.scrollTop = 0;
+
+    this.stbModalElement.classList.add(ClassName.SHOW);
+
   //   // if (Default.focus) {
-  //   //   this._enforceFocus()
+  //   //   this.enforceFocus()
   //   // }
   //
-  //   // const shownEvent = $.Event(Event.SHOWN, {
-  //   //   relatedTarget
-  //   // });
-  //
-  //   // const transitionComplete = () => {
-  //   //   if (this._config.focus) {
-  //   //     this._element.focus()
-  //   //   }
-  //   //   this._isTransitioning = false;
-  //   //   $(this._element).trigger(shownEvent)
-  //   // }
-  //
-  //   // if (transition) {
-  //   //   $(this._dialog)
-  //   //     .one(Util.TRANSITION_END, transitionComplete)
-  //   //     .emulateTransitionEnd(TRANSITION_DURATION)
-  //   // } else {
-  //   //   transitionComplete()
-  //   // }
+
   }
 
   private showBackdrop(callback?) {
@@ -220,14 +151,8 @@ export class StbModal {
     //   ? ClassName.FADE : ''
 
     if (this.isVisible) {
-      // const doAnimate = Util.supportsTransitionEnd() && animate
-
       this.backdrop = document.createElement('div');
       this.backdrop.className = ClassName.BACKDROP;
-
-      // if (animate) {
-      //   $(this._backdrop).addClass(animate)
-      // }
 
       this.body.appendChild(this.backdrop);
 
@@ -258,24 +183,12 @@ export class StbModal {
       //   }
       // })
 
-      // if (doAnimate) {
-      //   Util.reflow(this._backdrop)
-      // }
-
       this.backdrop.classList.add(ClassName.SHOW);
 
       if (!callback) {
         return
       }
 
-      // if (!doAnimate) {
-      //   callback();
-      //   return
-      // }
-
-      // $(this.backdrop)
-      //   .one(Util.TRANSITION_END, callback)
-      //   .emulateTransitionEnd(BACKDROP_TRANSITION_DURATION)
     } else if (!this.isVisible && this.backdrop) {
       this.backdrop.classList.remove(ClassName.SHOW);
 
@@ -285,15 +198,7 @@ export class StbModal {
           callback();
         }
       };
-
-      // if (Util.supportsTransitionEnd() &&
-      //   $(this._element).hasClass(ClassName.FADE)) {
-      //   $(this._backdrop)
-      //     .one(Util.TRANSITION_END, callbackRemove)
-      //     .emulateTransitionEnd(BACKDROP_TRANSITION_DURATION)
-      // } else {
-        callbackRemove();
-      // }
+      callbackRemove();
     } else if (callback) {
       callback()
     }
@@ -304,6 +209,11 @@ export class StbModal {
       this.body.removeChild(this.backdrop);
       this.backdrop = null
     }
+  }
+
+  resetAdjustments() {
+    this.stbModalElement.style.paddingLeft = '';
+    this.stbModalElement.style.paddingRight = '';
   }
 
   private adjustDialog() {
@@ -321,6 +231,11 @@ export class StbModal {
 
   private checkScrollbar() {
     const rect = document.body.getBoundingClientRect();
+    setTimeout(() => {
+      console.log(rect.left + rect.right)
+      console.log(window.innerWidth)
+    }, 1000);
+
     this.isBodyOverflowing = rect.left + rect.right < window.innerWidth;
     this.scrollbarWidth = this.getScrollbarWidth();
   }
@@ -334,7 +249,8 @@ export class StbModal {
     return scrollbarWidth;
   }
 
-  // setScrollbar() {
+  private setScrollbar() {
+    console.log(this.isBodyOverflowing)
   //   if (this.isBodyOverflowing) {
   //     // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
   //     //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
@@ -365,7 +281,12 @@ export class StbModal {
   //     const calculatedPadding = $('body').css('padding-right')
   //     $('body').data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`)
   //   }
-  // }
+
+  }
+
+  resetScrollbar() {
+    document.getElementsByClassName(Selector.FIXED_CONTENT)
+  }
 
   componentDidUnload(): void {
     this.body.classList.remove('model-open');

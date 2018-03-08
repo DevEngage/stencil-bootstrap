@@ -13,8 +13,8 @@ export class StbPageComponents {
     modal.show();
   }
 
-  open2ndModal() {
-    const modal: any = document.querySelector('#second-modal');
+  openLongModal() {
+    const modal: any = document.querySelector('#long-modal');
     console.log(modal);
     modal.show();
   }
@@ -25,8 +25,8 @@ export class StbPageComponents {
     modal.hide();
   }
 
-  close2ndModal() {
-    const modal: any = document.querySelector('#second-modal');
+  closeLongModal() {
+    const modal: any = document.querySelector('#long-modal');
     console.log(modal);
     modal.hide();
   }
@@ -41,7 +41,7 @@ export class StbPageComponents {
         <button class="btn" onClick={this.openModal}>Open Modal</button>
         <br/>
         <br/>
-        <button class="btn" onClick={this.open2ndModal}>Open 2nd Modal</button>
+        <button class="btn" onClick={this.openLongModal}>Open 2nd Modal</button>
 
         <stb-modal>
           <div slot="modal-dialog" class="modal-content">
@@ -61,19 +61,53 @@ export class StbPageComponents {
           </div>
         </stb-modal>
 
-        <stb-modal id="second-modal">
+        <stb-modal id="long-modal">
           <div slot="modal-dialog" class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title 2</h5>
-              <button type="button" class="close" onClick={this.close2ndModal}>
+              <button type="button" class="close" onClick={this.closeLongModal}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+
+              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+
+              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onClick={this.close2ndModal}>Close</button>
+              <button type="button" class="btn btn-secondary" onClick={this.closeLongModal}>Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
