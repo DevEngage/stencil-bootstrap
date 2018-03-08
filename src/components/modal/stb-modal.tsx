@@ -159,7 +159,6 @@ export class StbModal {
       this.body.appendChild(this.backdrop);
 
       this.backdrop.addEventListener('click', (event) => {
-        console.log('hit')
         if (event.target !== event.currentTarget) {
           return;
         }
@@ -233,11 +232,6 @@ export class StbModal {
 
   private checkScrollbar() {
     const rect = document.body.getBoundingClientRect();
-    setTimeout(() => {
-      console.log(rect.left + rect.right)
-      console.log(window.innerWidth)
-    }, 1000);
-
     this.isBodyOverflowing = rect.left + rect.right < window.innerWidth;
     this.scrollbarWidth = this.getScrollbarWidth();
   }

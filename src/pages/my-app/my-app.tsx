@@ -1,12 +1,27 @@
-import { Component } from '@stencil/core';
-// import '@stencil/sass'
-import '@stencil/router'
+import {Component, Prop} from '@stencil/core';
+import {RouterHistory} from '@stencil/router'
 
 @Component({
   tag: 'my-app',
   styleUrl: 'my-app.scss'
 })
 export class MyApp {
+
+  @Prop() history: RouterHistory;
+
+  getLocation() {
+    console.log(location.pathname);
+    return location.pathname;
+  }
+
+  isActive(path) {
+    return path === this.getLocation() ? 'active' : '';
+  }
+  //
+  // changePage(page = '/') {
+  //   console.log(this.history)
+  //   this.history.push(page, {});
+  // }
 
   render() {
     return (
@@ -20,11 +35,9 @@ export class MyApp {
 
         <main class="container row">
 
-          <div class="nav flex-column nav-pills col-md-3 pt-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="/components" role="tab" aria-controls="v-pills-profile" aria-selected="false">Components</a>
-            {/*<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>*/}
-            {/*<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>*/}
+          <div class="nav flex-column nav-pills col-md-3 pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class={`nav-link ${this.isActive('/')}`} id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+            <a class={`nav-link ${this.isActive('/components')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/components" role="tab" aria-controls="v-pills-profile" aria-selected="false">Components</a>
           </div>
 
           <div class="col">

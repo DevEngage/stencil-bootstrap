@@ -40,7 +40,7 @@ export class StbPageComponents {
 
         <button class="btn" onClick={this.openModal}>Open Modal</button>
 
-        <script async src="//jsfiddle.net/devengage/yw72Lmaa/1/embed/js,html/"></script>
+        <script async src="//jsfiddle.net/devengage/yw72Lmaa/15/embed/js/"></script>
 
         <button class="btn mt-2" onClick={this.openLongModal}>Open Long Modal</button>
 

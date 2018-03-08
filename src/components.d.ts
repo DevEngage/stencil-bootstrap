@@ -20,6 +20,9 @@ declare global {
 
 import '@stencil/router';
 
+import {
+  RouterHistory,
+} from '@stencil/router';
 
 import {
   StbModal as StbModal
@@ -142,7 +145,7 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
-      
+      history?: RouterHistory;
     }
   }
 }
