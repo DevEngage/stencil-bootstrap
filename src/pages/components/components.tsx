@@ -8,21 +8,21 @@ import { Component } from '@stencil/core';
 export class StbPageComponents {
 
   openModal() {
-    const modal = document.querySelector('stb-modal');
+    const modal: any = document.querySelector('stb-modal');
     console.log(modal);
     modal.show();
+  }
+
+  closeModal() {
+    const modal: any = document.querySelector('stb-modal');
+    console.log(modal);
+    modal.hide();
   }
 
   openLongModal() {
     const modal: any = document.querySelector('#long-modal');
     console.log(modal);
     modal.show();
-  }
-
-  closeModal() {
-    const modal = document.querySelector('stb-modal');
-    console.log(modal);
-    modal.hide();
   }
 
   closeLongModal() {
@@ -39,9 +39,11 @@ export class StbPageComponents {
         <h2>Modals</h2>
 
         <button class="btn" onClick={this.openModal}>Open Modal</button>
-        <br/>
-        <br/>
-        <button class="btn" onClick={this.openLongModal}>Open 2nd Modal</button>
+
+        <script async src="//jsfiddle.net/devengage/yw72Lmaa/1/embed/js,html/"></script>
+
+        <button class="btn mt-2" onClick={this.openLongModal}>Open Long Modal</button>
+
 
         <stb-modal>
           <div slot="modal-dialog" class="modal-content">
