@@ -33,7 +33,7 @@ export class StbPageComponents {
 
   render() {
     return (
-      <div>
+      <div class="pb-4">
         <h1>Components</h1>
 
         <h2>Modals</h2>
@@ -114,6 +114,18 @@ export class StbPageComponents {
             </div>
           </div>
         </stb-modal>
+
+        <br/>
+        <br/>
+
+        <stb-dropdown>
+          <span slot="button">test</span>
+          <div slot="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </stb-dropdown>
       </div>
     );
   }

@@ -56,7 +56,7 @@ export class StbModal {
     hide: 'fadeOut'
   };
 
-
+  @Method()
   public toggle(relatedTarget) {
     return this.isVisible ? this.hide(relatedTarget) : this.show(relatedTarget)
   }

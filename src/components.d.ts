@@ -25,6 +25,43 @@ import {
 } from '@stencil/router';
 
 import {
+  StbDropdown as StbDropdown
+} from './components/dropdown/dropdown';
+
+declare global {
+  interface HTMLStbDropdownElement extends StbDropdown, HTMLStencilElement {
+  }
+  var HTMLStbDropdownElement: {
+    prototype: HTMLStbDropdownElement;
+    new (): HTMLStbDropdownElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-dropdown": HTMLStbDropdownElement;
+  }
+  interface ElementTagNameMap {
+    "stb-dropdown": HTMLStbDropdownElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-dropdown": JSXElements.StbDropdownAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbDropdownAttributes extends HTMLAttributes {
+      animation?: any;
+      ariaHidden?: string;
+      disabled?: boolean;
+      effect?: string;
+      keyboard?: boolean;
+      modalDialogCentered?: string;
+      options?: any;
+      size?: 'sm' | 'lg';
+    }
+  }
+}
+
+
+import {
   StbModal as StbModal
 } from './components/modal/stb-modal';
 
