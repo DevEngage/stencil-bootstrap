@@ -25,6 +25,40 @@ import {
 } from '@stencil/router';
 
 import {
+  StbCollapse as StbCollapse
+} from './components/collapse/collapse';
+
+declare global {
+  interface HTMLStbCollapseElement extends StbCollapse, HTMLStencilElement {
+  }
+  var HTMLStbCollapseElement: {
+    prototype: HTMLStbCollapseElement;
+    new (): HTMLStbCollapseElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-collapse": HTMLStbCollapseElement;
+  }
+  interface ElementTagNameMap {
+    "stb-collapse": HTMLStbCollapseElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-collapse": JSXElements.StbCollapseAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbCollapseAttributes extends HTMLAttributes {
+      active?: boolean;
+      activeClass?: string;
+      animation?: any;
+      disabled?: boolean;
+      type?: string;
+    }
+  }
+}
+
+
+import {
   StbDropdown as StbDropdown
 } from './components/dropdown/dropdown';
 
@@ -93,6 +127,40 @@ declare global {
       modalDialogCentered?: string;
       options?: any;
       size?: 'sm' | 'lg';
+    }
+  }
+}
+
+
+import {
+  StbDropdown as StbToggle
+} from './components/toggle/toggle';
+
+declare global {
+  interface HTMLStbToggleElement extends StbToggle, HTMLStencilElement {
+  }
+  var HTMLStbToggleElement: {
+    prototype: HTMLStbToggleElement;
+    new (): HTMLStbToggleElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-toggle": HTMLStbToggleElement;
+  }
+  interface ElementTagNameMap {
+    "stb-toggle": HTMLStbToggleElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-toggle": JSXElements.StbToggleAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbToggleAttributes extends HTMLAttributes {
+      active?: boolean;
+      activeClass?: string;
+      animation?: any;
+      disabled?: boolean;
+      type?: string;
     }
   }
 }

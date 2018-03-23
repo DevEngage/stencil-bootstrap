@@ -126,6 +126,16 @@ export class StbPageComponents {
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </stb-dropdown>
+
+        <br/>
+        <br/>
+        <stb-collapse>
+
+        </stb-collapse>
+
+        <div class="pt-5">
+            <p>this is the footer</p>
+        </div>
       </div>
     );
   }
