@@ -129,9 +129,17 @@ export class StbPageComponents {
 
         <br/>
         <br/>
+
         <stb-collapse>
 
         </stb-collapse>
+
+        <br/>
+        <br/>
+
+        <stb-toggle>
+
+        </stb-toggle>
 
         <div class="pt-5">
             <p>this is the footer</p>
