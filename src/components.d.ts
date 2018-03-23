@@ -89,7 +89,7 @@ declare global {
       keyboard?: boolean;
       modalDialogCentered?: string;
       options?: any;
-      size?: 'sm' | 'lg';
+      position?: string;
     }
   }
 }
