@@ -1,15 +1,15 @@
 import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@stencil/core';
 
-const ClassName = {
-  DISABLED  : 'disabled',
-  SHOW      : 'show',
-  DROPUP    : 'dropup',
-  DROPRIGHT : 'dropright',
-  DROPLEFT  : 'dropleft',
-  MENURIGHT : 'dropdown-menu-right',
-  MENULEFT  : 'dropdown-menu-left',
-  POSITION_STATIC : 'position-static'
-};
+// const ClassName = {
+//   DISABLED  : 'disabled',
+//   SHOW      : 'show',
+//   DROPUP    : 'dropup',
+//   DROPRIGHT : 'dropright',
+//   DROPLEFT  : 'dropleft',
+//   MENURIGHT : 'dropdown-menu-right',
+//   MENULEFT  : 'dropdown-menu-left',
+//   POSITION_STATIC : 'position-static'
+// };
 
 @Component({
   tag: 'stb-dropdown',
@@ -30,11 +30,12 @@ export class StbDropdown {
   @Prop() disabled: boolean = false;
   // @Prop() type = 'dropdown';
 
+  @Prop() position: string = 'bottom';
+
   @Prop() effect = 'fade';
   @Prop() ariaHidden = 'true';
   @Prop() modalDialogCentered = 'true';
   @Prop() keyboard?: boolean = true;
-  @Prop() size?: 'sm' | 'lg' = 'sm'; // sm | lg
 
   @Prop() options: any;
 
@@ -65,15 +66,19 @@ export class StbDropdown {
 
   @Method()
   public show(): void {
-    if (this.disabled || this.hasClass(this.element, ClassName.DISABLED)) {
-      return;
-    }
+    // if (this.disabled || this.hasClass(this.element, ClassName.DISABLED)) {
+    //   return;
+    // }
     this.isVisible = true;
+    const dropdownMenu: any = this.element.getElementsByClassName('dropdown-menu');
+    dropdownMenu[0].style.display = 'block'
   }
 
   @Method()
   public hide(): void {
     this.isVisible = false;
+    const dropdownMenu: any = this.element.getElementsByClassName('dropdown-menu');
+    dropdownMenu[0].style.display = 'none'
   }
 
   static _getParentFromElement() {
@@ -139,7 +144,7 @@ export class StbDropdown {
   render() {
     return (
       <div class="dropdown">
-        <button onClick={this.toggle} class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+        <button onClick={() => this.toggle()} class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
           <slot name="button" />
         </button>
         {this.isVisible ? <slot name="dropdown-menu" /> : null}

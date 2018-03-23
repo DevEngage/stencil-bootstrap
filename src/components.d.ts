@@ -55,7 +55,7 @@ declare global {
       keyboard?: boolean;
       modalDialogCentered?: string;
       options?: any;
-      size?: 'sm' | 'lg';
+      position?: string;
     }
   }
 }
@@ -93,6 +93,40 @@ declare global {
       modalDialogCentered?: string;
       options?: any;
       size?: 'sm' | 'lg';
+    }
+  }
+}
+
+
+import {
+  StbDropdown as StbToggle
+} from './components/toggle/toggle';
+
+declare global {
+  interface HTMLStbToggleElement extends StbToggle, HTMLStencilElement {
+  }
+  var HTMLStbToggleElement: {
+    prototype: HTMLStbToggleElement;
+    new (): HTMLStbToggleElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-toggle": HTMLStbToggleElement;
+  }
+  interface ElementTagNameMap {
+    "stb-toggle": HTMLStbToggleElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-toggle": JSXElements.StbToggleAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbToggleAttributes extends HTMLAttributes {
+      active?: boolean;
+      activeClass?: string;
+      animation?: any;
+      disabled?: boolean;
+      type?: string;
     }
   }
 }

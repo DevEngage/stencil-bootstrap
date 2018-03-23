@@ -126,6 +126,11 @@ export class StbPageComponents {
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </stb-dropdown>
+
+        <br/>
+        <br/>
+
+        <stb-toggle></stb-toggle>
       </div>
     );
   }
