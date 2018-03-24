@@ -36,6 +36,16 @@ export class StbPageComponents {
       <div class="pb-4">
         <h1>Components</h1>
 
+        <br/>
+        <br/>
+
+        <stb-collapse>
+
+        </stb-collapse>
+
+        <br/>
+        <br/>
+
         <h2>Modals</h2>
 
         <button class="btn" onClick={this.openModal}>Open Modal</button>
@@ -43,6 +53,7 @@ export class StbPageComponents {
         <script async src="//jsfiddle.net/devengage/yw72Lmaa/15/embed/js/"></script>
 
         <button class="btn mt-2" onClick={this.openLongModal}>Open Long Modal</button>
+
 
 
         <stb-modal>
@@ -130,9 +141,7 @@ export class StbPageComponents {
         <br/>
         <br/>
 
-        <stb-collapse>
 
-        </stb-collapse>
 
         <br/>
         <br/>
