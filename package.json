@@ -18,7 +18,8 @@
     "@stencil/core": "0.6.18",
     "@stencil/router": "0.0.27",
     "@stencil/sass": "latest",
-    "bootstrap": "^4.0.0"
+    "bootstrap": "^4.0.0",
+    "popper.js": "^1.14.1"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",

@@ -1,4 +1,5 @@
 import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@stencil/core';
+import Popper, {Modifiers, Placement} from 'popper.js';
 
 // const ClassName = {
 //   DISABLED  : 'disabled',
@@ -14,141 +15,146 @@ import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@ste
 @Component({
   tag: 'stb-dropdown',
   host: {
-    theme: 'dropdown',
+    theme: 'dropdown'
   }
 })
 export class StbDropdown {
 
-  @State() isVisible = false;
-
   body: HTMLElement = document.body;
-
+  public isVisible = false;
   @Element() element: HTMLElement;
-  @Event() showEvent: EventEmitter;
-  @Event() hideEvent: EventEmitter;
-
+  @Event() onShow: EventEmitter;
+  @Event() onHide: EventEmitter;
   @Prop() disabled: boolean = false;
-  // @Prop() type = 'dropdown';
+  @Prop() action: string = '[data-toggle="dropdown"]';
+  @Prop() target: string = '.dropdown-menu';
+  @Prop() placement: Placement = 'bottom-start';
+  @Prop() positionFixed: boolean = false;
+  @Prop() modifiers: Modifiers = {};
+  @Prop() onlyOneOpen: boolean = false;
+  // @Prop() keyboard?: boolean = true;
+  // @Prop() animation = {
+  //   prefix: 'animated',
+  //   showDuration: 'duration-500ms',
+  //   show: 'fadeInDown',
+  //   hideDuration: 'duration-500ms',
+  //   hide: 'fadeOut'
+  // };
+  buttonListener;
+  documentListener;
+  button;
+  dropdown;
 
-  @Prop() position: string = 'bottom';
-
-  @Prop() effect = 'fade';
-  @Prop() ariaHidden = 'true';
-  @Prop() modalDialogCentered = 'true';
-  @Prop() keyboard?: boolean = true;
-
-  @Prop() options: any;
-
-  @Prop() animation = {
-    prefix: 'animated',
-    showDuration: 'duration-500ms',
-    show: 'fadeInDown',
-    hideDuration: 'duration-500ms',
-    hide: 'fadeOut'
-  };
-
-  @Method()
-  public toggle() {
-    // this.isVisible = !this.isVisible;
-
-    return this.isVisible ? this.hide() : this.show()
+  componentDidLoad(): void {
+    this.button = this.element.querySelector(this.action);
+    this.dropdown = this.element.querySelector(this.target);
+    this.addClickListener();
+    new Popper(this.button, this.dropdown, {
+      placement: this.placement,
+      positionFixed: this.positionFixed,
+      modifiers: this.modifiers
+    });
+    this.managePlacement();
   }
 
-  componentWillLoad(): void {
-    // console.log(this.stbModalElement);
-    // this.stbModalElement.classList.add('modal');
-    // this.stbModalElement.classList.add(this.effect);
+  componentDidUnload(): void {
+    if (this.documentListener) {
+      this.removeDocumentListener();
+    }
+    if (this.buttonListener) {
+      this.removeClickListener();
+    }
+  }
+
+  hideAllDropdowns() {
+    if (this.onlyOneOpen) {
+      const dropdowns: any = document.querySelectorAll('stb-dropdown');
+      if (dropdowns) {
+        dropdowns.forEach(item => item.hide());
+      }
+    }
   }
 
   hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
   }
 
+  managePlacement() {
+    const dropdownMenu: any = this.element.querySelector(this.target);
+    const buffer = 2;
+    switch(this.placement) {
+      case 'top':
+        dropdownMenu.style.top = -(buffer + dropdownMenu.clientHeight) + 'px';
+        break;
+      case 'top-start':
+        dropdownMenu.style.top = -(buffer + dropdownMenu.clientHeight) + 'px';
+        break;
+      case 'top-end':
+        dropdownMenu.style.top = -(buffer + dropdownMenu.clientHeight) + 'px';
+        break;
+      case 'left':
+        dropdownMenu.style.left = -(buffer + dropdownMenu.clientWidth) + 'px';
+        break;
+      case 'left-start':
+        dropdownMenu.style.left = -(buffer + dropdownMenu.clientWidth) + 'px';
+        break;
+      case 'left-end':
+        dropdownMenu.style.left = -(buffer + dropdownMenu.clientWidth) + 'px';
+        break;
+    }
+  }
+
+  addDocumentListener() {
+    this.documentListener = () => {
+      this.toggle();
+    };
+    document.addEventListener('mouseup', this.documentListener);
+  }
+
+  removeDocumentListener() {
+    document.removeEventListener('mouseup', this.documentListener);
+  }
+
+  addClickListener(element = this.button) {
+    this.buttonListener = () => this.toggle();
+    element.addEventListener('mouseup', this.buttonListener);
+  }
+
+  removeClickListener(element = this.button) {
+    element.removeEventListener('mouseup', this.buttonListener);
+  }
+
+  showTarget() {
+    const dropdownMenu: any = this.element.querySelectorAll(this.target);
+    dropdownMenu[0].style.display = 'block';
+    this.isVisible = true;
+  }
+
+  hideTarget() {
+    const dropdownMenu: any = this.element.querySelectorAll(this.target);
+    dropdownMenu[0].style.display = 'none';
+    this.isVisible = false;
+  }
+
+  @Method()
+  public toggle() {
+    return this.isVisible ? this.hide() : this.show();
+  }
+
   @Method()
   public show(): void {
-    // if (this.disabled || this.hasClass(this.element, ClassName.DISABLED)) {
-    //   return;
-    // }
-    this.isVisible = true;
-    const dropdownMenu: any = this.element.getElementsByClassName('dropdown-menu');
-    dropdownMenu[0].style.display = 'block'
+    this.hideAllDropdowns();
+    this.showTarget();
+    this.managePlacement();
+    this.onShow.emit();
+    setTimeout(() => this.addDocumentListener(), 400);
   }
 
   @Method()
   public hide(): void {
-    this.isVisible = false;
-    const dropdownMenu: any = this.element.getElementsByClassName('dropdown-menu');
-    dropdownMenu[0].style.display = 'none'
+    this.removeDocumentListener();
+    this.hideTarget();
+    this.onHide.emit();
   }
 
-  static _getParentFromElement() {
-    // let parent
-    // const selector = Util.getSelectorFromElement(element)
-    //
-    // if (selector) {
-    //   parent = $(selector)[0]
-    // }
-    //
-    // return parent || element.parentNode
-  }
-
-  // @Listen('keyup.escape')
-  // escKey($event): void {
-  //   if (this.keyboard && !$event.defaultPrevented) {
-  //     this.hide('esc');
-  //   }
-  // }
-
-  // resetAdjustments() {
-  //   this.stbModalElement.style.paddingLeft = '';
-  //   this.stbModalElement.style.paddingRight = '';
-  // }
-  //
-  // private adjustDialog() {
-  //   const isModalOverflowing =
-  //     this.stbModalElement.scrollHeight > document.documentElement.clientHeight;
-  //
-  //   if (!this.isBodyOverflowing && isModalOverflowing) {
-  //     this.stbModalElement.style.paddingLeft = `${this.scrollbarWidth}px`
-  //   }
-  //
-  //   if (this.isBodyOverflowing && !isModalOverflowing) {
-  //     this.stbModalElement.style.paddingRight = `${this.scrollbarWidth}px`
-  //   }
-  // }
-  //
-  // private checkScrollbar() {
-  //   const rect = document.body.getBoundingClientRect();
-  //   this.isBodyOverflowing = rect.left + rect.right < window.innerWidth;
-  //   this.scrollbarWidth = this.getScrollbarWidth();
-  // }
-
-  // private getScrollbarWidth() { // thx d.walsh
-  //   const scrollDiv = document.createElement('div');
-  //   scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
-  //   document.body.appendChild(scrollDiv);
-  //   const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-  //   document.body.removeChild(scrollDiv);
-  //   return scrollbarWidth;
-  // }
-
-
-  // resetScrollbar() {
-  //   document.getElementsByClassName(Selector.FIXED_CONTENT)
-  // }
-
-  componentDidUnload(): void {
-    // this.body.classList.remove('model-open');
-  }
-
-  render() {
-    return (
-      <div class="dropdown">
-        <button onClick={() => this.toggle()} class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-          <slot name="button" />
-        </button>
-        {this.isVisible ? <slot name="dropdown-menu" /> : null}
-      </div>
-    );
-  }
 }

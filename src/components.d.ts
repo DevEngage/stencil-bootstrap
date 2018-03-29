@@ -21,6 +21,10 @@ declare global {
 import '@stencil/router';
 
 import {
+  Modifiers,
+  Placement,
+} from 'popper.js';
+import {
   RouterHistory,
 } from '@stencil/router';
 
@@ -83,14 +87,14 @@ declare global {
   }
   namespace JSXElements {
     export interface StbDropdownAttributes extends HTMLAttributes {
+      action?: string;
       animation?: any;
-      ariaHidden?: string;
       disabled?: boolean;
-      effect?: string;
-      keyboard?: boolean;
-      modalDialogCentered?: string;
-      options?: any;
-      position?: string;
+      modifiers?: Modifiers;
+      onlyOneOpen?: boolean;
+      placement?: Placement;
+      positionFixed?: boolean;
+      target?: string;
     }
   }
 }
@@ -158,6 +162,7 @@ declare global {
   namespace JSXElements {
     export interface StbToggleAttributes extends HTMLAttributes {
       selected?: number;
+      target?: string;
     }
   }
 }
@@ -187,6 +192,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageComponentsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageDropdowns as StbPageDropdowns
+} from './pages/components/dropdowns/dropdowns';
+
+declare global {
+  interface HTMLStbPageDropdownsElement extends StbPageDropdowns, HTMLStencilElement {
+  }
+  var HTMLStbPageDropdownsElement: {
+    prototype: HTMLStbPageDropdownsElement;
+    new (): HTMLStbPageDropdownsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-dropdowns": HTMLStbPageDropdownsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-dropdowns": HTMLStbPageDropdownsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-dropdowns": JSXElements.StbPageDropdownsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageDropdownsAttributes extends HTMLAttributes {
       
     }
   }

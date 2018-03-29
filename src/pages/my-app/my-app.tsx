@@ -38,6 +38,7 @@ export class MyApp {
           <div class="nav flex-column nav-pills col-md-3 pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class={`nav-link ${this.isActive('/')}`} id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
             <a class={`nav-link ${this.isActive('/components')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/components" role="tab" aria-controls="v-pills-profile" aria-selected="false">Components</a>
+            <a class={`nav-link ${this.isActive('/dropdowns')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/dropdowns" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dropdowns</a>
           </div>
 
           <div class="col">
@@ -46,6 +47,9 @@ export class MyApp {
               </stencil-route>
 
               <stencil-route url='/components' component='stb-page-components'>
+              </stencil-route>
+
+              <stencil-route url='/dropdowns' component='stb-page-dropdowns'>
               </stencil-route>
             </stencil-router>
           </div>

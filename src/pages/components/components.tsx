@@ -129,23 +129,6 @@ export class StbPageComponents {
         <br/>
         <br/>
 
-        <stb-dropdown>
-          <span slot="button">test</span>
-          <div slot="dropdown-menu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </stb-dropdown>
-
-        <br/>
-        <br/>
-
-
-
-        <br/>
-        <br/>
-
         <stb-toggle>
           <div class="btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
