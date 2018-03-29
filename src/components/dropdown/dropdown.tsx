@@ -1,4 +1,4 @@
-import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@stencil/core';
+import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 import Popper, {Modifiers, Placement} from 'popper.js';
 
 // const ClassName = {
