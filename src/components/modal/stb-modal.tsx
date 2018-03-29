@@ -20,6 +20,7 @@ const Selector = {
 @Component({
   tag: 'stb-modal',
   host: {
+    theme: 'modal',
     role: 'dialog',
     tabindex: '-1',
     'style': 'display: block;',
@@ -32,22 +33,13 @@ export class StbModal {
   private scrollbarWidth = null;
   private isTransitioning = false;
   private isVisible = false;
-
   body: HTMLElement = document.body;
-
-  @Element() stbModalElement: HTMLElement;
-  @Event() showEvent: EventEmitter;
-  @Event() hideEvent: EventEmitter;
-
-  @Prop() effect = 'fade';
-  @Prop() ariaLabelledBy = 'exampleModalLabel';
-  @Prop() ariaHidden = 'true';
-  @Prop() modalDialogCentered = 'true';
+  @Element() element: HTMLElement;
+  @Event() onShow: EventEmitter;
+  @Event() onHide: EventEmitter;
   @Prop() keyboard?: boolean = true;
-  @Prop() size?: 'sm' | 'lg' = 'sm'; // sm | lg
-
   @Prop() options: any;
-
+  @Prop() ignoreBackdropClick: boolean = false;
   @Prop() animation = {
     prefix: 'animated',
     showDuration: 'duration-500ms',
@@ -55,38 +47,37 @@ export class StbModal {
     hideDuration: 'duration-500ms',
     hide: 'fadeOut'
   };
+  documentBackDropClickHandler;
+
+  componentWillLoad(): void {
+  }
+
+  componentDidUnload(): void {
+    this.body.classList.remove('model-open');
+    if (this.documentBackDropClickHandler) {
+      document.removeEventListener('mouseup', this.documentBackDropClickHandler);
+    }
+  }
 
   @Method()
   public toggle(relatedTarget) {
     return this.isVisible ? this.hide(relatedTarget) : this.show(relatedTarget)
   }
 
-  componentWillLoad(): void {
-    console.log(this.stbModalElement);
-    this.stbModalElement.classList.add('modal');
-    this.stbModalElement.classList.add(this.effect);
-  }
-
   @Method()
   public show(relatedTarget?): void {
-    const modalDialogElement = this.stbModalElement.getElementsByClassName('modal-dialog')[0];
-    // if (this.isTransitioning || this.isVisible) {
-    //   return
-    // }
-    this.stbModalElement.style.display = 'block';
-    this.stbModalElement.style.overflow = 'auto';
+    const modalDialogElement = this.element.getElementsByClassName('modal-dialog')[0];
+    this.element.style.display = 'block';
+    this.element.style.overflow = 'auto';
     this.body.classList.add('model-open');
     modalDialogElement.classList.add(this.animation.showDuration);
     modalDialogElement.classList.add(this.animation.prefix);
     modalDialogElement.classList.add(this.animation.show);
-    this.stbModalElement.classList.add('show');
-    this.showEvent.emit(relatedTarget);
+    this.element.classList.add('show');
+    this.onShow.emit(relatedTarget);
     this.isVisible = true;
-
     this.adjustDialog();
     this.checkScrollbar();
-    this.setScrollbar();
-
     this.showBackdrop(() => this.showElement());
   }
 
@@ -95,29 +86,29 @@ export class StbModal {
     if (this.isTransitioning || !this.isVisible) {
       return
     }
-
-    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.showDuration);
-    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
-    this.stbModalElement.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
-    this.stbModalElement.classList.remove(ClassName.SHOW);
-    // setTimeout(() => {
-      this.body.classList.remove('model-open');
-      this.hideEvent.emit(reason);
-      this.isVisible = false;
-      this.hideModal();
-    // }, this.animation.hideDuration);
+    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.showDuration);
+    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
+    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
+    this.element.classList.remove(ClassName.SHOW);
+    this.body.classList.remove('model-open');
+    this.onHide.emit(reason);
+    this.isVisible = false;
+    this.hideModal();
   }
 
   private hideModal() {
-    this.stbModalElement.style.display = 'none';
-    this.stbModalElement.style.overflow = 'hidden';
-    this.stbModalElement.setAttribute('aria-hidden', 'true');
+    this.element.style.display = 'none';
+    this.element.style.overflow = 'hidden';
+    this.element.setAttribute('aria-hidden', 'true');
     this.isTransitioning = false;
     this.showBackdrop(() => {
       this.body.classList.remove(ClassName.OPEN);
       this.resetAdjustments();
       this.resetScrollbar();
-    })
+    });
+    if (this.documentBackDropClickHandler) {
+      document.removeEventListener('mouseup', this.documentBackDropClickHandler);
+    }
   }
 
   @Listen('keyup.escape')
@@ -129,60 +120,37 @@ export class StbModal {
 
   private showElement() {
 
-    if (!this.stbModalElement.parentNode ||
-      this.stbModalElement.parentNode.nodeType !== Node.ELEMENT_NODE) {
+    if (!this.element.parentNode ||
+      this.element.parentNode.nodeType !== Node.ELEMENT_NODE) {
       // Don't move modal's DOM position
-      document.body.appendChild(this.stbModalElement)
+      document.body.appendChild(this.element)
     }
   //
-    this.stbModalElement.style.display = 'block';
-    this.stbModalElement.removeAttribute('aria-hidden');
-    this.stbModalElement.scrollTop = 0;
+    this.element.style.display = 'block';
+    this.element.removeAttribute('aria-hidden');
+    this.element.scrollTop = 0;
 
-    this.stbModalElement.classList.add(ClassName.SHOW);
-
-  //   // if (Default.focus) {
-  //   //   this.enforceFocus()
-  //   // }
-  //
+    this.element.classList.add(ClassName.SHOW);
 
   }
 
   private showBackdrop(callback?) {
-    // const animate = $(this._element).hasClass(ClassName.FADE)
-    //   ? ClassName.FADE : ''
-
     if (this.isVisible) {
       this.backdrop = document.createElement('div');
       this.backdrop.className = ClassName.BACKDROP;
-
       this.body.appendChild(this.backdrop);
 
-      this.backdrop.addEventListener('click', (event) => {
-        if (event.target !== event.currentTarget) {
+      this.documentBackDropClickHandler = (event) => {
+        if (this.ignoreBackdropClick) {
           return;
         }
-        // if (this._config.backdrop === 'static') {
-        //   this.stbModalElement.focus();
-        // } else {
-          this.hide()
-        // }
-      });
+        if (event.target !== this.element) {
+          return;
+        }
+        this.hide();
+      };
 
-      // $(this._element).on(Event.CLICK_DISMISS, (event) => {
-      //   if (this._ignoreBackdropClick) {
-      //     this._ignoreBackdropClick = false
-      //     return
-      //   }
-      //   if (event.target !== event.currentTarget) {
-      //     return
-      //   }
-      //   if (this._config.backdrop === 'static') {
-      //     this._element.focus()
-      //   } else {
-      //     this.hide()
-      //   }
-      // })
+      document.addEventListener('mouseup', this.documentBackDropClickHandler);
 
       this.backdrop.classList.add(ClassName.SHOW);
 
@@ -213,20 +181,20 @@ export class StbModal {
   }
 
   resetAdjustments() {
-    this.stbModalElement.style.paddingLeft = '';
-    this.stbModalElement.style.paddingRight = '';
+    this.element.style.paddingLeft = '';
+    this.element.style.paddingRight = '';
   }
 
   private adjustDialog() {
     const isModalOverflowing =
-      this.stbModalElement.scrollHeight > document.documentElement.clientHeight;
+      this.element.scrollHeight > document.documentElement.clientHeight;
 
     if (!this.isBodyOverflowing && isModalOverflowing) {
-      this.stbModalElement.style.paddingLeft = `${this.scrollbarWidth}px`
+      this.element.style.paddingLeft = `${this.scrollbarWidth}px`;
     }
 
     if (this.isBodyOverflowing && !isModalOverflowing) {
-      this.stbModalElement.style.paddingRight = `${this.scrollbarWidth}px`
+      this.element.style.paddingRight = `${this.scrollbarWidth}px`;
     }
   }
 
@@ -236,7 +204,7 @@ export class StbModal {
     this.scrollbarWidth = this.getScrollbarWidth();
   }
 
-  private getScrollbarWidth() { // thx d.walsh
+  private getScrollbarWidth() {
     const scrollDiv = document.createElement('div');
     scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
     document.body.appendChild(scrollDiv);
@@ -245,54 +213,7 @@ export class StbModal {
     return scrollbarWidth;
   }
 
-  private setScrollbar() {
-    console.log(this.isBodyOverflowing)
-  //   if (this.isBodyOverflowing) {
-  //     // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-  //     //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-  //
-  //     // Adjust fixed content padding
-  //     $(Selector.FIXED_CONTENT).each((index, element) => {
-  //       const actualPadding = $(element)[0].style.paddingRight
-  //       const calculatedPadding = $(element).css('padding-right')
-  //       $(element).data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`)
-  //     })
-  //
-  //     // Adjust sticky content margin
-  //     $(Selector.STICKY_CONTENT).each((index, element) => {
-  //       const actualMargin = $(element)[0].style.marginRight
-  //       const calculatedMargin = $(element).css('margin-right')
-  //       $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) - this._scrollbarWidth}px`)
-  //     })
-  //
-  //     // Adjust navbar-toggler margin
-  //     $(Selector.NAVBAR_TOGGLER).each((index, element) => {
-  //       const actualMargin = $(element)[0].style.marginRight
-  //       const calculatedMargin = $(element).css('margin-right')
-  //       $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) + this._scrollbarWidth}px`)
-  //     })
-  //
-  //     // Adjust body padding
-  //     const actualPadding = document.body.style.paddingRight
-  //     const calculatedPadding = $('body').css('padding-right')
-  //     $('body').data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`)
-  //   }
-
-  }
-
   resetScrollbar() {
     document.getElementsByClassName(Selector.FIXED_CONTENT)
-  }
-
-  componentDidUnload(): void {
-    this.body.classList.remove('model-open');
-  }
-
-  render() {
-    return (
-      <div class={`modal-dialog ${this.modalDialogCentered ? 'modal-dialog-centered' : ''} ${this.size}`} role="document">
-        <slot name="modal-dialog" />
-      </div>
-    );
   }
 }

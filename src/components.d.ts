@@ -88,7 +88,6 @@ declare global {
   namespace JSXElements {
     export interface StbDropdownAttributes extends HTMLAttributes {
       action?: string;
-      animation?: any;
       disabled?: boolean;
       modifiers?: Modifiers;
       onlyOneOpen?: boolean;
@@ -125,13 +124,9 @@ declare global {
   namespace JSXElements {
     export interface StbModalAttributes extends HTMLAttributes {
       animation?: any;
-      ariaHidden?: string;
-      ariaLabelledBy?: string;
-      effect?: string;
+      ignoreBackdropClick?: boolean;
       keyboard?: boolean;
-      modalDialogCentered?: string;
       options?: any;
-      size?: 'sm' | 'lg';
     }
   }
 }
