@@ -134,7 +134,7 @@ declare global {
 
 
 import {
-  StbDropdown as StbToggle
+  StbToggle as StbToggle
 } from './components/toggle/toggle';
 
 declare global {
@@ -157,10 +157,7 @@ declare global {
   }
   namespace JSXElements {
     export interface StbToggleAttributes extends HTMLAttributes {
-      active?: boolean;
-      activeClass?: string;
-      disabled?: boolean;
-      type?: string;
+      selected?: number;
     }
   }
 }

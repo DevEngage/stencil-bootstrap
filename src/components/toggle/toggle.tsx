@@ -1,7 +1,8 @@
 import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 
 export const TOGGLE_CLASSES = {
-
+  active: 'active',
+  inactive: ''
 };
 
 @Component({
@@ -10,100 +11,85 @@ export const TOGGLE_CLASSES = {
     theme: '',
   }
 })
-export class StbDropdown {
-
-
-  body: HTMLElement = document.body;
+export class StbToggle {
 
   @Element() element: HTMLElement;
-  @Event() showEvent: EventEmitter;
-  @Event() hideEvent: EventEmitter;
-
-  @Prop() disabled: boolean = false;
-  @Prop() type = ''; // btn-primary | btn-secondary
-
-  @Prop() active = false;
-  @Prop() activeClass = 'active';
-
-  private listeners = [];
-
+  @Event() onActivate: EventEmitter;
+  @Event() onDeactivate: EventEmitter;
+  @Prop() selected: number = -1;
+  private listeners: object = {};
   private buttonsElement;
-  //
-  // @Prop() animation = {
-  //   prefix: 'animated',
-  //   showDuration: 'duration-500ms',
-  //   show: 'fadeInDown',
-  //   hideDuration: 'duration-500ms',
-  //   hide: 'fadeOut'
-  // };
-
-  @Method()
-  public toggle() {
-    // this.isVisible = !this.isVisible;
-    // return this.isVisible ? this.hide() : this.show()
-  }
 
   componentWillLoad(): void {
-    // this.toggleElement = this.element.querySelector('[data-toggle="buttons"]');
     this.getBtnElements();
+    if (this.selected > -1) {
+      this.activate(this.selected);
+    }
   }
 
   getBtnElements() {
     this.buttonsElement = this.element.querySelectorAll('.btn');
-    console.log(this.buttonsElement)
-    this.buttonsElement.forEach(element => {
-      let eventHandler = event => {
-        console.log(event);
-        this.removeActiveClass();
-        this.addActiveClass(element);
-
-      };
-      element.addEventListener('click', eventHandler);
-      this.listeners.push(eventHandler);
+    this.buttonsElement.forEach((element, i) => {
+      this.elementClickHandler(element, i);
     });
-
-    // this.listeners.forEach(handler => {
-    //   item.removeEventListener('click', handler);
-    // });
   }
 
-  addClickListener() {
-
+  elementClickHandler(element, index) {
+    if (!element) return;
+    let eventHandler = () => {
+      this.removeActiveClass();
+      this.addActiveClass(element);
+      this.selected = index;
+    };
+    element.addEventListener('mouseup', eventHandler);
+    this.listeners[index] = eventHandler;
   }
 
   addActiveClass(element) {
-    element.classList.add('active');
+    element.classList.add(TOGGLE_CLASSES.active);
+    if (TOGGLE_CLASSES.inactive) {
+      element.classList.remove(TOGGLE_CLASSES.inactive);
+    }
   }
+
   removeActiveClass() {
     this.buttonsElement.forEach(item => {
-      item.classList.remove('active');
+      item.classList.remove(TOGGLE_CLASSES.active);
+      if (TOGGLE_CLASSES.inactive) {
+        item.classList.add(TOGGLE_CLASSES.inactive);
+      }
     });
   }
 
-  hasClass(element, className) {
-    return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
+  @Method()
+  public toggle() {
+    return this.selected > -1 ? this.deactivate() : this.activate()
   }
 
   @Method()
-  public show(): void {
-    // this.toggleElement;
-    // if (this.disabled || this.hasClass(this.element)) {
-    //   return;
-    // }
-    // this.isVisible = true;
+  public activate(index = 0): void {
+    this.removeActiveClass();
+    this.elementClickHandler(this.buttonsElement[index], index);
+    this.addActiveClass(this.buttonsElement[index]);
+    this.onActivate.emit({
+      selected: this.selected,
+      element: this.buttonsElement[index]
+    });
   }
 
   @Method()
-  public hide(): void {
+  public deactivate(index = 0): void {
+    this.removeActiveClass();
+    this.onDeactivate.emit({
+      selected: this.selected,
+      element: this.buttonsElement[index]
+    });
+    this.selected = -1;
   }
 
   componentDidUnload(): void {
-    // this.listeners.forEach(handler => {
-    //   item.removeEventListener('click', handler);
-    // });
-  }
-
-  render() {
-    // return ();
+    this.buttonsElement.forEach((element, i) => {
+        element.removeEventListener('mouseup', this.listeners[i]);
+    });
   }
 }

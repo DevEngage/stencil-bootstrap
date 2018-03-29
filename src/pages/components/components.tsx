@@ -157,7 +157,7 @@ export class StbPageComponents {
         <br/>
         <br/>
 
-        <stb-toggle>
+        <stb-toggle selected={1}>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active">
               <input type="radio" name="options" id="option1" autocomplete="off" checked /> Active
