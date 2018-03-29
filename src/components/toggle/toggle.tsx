@@ -1,5 +1,9 @@
 import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 
+export const TOGGLE_CLASSES = {
+
+};
+
 @Component({
   tag: 'stb-toggle',
   host: {
@@ -21,13 +25,17 @@ export class StbDropdown {
   @Prop() active = false;
   @Prop() activeClass = 'active';
 
-  @Prop() animation = {
-    prefix: 'animated',
-    showDuration: 'duration-500ms',
-    show: 'fadeInDown',
-    hideDuration: 'duration-500ms',
-    hide: 'fadeOut'
-  };
+  private listeners = [];
+
+  private buttonsElement;
+  //
+  // @Prop() animation = {
+  //   prefix: 'animated',
+  //   showDuration: 'duration-500ms',
+  //   show: 'fadeInDown',
+  //   hideDuration: 'duration-500ms',
+  //   hide: 'fadeOut'
+  // };
 
   @Method()
   public toggle() {
@@ -36,6 +44,40 @@ export class StbDropdown {
   }
 
   componentWillLoad(): void {
+    // this.toggleElement = this.element.querySelector('[data-toggle="buttons"]');
+    this.getBtnElements();
+  }
+
+  getBtnElements() {
+    this.buttonsElement = this.element.querySelectorAll('.btn');
+    console.log(this.buttonsElement)
+    this.buttonsElement.forEach(element => {
+      let eventHandler = event => {
+        console.log(event);
+        this.removeActiveClass();
+        this.addActiveClass(element);
+
+      };
+      element.addEventListener('click', eventHandler);
+      this.listeners.push(eventHandler);
+    });
+
+    // this.listeners.forEach(handler => {
+    //   item.removeEventListener('click', handler);
+    // });
+  }
+
+  addClickListener() {
+
+  }
+
+  addActiveClass(element) {
+    element.classList.add('active');
+  }
+  removeActiveClass() {
+    this.buttonsElement.forEach(item => {
+      item.classList.remove('active');
+    });
   }
 
   hasClass(element, className) {
@@ -44,6 +86,7 @@ export class StbDropdown {
 
   @Method()
   public show(): void {
+    // this.toggleElement;
     // if (this.disabled || this.hasClass(this.element)) {
     //   return;
     // }
@@ -55,13 +98,12 @@ export class StbDropdown {
   }
 
   componentDidUnload(): void {
+    // this.listeners.forEach(handler => {
+    //   item.removeEventListener('click', handler);
+    // });
   }
 
   render() {
-    return (
-      <button type="button" class={`btn ${this.type} ${this.active ? `${this.activeClass}` : ''}`}  disabled={this.disabled}>
-        Single toggle
-      </button>
-    );
+    // return ();
   }
 }

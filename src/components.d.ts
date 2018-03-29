@@ -159,7 +159,6 @@ declare global {
     export interface StbToggleAttributes extends HTMLAttributes {
       active?: boolean;
       activeClass?: string;
-      animation?: any;
       disabled?: boolean;
       type?: string;
     }
