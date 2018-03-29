@@ -17,6 +17,7 @@ export class StbToggle {
   @Event() onActivate: EventEmitter;
   @Event() onDeactivate: EventEmitter;
   @Prop() selected: number = -1;
+  @Prop() target: string = '.btn';
   private listeners: object = {};
   private buttonsElement;
 
@@ -27,8 +28,14 @@ export class StbToggle {
     }
   }
 
+  componentDidUnload(): void {
+    this.buttonsElement.forEach((element, i) => {
+      element.removeEventListener('mouseup', this.listeners[i]);
+    });
+  }
+
   getBtnElements() {
-    this.buttonsElement = this.element.querySelectorAll('.btn');
+    this.buttonsElement = this.element.querySelectorAll(this.target);
     this.buttonsElement.forEach((element, i) => {
       this.elementClickHandler(element, i);
     });
@@ -85,11 +92,5 @@ export class StbToggle {
       element: this.buttonsElement[index]
     });
     this.selected = -1;
-  }
-
-  componentDidUnload(): void {
-    this.buttonsElement.forEach((element, i) => {
-        element.removeEventListener('mouseup', this.listeners[i]);
-    });
   }
 }
