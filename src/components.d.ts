@@ -59,6 +59,44 @@ declare global {
 
 
 import {
+  StbCarousel as StbCarousel
+} from './components/carousel/carousel';
+
+declare global {
+  interface HTMLStbCarouselElement extends StbCarousel, HTMLStencilElement {
+  }
+  var HTMLStbCarouselElement: {
+    prototype: HTMLStbCarouselElement;
+    new (): HTMLStbCarouselElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-carousel": HTMLStbCarouselElement;
+  }
+  interface ElementTagNameMap {
+    "stb-carousel": HTMLStbCarouselElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-carousel": JSXElements.StbCarouselAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbCarouselAttributes extends HTMLAttributes {
+      cycleType?: string | boolean;
+      indicatorSelector?: string;
+      interval?: number;
+      nextSelector?: string;
+      prevSelector?: string;
+      ride?: boolean;
+      selected?: number;
+      slideSelector?: string;
+      wrap?: boolean;
+    }
+  }
+}
+
+
+import {
   StbCollapse as StbCollapse
 } from './components/collapse/collapse';
 
@@ -162,6 +200,71 @@ declare global {
 
 
 import {
+  StbNav as StbNav
+} from './components/nav/nav';
+
+declare global {
+  interface HTMLStbNavElement extends StbNav, HTMLStencilElement {
+  }
+  var HTMLStbNavElement: {
+    prototype: HTMLStbNavElement;
+    new (): HTMLStbNavElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-nav": HTMLStbNavElement;
+  }
+  interface ElementTagNameMap {
+    "stb-nav": HTMLStbNavElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-nav": JSXElements.StbNavAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbNavAttributes extends HTMLAttributes {
+      panelSelector?: string;
+      selected?: number;
+      tabSelector?: string;
+    }
+  }
+}
+
+
+import {
+  StbPagination as StbPagination
+} from './components/pagination/pagination';
+
+declare global {
+  interface HTMLStbPaginationElement extends StbPagination, HTMLStencilElement {
+  }
+  var HTMLStbPaginationElement: {
+    prototype: HTMLStbPaginationElement;
+    new (): HTMLStbPaginationElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-pagination": HTMLStbPaginationElement;
+  }
+  interface ElementTagNameMap {
+    "stb-pagination": HTMLStbPaginationElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-pagination": JSXElements.StbPaginationAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPaginationAttributes extends HTMLAttributes {
+      nextSelector?: string;
+      pagesSelector?: string;
+      prevSelector?: string;
+      selected?: number;
+    }
+  }
+}
+
+
+import {
   StbToggle as StbToggle
 } from './components/toggle/toggle';
 
@@ -187,6 +290,36 @@ declare global {
     export interface StbToggleAttributes extends HTMLAttributes {
       selected?: number;
       target?: string;
+    }
+  }
+}
+
+
+import {
+  StbPageCarousels as StbPageCarousels
+} from './pages/components/carousels/carousels';
+
+declare global {
+  interface HTMLStbPageCarouselsElement extends StbPageCarousels, HTMLStencilElement {
+  }
+  var HTMLStbPageCarouselsElement: {
+    prototype: HTMLStbPageCarouselsElement;
+    new (): HTMLStbPageCarouselsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-carousels": HTMLStbPageCarouselsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-carousels": HTMLStbPageCarouselsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-carousels": JSXElements.StbPageCarouselsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageCarouselsAttributes extends HTMLAttributes {
+      
     }
   }
 }
@@ -246,6 +379,66 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageDropdownsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageNavs as StbPageNavs
+} from './pages/components/navs/navs';
+
+declare global {
+  interface HTMLStbPageNavsElement extends StbPageNavs, HTMLStencilElement {
+  }
+  var HTMLStbPageNavsElement: {
+    prototype: HTMLStbPageNavsElement;
+    new (): HTMLStbPageNavsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-navs": HTMLStbPageNavsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-navs": HTMLStbPageNavsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-navs": JSXElements.StbPageNavsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageNavsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPagePaginations as StbPagePaginations
+} from './pages/components/paginations/paginations';
+
+declare global {
+  interface HTMLStbPagePaginationsElement extends StbPagePaginations, HTMLStencilElement {
+  }
+  var HTMLStbPagePaginationsElement: {
+    prototype: HTMLStbPagePaginationsElement;
+    new (): HTMLStbPagePaginationsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-paginations": HTMLStbPagePaginationsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-paginations": HTMLStbPagePaginationsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-paginations": JSXElements.StbPagePaginationsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPagePaginationsAttributes extends HTMLAttributes {
       
     }
   }
