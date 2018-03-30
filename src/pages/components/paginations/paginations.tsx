@@ -10,7 +10,7 @@ export class StbPagePaginations {
   render() {
     return (
       <div class="pb-4">
-        <h1>Dropdowns</h1>
+        <h1>Pagination</h1>
 
         <br/>
         <br/>

@@ -10,7 +10,6 @@ export class MyApp {
   @Prop() history: RouterHistory;
 
   getLocation() {
-    console.log(location.pathname);
     return location.pathname;
   }
 
@@ -41,7 +40,7 @@ export class MyApp {
             <a class={`nav-link ${this.isActive('/dropdowns')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/dropdowns" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dropdowns</a>
             <a class={`nav-link ${this.isActive('/navs')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/navs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Navs</a>
             <a class={`nav-link ${this.isActive('/carousels')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/carousels" role="tab" aria-controls="v-pills-profile" aria-selected="false">Carousels</a>
-            <a class={`nav-link ${this.isActive('/paginations')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/paginations" role="tab" aria-controls="v-pills-profile" aria-selected="false">Paginations</a>
+            <a class={`nav-link ${this.isActive('/paginations')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/paginations" role="tab" aria-controls="v-pills-profile" aria-selected="false">Pagination</a>
             <a class={`nav-link ${this.isActive('/progress-bars')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/progress-bars" role="tab" aria-controls="v-pills-profile" aria-selected="false">Progress</a>
           </div>
 
