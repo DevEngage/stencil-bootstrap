@@ -25,6 +25,9 @@ import {
   Placement,
 } from 'popper.js';
 import {
+  ISTBProgress,
+} from './components/progress/progress';
+import {
   RouterHistory,
 } from '@stencil/router';
 
@@ -265,6 +268,40 @@ declare global {
 
 
 import {
+  StbProgress as StbProgress
+} from './components/progress/progress';
+
+declare global {
+  interface HTMLStbProgressElement extends StbProgress, HTMLStencilElement {
+  }
+  var HTMLStbProgressElement: {
+    prototype: HTMLStbProgressElement;
+    new (): HTMLStbProgressElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-progress": HTMLStbProgressElement;
+  }
+  interface ElementTagNameMap {
+    "stb-progress": HTMLStbProgressElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-progress": JSXElements.StbProgressAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbProgressAttributes extends HTMLAttributes {
+      classes?: string;
+      current?: number | ISTBProgress | ISTBProgress[];
+      max?: number;
+      min?: number;
+      title?: string;
+    }
+  }
+}
+
+
+import {
   StbToggle as StbToggle
 } from './components/toggle/toggle';
 
@@ -439,6 +476,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPagePaginationsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageProgressBars as StbPageProgressBars
+} from './pages/components/progress-bars/progress-bars';
+
+declare global {
+  interface HTMLStbPageProgressBarsElement extends StbPageProgressBars, HTMLStencilElement {
+  }
+  var HTMLStbPageProgressBarsElement: {
+    prototype: HTMLStbPageProgressBarsElement;
+    new (): HTMLStbPageProgressBarsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-progress-bars": HTMLStbPageProgressBarsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-progress-bars": HTMLStbPageProgressBarsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-progress-bars": JSXElements.StbPageProgressBarsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageProgressBarsAttributes extends HTMLAttributes {
       
     }
   }
