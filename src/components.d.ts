@@ -29,6 +29,36 @@ import {
 } from '@stencil/router';
 
 import {
+  StbCard as StbCard
+} from './components/card/card';
+
+declare global {
+  interface HTMLStbCardElement extends StbCard, HTMLStencilElement {
+  }
+  var HTMLStbCardElement: {
+    prototype: HTMLStbCardElement;
+    new (): HTMLStbCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-card": HTMLStbCardElement;
+  }
+  interface ElementTagNameMap {
+    "stb-card": HTMLStbCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-card": JSXElements.StbCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbCardAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   StbCollapse as StbCollapse
 } from './components/collapse/collapse';
 
@@ -55,7 +85,6 @@ declare global {
       accordian?: boolean;
       active?: boolean;
       activeClass?: string;
-      animation?: any;
       disabled?: boolean;
       type?: string;
     }

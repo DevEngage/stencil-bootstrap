@@ -21,15 +21,8 @@ export class StbCollapse {
 
   @Prop() active = false;
   @Prop() activeClass = 'active';
-  @Prop() accordian = true;
+  @Prop() accordian = false;
 
-  @Prop() animation = {
-    prefix: 'animated',
-    showDuration: 'duration-500ms',
-    show: 'fadeInD',
-    hideDuration: 'duration-500ms',
-    hide: 'fadeOut'
-  };
   @State() activeDiv;
 
   @Method()
@@ -39,13 +32,14 @@ export class StbCollapse {
   }
 
   componentDidLoad(): void {
-    console.log('collapse');
-    console.log('body', this.body);
-    this.activeDiv = document.querySelector('.show');
-    console.log('activeDiv', this.activeDiv);
-    const collapse = document.querySelectorAll('[data-toggle="collapse"]');
-    let i;
+    this.addListener()
+  }
 
+  addListener() {
+    this.activeDiv = document.querySelector('.show');
+    let collapse;
+    collapse = this.element.querySelectorAll('[data-toggle="collapse"]');
+    let i;
 
     for (i = 0; i < collapse.length; i++) {
       const collDiv:any = collapse[i];
@@ -60,7 +54,7 @@ export class StbCollapse {
       collapsible.classList.add('collapsing');
 
       if (this.activeDiv) {
-        collapsible.style.height = collapsible.children[0].clientHeight + 'px';
+        collapsible.style.height = collapsible.children[0].offsetHeight + 'px';
       }
 
       collDiv.addEventListener("click",() =>  {
@@ -82,7 +76,7 @@ export class StbCollapse {
           }
           collapsible.classList.add('show');
           setTimeout(() => {
-            divHeight = collapsible.children[0].clientHeight;
+            divHeight = collapsible.children[0].offsetHeight;
             console.log('divHeight', divHeight);
             collapsible.style.height = divHeight + 'px';
           }, 50);
@@ -92,19 +86,14 @@ export class StbCollapse {
     }
   }
 
-  @Method(test)
-  public show(test): void {
+  @Method()
+  public show(index): void {
 
-    console.log('help', test);
+    console.log('help', index);
     const collapsible: any = document.querySelector('#collapseExample');
     collapsible.classList.contains('show') ? collapsible.classList.remove('show') : collapsible.classList.add('show');
     console.log(collapsible);
 
-
-    // if (this.disabled || this.hasClass(this.element)) {
-    //   return;
-    // }
-    // this.isVisible = true;
   }
 
   @Method()
@@ -114,77 +103,11 @@ export class StbCollapse {
   componentDidUnload(): void {
   }
 
-  // render() {
-  //   return (
-  //     <div>
-  //     <p>
-  //       <a class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-  //       Link with href
-  //       </a>
-  //       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-  //         Button with data-target
-  //       </button>
-  //     </p>
-  //     <div class="collapse" id="collapseExample">
-  //       <div class="card card-body">
-  //         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  //       </div>
-  //     </div>
-  //       <div class="collapse" id="collapseExample2">
-  //         <div class="card card-body">
-  //           Anim2 pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   render() {
     return (
-      <div id="accordion">
-        <div class="card">
-          <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link"  aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
-              </button>
-            </h5>
-          </div>
-
-          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed"  aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed"  aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-          </div>
-        </div>
+      <div>
+        <slot />
       </div>
     );
 
