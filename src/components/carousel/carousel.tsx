@@ -36,11 +36,8 @@ export class StbCarousel {
   private intervalHandler;
   private currentSlide: number = 0;
 
-  constructor() {
-    this.currentSlide = this.selected || 0;
-  }
-
   componentWillLoad(): void {
+    this.currentSlide = this.selected || 0;
     this.getSlideElements();
     this.getIndicatorElements();
     this.getPrevNextButtons();
@@ -48,17 +45,6 @@ export class StbCarousel {
       this.show(this.selected);
     }
     this.play();
-  }
-
-  getPrevNextButtons() {
-    this.prevElement = this.element.querySelector(this.prevSelector);
-    this.nextElement = this.element.querySelector(this.nextSelector);
-    if (this.prevElement)  {
-      this.prevListener = this.addClickHandler(this.prevElement, () => this.prev());
-    }
-    if (this.nextElement) {
-      this.nextListener = this.addClickHandler(this.nextElement, () => this.next());
-    }
   }
 
   componentDidUnload(): void {
@@ -76,13 +62,24 @@ export class StbCarousel {
     this.pause();
   }
 
+  getPrevNextButtons() {
+    this.prevElement = this.element.querySelector(this.prevSelector);
+    this.nextElement = this.element.querySelector(this.nextSelector);
+    if (this.prevElement)  {
+      this.prevListener = this.addClickHandler(this.prevElement, () => this.prev());
+    }
+    if (this.nextElement) {
+      this.nextListener = this.addClickHandler(this.nextElement, () => this.next());
+    }
+  }
+
   getSlideElements() {
     this.slideElements = this.element.querySelectorAll(this.slideSelector);
   }
 
   getIndicatorElements() {
     this.indicatorElements = this.element.querySelectorAll(this.indicatorSelector);
-    this.slideElements.forEach((element, i) => {
+    this.indicatorElements.forEach((element, i) => {
       this.indicatorClickHandler(element, i);
     });
   }
@@ -131,6 +128,8 @@ export class StbCarousel {
     this.indicatorClickHandler(this.slideElements[index], index);
     this.addActiveClass(this.slideElements[index]);
     this.currentSlide = index;
+    this.pause();
+    this.play();
     this.onShow.emit({
       current: this.currentSlide,
       element: this.slideElements[index]
@@ -147,7 +146,7 @@ export class StbCarousel {
       current: this.currentSlide,
       element: this.slideElements[index]
     });
-    this.currentSlide = -1;
+    this.currentSlide = 0;
   }
 
   @Method()
