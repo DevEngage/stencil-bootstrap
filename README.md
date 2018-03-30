@@ -14,7 +14,7 @@ Bootstrap components:
 - [X] [Dropdowns](https://getbootstrap.com/docs/4.0/components/dropdowns/)
 - [ ] [Forms](https://getbootstrap.com/docs/4.0/components/forms/)
 - [ ] [Input group](https://getbootstrap.com/docs/4.0/components/input-group/)
-- [X] [Jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/)
+- [-] [Jumbotron](https://getbootstrap.com/docs/4.0/components/jumbotron/)
 - [ ] [List group](https://getbootstrap.com/docs/4.0/components/list-group/)
 - [X] [Modal](https://getbootstrap.com/docs/4.0/components/modal/)
 - [X] [Navs](https://getbootstrap.com/docs/4.0/components/navs/)
