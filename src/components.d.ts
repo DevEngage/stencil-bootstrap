@@ -133,6 +133,38 @@ declare global {
 
 
 import {
+  StbNav as StbNav
+} from './components/nav/nav';
+
+declare global {
+  interface HTMLStbNavElement extends StbNav, HTMLStencilElement {
+  }
+  var HTMLStbNavElement: {
+    prototype: HTMLStbNavElement;
+    new (): HTMLStbNavElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-nav": HTMLStbNavElement;
+  }
+  interface ElementTagNameMap {
+    "stb-nav": HTMLStbNavElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-nav": JSXElements.StbNavAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbNavAttributes extends HTMLAttributes {
+      panelSelector?: string;
+      selected?: number;
+      tabSelector?: string;
+    }
+  }
+}
+
+
+import {
   StbToggle as StbToggle
 } from './components/toggle/toggle';
 
@@ -217,6 +249,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageDropdownsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageNavs as StbPageNavs
+} from './pages/components/navs/navs';
+
+declare global {
+  interface HTMLStbPageNavsElement extends StbPageNavs, HTMLStencilElement {
+  }
+  var HTMLStbPageNavsElement: {
+    prototype: HTMLStbPageNavsElement;
+    new (): HTMLStbPageNavsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-navs": HTMLStbPageNavsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-navs": HTMLStbPageNavsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-navs": JSXElements.StbPageNavsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageNavsAttributes extends HTMLAttributes {
       
     }
   }
