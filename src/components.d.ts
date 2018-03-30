@@ -29,6 +29,44 @@ import {
 } from '@stencil/router';
 
 import {
+  StbCarousel as StbCarousel
+} from './components/carousel/carousel';
+
+declare global {
+  interface HTMLStbCarouselElement extends StbCarousel, HTMLStencilElement {
+  }
+  var HTMLStbCarouselElement: {
+    prototype: HTMLStbCarouselElement;
+    new (): HTMLStbCarouselElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-carousel": HTMLStbCarouselElement;
+  }
+  interface ElementTagNameMap {
+    "stb-carousel": HTMLStbCarouselElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-carousel": JSXElements.StbCarouselAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbCarouselAttributes extends HTMLAttributes {
+      cycleType?: string | boolean;
+      indicatorSelector?: string;
+      interval?: number;
+      nextSelector?: string;
+      prevSelector?: string;
+      ride?: boolean;
+      selected?: number;
+      slideSelector?: string;
+      wrap?: boolean;
+    }
+  }
+}
+
+
+import {
   StbCollapse as StbCollapse
 } from './components/collapse/collapse';
 
@@ -190,6 +228,36 @@ declare global {
     export interface StbToggleAttributes extends HTMLAttributes {
       selected?: number;
       target?: string;
+    }
+  }
+}
+
+
+import {
+  StbPageCarousels as StbPageCarousels
+} from './pages/components/carousels/carousels';
+
+declare global {
+  interface HTMLStbPageCarouselsElement extends StbPageCarousels, HTMLStencilElement {
+  }
+  var HTMLStbPageCarouselsElement: {
+    prototype: HTMLStbPageCarouselsElement;
+    new (): HTMLStbPageCarouselsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-carousels": HTMLStbPageCarouselsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-carousels": HTMLStbPageCarouselsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-carousels": JSXElements.StbPageCarouselsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageCarouselsAttributes extends HTMLAttributes {
+      
     }
   }
 }
