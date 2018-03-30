@@ -32,6 +32,37 @@ import {
 } from '@stencil/router';
 
 import {
+  StbAlert as StbAlert
+} from './components/alert/alert';
+
+declare global {
+  interface HTMLStbAlertElement extends StbAlert, HTMLStencilElement {
+  }
+  var HTMLStbAlertElement: {
+    prototype: HTMLStbAlertElement;
+    new (): HTMLStbAlertElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-alert": HTMLStbAlertElement;
+  }
+  interface ElementTagNameMap {
+    "stb-alert": HTMLStbAlertElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-alert": JSXElements.StbAlertAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbAlertAttributes extends HTMLAttributes {
+      closeSelector?: string;
+      context?: string;
+    }
+  }
+}
+
+
+import {
   StbCard as StbCard
 } from './components/card/card';
 
@@ -327,6 +358,36 @@ declare global {
     export interface StbToggleAttributes extends HTMLAttributes {
       selected?: number;
       target?: string;
+    }
+  }
+}
+
+
+import {
+  StbPageAlerts as StbPageAlerts
+} from './pages/components/alerts/alerts';
+
+declare global {
+  interface HTMLStbPageAlertsElement extends StbPageAlerts, HTMLStencilElement {
+  }
+  var HTMLStbPageAlertsElement: {
+    prototype: HTMLStbPageAlertsElement;
+    new (): HTMLStbPageAlertsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-alerts": HTMLStbPageAlertsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-alerts": HTMLStbPageAlertsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-alerts": JSXElements.StbPageAlertsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageAlertsAttributes extends HTMLAttributes {
+      
     }
   }
 }

@@ -3,7 +3,7 @@ Bootstrap in stencil for extending into vary customized themes
 ----
 ## Progress
 Bootstrap components:
-- [ ] [Alerts](https://getbootstrap.com/docs/4.0/components/alerts/)
+- [X] [Alerts](https://getbootstrap.com/docs/4.0/components/alerts/)
 - [ ] [Badge](https://getbootstrap.com/docs/4.0/components/badge/)
 - [ ] [Breadcrumb](https://getbootstrap.com/docs/4.0/components/breadcrumb/)
 - [X] [Buttons](https://getbootstrap.com/docs/4.0/components/buttons/)
@@ -21,7 +21,7 @@ Bootstrap components:
 - [X] [Navbar](https://getbootstrap.com/docs/4.0/components/navbar/)
 - [X] [Pagination](https://getbootstrap.com/docs/4.0/components/pagination/)
 - [ ] [Popovers](https://getbootstrap.com/docs/4.0/components/popovers/)
-- [ ] [Progress](https://getbootstrap.com/docs/4.0/components/progress/)
+- [X] [Progress](https://getbootstrap.com/docs/4.0/components/progress/)
 - [ ] [Scrollspy](https://getbootstrap.com/docs/4.0/components/scrollspy/)
 - [ ] [Tooltips](https://getbootstrap.com/docs/4.0/components/tooltips/)
 
