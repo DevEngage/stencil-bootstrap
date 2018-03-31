@@ -424,6 +424,36 @@ declare global {
 
 
 import {
+  StbPageCollapses as StbPageCollapses
+} from './pages/components/collapses/collapses';
+
+declare global {
+  interface HTMLStbPageCollapsesElement extends StbPageCollapses, HTMLStencilElement {
+  }
+  var HTMLStbPageCollapsesElement: {
+    prototype: HTMLStbPageCollapsesElement;
+    new (): HTMLStbPageCollapsesElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-collapses": HTMLStbPageCollapsesElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-collapses": HTMLStbPageCollapsesElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-collapses": JSXElements.StbPageCollapsesAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageCollapsesAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   StbPageComponents as StbPageComponents
 } from './pages/components/components';
 

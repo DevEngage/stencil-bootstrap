@@ -1,4 +1,4 @@
-import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@stencil/core';
+import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 
 @Component({
   styleUrl: 'collapse.scss',
@@ -15,15 +15,13 @@ export class StbCollapse {
   @Element() element: HTMLElement;
   @Event() showEvent: EventEmitter;
   @Event() hideEvent: EventEmitter;
-
   @Prop() disabled: boolean = false;
   @Prop() type = ''; // btn-primary | btn-secondary
-
   @Prop() active = false;
-  @Prop() activeClass = 'active';
+  @Prop() activeClass = 'show';
   @Prop() accordian = false;
-
-  @State() activeDiv;
+  private activeDiv;
+  private collapseElements;
 
   @Method()
   public toggle() {
@@ -32,67 +30,74 @@ export class StbCollapse {
   }
 
   componentDidLoad(): void {
-    this.addListener()
+    this.getCollapseElements();
+    this.addClickListener();
+    this.checkForActiveElement();
   }
 
-  addListener() {
-    this.activeDiv = document.querySelector('.show');
-    let collapse;
-    collapse = this.element.querySelectorAll('[data-toggle="collapse"]');
-    let i;
+  getCollapseElements() {
+    this.collapseElements = this.element.querySelectorAll('[data-toggle="collapse"]');
+  }
 
-    for (i = 0; i < collapse.length; i++) {
-      const collDiv:any = collapse[i];
-      collDiv.classList.add('coll-div');
-
-      let target;
-      let divHeight;
-
-      if (collDiv.getAttribute('data-target')) target = collapse[i].getAttribute('data-target');
-      if (collDiv.getAttribute('href')) target = collapse[i].getAttribute('href');
-      const collapsible: any = document.querySelector(target);
-      collapsible.classList.add('collapsing');
-
-      if (this.activeDiv) {
-        collapsible.style.height = collapsible.children[0].offsetHeight + 'px';
-      }
-
-      collDiv.addEventListener("click",() =>  {
-
+  addClickListener() {
+    this.collapseElements.forEach((collapse) => {
+      collapse.classList.add('coll-div');
+      const collapsible = this.getCollapsible(collapse);
+      this.addCollapsibleClass(collapsible);
+      collapse.addEventListener("click",() =>  {
         if (collapsible.classList.contains('show')) {
-          // if (this.accordian && this.activeDiv) this.activeDiv = null;
-          collapsible.style.height = 0;
-          setTimeout(() => {
-            collapsible.classList.remove('show');
-          }, 500);
+          this.hideCollapsible(collapse)
         } else {
-          if (this.accordian && this.activeDiv && this.activeDiv !== collapsible) {
-            console.log('active Div', this.activeDiv);
-            this.activeDiv.style.height = 0;
-            setTimeout(() => {
-              this.activeDiv.classList.remove('show');
-              this.activeDiv = collapsible;
-            }, 500);
-          }
-          collapsible.classList.add('show');
-          setTimeout(() => {
-            divHeight = collapsible.children[0].offsetHeight;
-            console.log('divHeight', divHeight);
-            collapsible.style.height = divHeight + 'px';
-          }, 50);
+          this.showCollapsible(collapse)
         }
-
       });
+    })
+  }
+
+  checkForActiveElement() {
+    this.activeDiv = document.querySelector('.show');
+    if (this.activeDiv) {
+      this.activeDiv.style.height = this.activeDiv.children[0].offsetHeight + 'px';
     }
   }
 
-  @Method()
-  public show(index): void {
+  addCollapsibleClass(element) {
+    element.classList.add('collapsing')
+  }
 
-    console.log('help', index);
-    const collapsible: any = document.querySelector('#collapseExample');
-    collapsible.classList.contains('show') ? collapsible.classList.remove('show') : collapsible.classList.add('show');
-    console.log(collapsible);
+  getCollapsible(element) {
+    let target;
+    if (element.getAttribute('data-target')) target = element.getAttribute('data-target');
+    if (element.getAttribute('href')) target = element.getAttribute('href');
+    return document.querySelector(target);
+  }
+
+  showCollapsible(element) {
+    const collapsible = this.getCollapsible(element);
+    if (this.accordian && this.activeDiv && this.activeDiv !== collapsible) {
+      this.activeDiv.style.height = 0;
+      setTimeout(() => {
+        this.activeDiv.classList.remove('show');
+        this.activeDiv = collapsible;
+      }, 500);
+    }
+    collapsible.classList.add('show');
+    setTimeout(() => {
+      collapsible.style.height = collapsible.children[0].offsetHeight + 'px';
+    }, 50);
+  }
+
+  hideCollapsible(element) {
+      const collapsible = this.getCollapsible(element);
+      collapsible.style.height = 0;
+      setTimeout(() => {
+        collapsible.classList.remove(this.activeClass);
+      }, 500);
+  }
+
+
+  @Method()
+  public show(): void {
 
   }
 
@@ -103,13 +108,4 @@ export class StbCollapse {
   componentDidUnload(): void {
   }
 
-
-  render() {
-    return (
-      <div>
-        <slot />
-      </div>
-    );
-
-  }
 }

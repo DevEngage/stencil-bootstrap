@@ -43,6 +43,7 @@ export class MyApp {
             <a class={`nav-link ${this.isActive('/paginations')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/paginations" role="tab" aria-controls="v-pills-profile" aria-selected="false">Pagination</a>
             <a class={`nav-link ${this.isActive('/progress-bars')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/progress-bars" role="tab" aria-controls="v-pills-profile" aria-selected="false">Progress</a>
             <a class={`nav-link ${this.isActive('/alerts')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/alerts" role="tab" aria-controls="v-pills-profile" aria-selected="false">Alerts</a>
+            <a class={`nav-link ${this.isActive('/collapses')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/collapses" role="tab" aria-controls="v-pills-profile" aria-selected="false">Collapses</a>
           </div>
 
           <div class="col">
@@ -69,6 +70,9 @@ export class MyApp {
               </stencil-route>
 
               <stencil-route url='/alerts' component='stb-page-alerts'>
+              </stencil-route>
+
+              <stencil-route url='/collapses' component='stb-page-collapses'>
               </stencil-route>
             </stencil-router>
           </div>
