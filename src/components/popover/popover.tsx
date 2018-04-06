@@ -2,12 +2,12 @@ import {Component, Prop, Element, Event, EventEmitter, Method, State} from '@ste
 import Popper, {Modifiers} from 'popper.js';
 
 @Component({
-  tag: 'stb-tooltip',
+  tag: 'stb-popover',
   host: {
     theme: ''
   }
 })
-export class StbTooltip {
+export class StbPopover {
 
   body: HTMLElement = document.body;
   public isVisible = false;
@@ -15,23 +15,23 @@ export class StbTooltip {
   @Event() onShow: EventEmitter;
   @Event() onHide: EventEmitter;
   @Prop() disabled: boolean = false;
-  @Prop() action: string = '[data-toggle="tooltip"]';
-  @Prop() target: string = '.tooltip';
+  @Prop() action: string = '[data-toggle="popover"]';
+  @Prop() target: string = '.popover';
   @Prop() positionFixed: boolean = false;
   @Prop() modifiers: Modifiers = {};
   @Prop() onlyOneOpen: boolean = false;
-  @State() placement: any = 'top';
+  @State() placement: any = 'right';
   buttonListener;
   documentListener;
   button;
-  tooltip;
+  popover;
 
   componentDidLoad(): void {
     this.button = this.element.querySelector(this.action);
-    this.tooltip = this.element.querySelector(this.target);
+    this.popover = this.element.querySelector(this.target);
     this.getPlacement();
     this.addClickListener();
-    new Popper(this.button, this.tooltip, {
+    new Popper(this.button, this.popover, {
       placement: this.placement,
       positionFixed: this.positionFixed,
       modifiers: this.modifiers
@@ -40,6 +40,9 @@ export class StbTooltip {
   }
 
   componentDidUnload(): void {
+    if (this.documentListener) {
+      this.removeDocumentListener();
+    }
     if (this.buttonListener) {
       this.removeClickListener();
     }
@@ -49,11 +52,11 @@ export class StbTooltip {
     this.placement = this.button.getAttribute('data-placement');
   }
 
-  hideAllTooltips() {
+  hideAllPopovers() {
     if (this.onlyOneOpen) {
-      const tooltips: any = document.querySelectorAll('stb-tooltip');
-      if (tooltips) {
-        tooltips.forEach(item => item.hide());
+      const popovers: any = document.querySelectorAll('stb-popover');
+      if (popovers) {
+        popovers.forEach(item => item.hide());
       }
     }
   }
@@ -63,46 +66,55 @@ export class StbTooltip {
   }
 
   managePlacement() {
-    const tooltip: any = this.element.querySelector(this.target);
+    const popover: any = this.element.querySelector(this.target);
     const arrow: any = this.element.querySelector('.arrow');
     switch(this.placement) {
       case 'top':
-        arrow.style.left = (tooltip.clientWidth / 2 - 6) + 'px';
-        this.tooltip.classList.add('bs-tooltip-top');
+        arrow.style.left = (popover.clientWidth / 2 - 12) + 'px';
+        this.popover.classList.add('bs-popover-top');
         break;
       case 'bottom':
-        arrow.style.left = (tooltip.clientWidth / 2 - 6) + 'px';
-        this.tooltip.classList.add('bs-tooltip-bottom');
+        arrow.style.left = (popover.clientWidth / 2 - 12) + 'px';
+        this.popover.classList.add('bs-popover-bottom');
         break;
       case 'left':
-        arrow.style.top = (tooltip.clientHeight / 2 - 6) + 'px';
-        this.tooltip.classList.add('bs-tooltip-left');
+        arrow.style.top = (popover.clientHeight / 2 - 12) + 'px';
+        this.popover.classList.add('bs-popover-left');
         break;
       case 'right':
-        arrow.style.top = (tooltip.clientHeight / 2 - 6) + 'px';
-        this.tooltip.classList.add('bs-tooltip-right');
+        arrow.style.top = (popover.clientHeight / 2 - 12) + 'px';
+        this.popover.classList.add('bs-popover-right');
         break;
     }
   }
 
+  addDocumentListener() {
+    this.documentListener = () => {
+      this.toggle();
+    };
+    document.addEventListener('mouseup', this.documentListener);
+  }
+
+  removeDocumentListener() {
+    document.removeEventListener('mouseup', this.documentListener);
+  }
+
   addClickListener(element = this.button) {
     this.buttonListener = () => this.toggle();
-    element.addEventListener('mouseover', this.buttonListener);
-    element.addEventListener('mouseout', this.buttonListener);
+    element.addEventListener('mouseup', this.buttonListener);
   }
 
   removeClickListener(element = this.button) {
-    element.removeEventListener('mouseover', this.buttonListener);
-    element.removeEventListener('mouseout', this.buttonListener);
+    element.removeEventListener('mouseup', this.buttonListener);
   }
 
   showTarget() {
-    this.tooltip.classList.add('show');
+    this.popover.classList.add('show');
     this.isVisible = true;
   }
 
   hideTarget() {
-    this.tooltip.classList.remove('show');
+    this.popover.classList.remove('show');
     this.isVisible = false;
   }
 
@@ -114,14 +126,16 @@ export class StbTooltip {
   @Method()
   public show(): void {
     console.log('show');
-    this.hideAllTooltips();
+    this.hideAllPopovers();
     this.showTarget();
     this.managePlacement();
     this.onShow.emit();
+    setTimeout(() => this.addDocumentListener(), 400);
   }
 
   @Method()
   public hide(): void {
+    this.removeDocumentListener();
     console.log('hide');
     this.hideTarget();
     this.onHide.emit();
@@ -129,12 +143,11 @@ export class StbTooltip {
 
   render() {
     return (
-    <div class="tooltip fade" role="tooltip">
-            <div class="arrow"></div>
-            <div class="tooltip-inner">
-              Some tooltip text!
-            </div>
-          </div>
+      <div class="popover fade" role="tooltip">
+        <div class="arrow"></div>
+        <h3 class="popover-header">Some popover text!!!</h3>
+        <div class="popover-body">Some popover text!</div>
+      </div>
     )
   }
 

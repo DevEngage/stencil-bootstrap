@@ -299,6 +299,41 @@ declare global {
 
 
 import {
+  StbPopover as StbPopover
+} from './components/popover/popover';
+
+declare global {
+  interface HTMLStbPopoverElement extends StbPopover, HTMLStencilElement {
+  }
+  var HTMLStbPopoverElement: {
+    prototype: HTMLStbPopoverElement;
+    new (): HTMLStbPopoverElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-popover": HTMLStbPopoverElement;
+  }
+  interface ElementTagNameMap {
+    "stb-popover": HTMLStbPopoverElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-popover": JSXElements.StbPopoverAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPopoverAttributes extends HTMLAttributes {
+      action?: string;
+      disabled?: boolean;
+      modifiers?: Modifiers;
+      onlyOneOpen?: boolean;
+      positionFixed?: boolean;
+      target?: string;
+    }
+  }
+}
+
+
+import {
   StbProgress as StbProgress
 } from './components/progress/progress';
 
@@ -602,6 +637,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPagePaginationsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPopovers as StbPagePopovers
+} from './pages/components/popovers/popovers';
+
+declare global {
+  interface HTMLStbPagePopoversElement extends StbPagePopovers, HTMLStencilElement {
+  }
+  var HTMLStbPagePopoversElement: {
+    prototype: HTMLStbPagePopoversElement;
+    new (): HTMLStbPagePopoversElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-popovers": HTMLStbPagePopoversElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-popovers": HTMLStbPagePopoversElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-popovers": JSXElements.StbPagePopoversAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPagePopoversAttributes extends HTMLAttributes {
       
     }
   }

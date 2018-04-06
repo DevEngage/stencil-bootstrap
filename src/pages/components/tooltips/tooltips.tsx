@@ -47,31 +47,6 @@ export class StbTooltips {
             Tooltip on Right
           </button>
         </stb-tooltip>
-
-        {/*<stb-tooltip placement="left-start" class="dropup">*/}
-          {/*<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="tooltip" aria-haspopup="true" aria-expanded="false">*/}
-            {/*Dropdown button*/}
-          {/*</button>*/}
-          {/*<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">*/}
-            {/*<a class="dropdown-item" href="#">Action</a>*/}
-            {/*<a class="dropdown-item" href="#">Another action</a>*/}
-            {/*<a class="dropdown-item" href="#">Something else here</a>*/}
-          {/*</div>*/}
-        {/*</stb-tooltip>*/}
-
-        {/*<br/>*/}
-        {/*<br/>*/}
-
-        {/*<stb-tooltip placement="top-start" class="btn-group dropup">*/}
-          {/*<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="tooltip" aria-haspopup="true" aria-expanded="false">*/}
-            {/*Dropup*/}
-          {/*</button>*/}
-          {/*<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">*/}
-            {/*<a class="dropdown-item" href="#">Action</a>*/}
-            {/*<a class="dropdown-item" href="#">Another action</a>*/}
-            {/*<a class="dropdown-item" href="#">Something else here</a>*/}
-          {/*</div>*/}
-        {/*</stb-tooltip>*/}
       </div>
     );
   }

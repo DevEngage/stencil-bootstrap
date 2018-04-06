@@ -45,6 +45,7 @@ export class MyApp {
             <a class={`nav-link ${this.isActive('/alerts')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/alerts" role="tab" aria-controls="v-pills-profile" aria-selected="false">Alerts</a>
             <a class={`nav-link ${this.isActive('/collapses')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/collapses" role="tab" aria-controls="v-pills-profile" aria-selected="false">Collapses</a>
             <a class={`nav-link ${this.isActive('/tooltips')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/tooltips" role="tab" aria-controls="v-pills-profile" aria-selected="false">Tooltips</a>
+            <a class={`nav-link ${this.isActive('/popovers')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/popovers" role="tab" aria-controls="v-pills-profile" aria-selected="false">Popovers</a>
           </div>
 
           <div class="col">
@@ -77,6 +78,9 @@ export class MyApp {
               </stencil-route>
 
               <stencil-route url='/tooltips' component='stb-page-tooltips'>
+              </stencil-route>
+
+              <stencil-route url='/popovers' component='stb-page-popovers'>
               </stencil-route>
             </stencil-router>
           </div>
