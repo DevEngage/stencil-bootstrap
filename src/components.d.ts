@@ -364,6 +364,41 @@ declare global {
 
 
 import {
+  StbTooltip as StbTooltip
+} from './components/tooltip/tooltip';
+
+declare global {
+  interface HTMLStbTooltipElement extends StbTooltip, HTMLStencilElement {
+  }
+  var HTMLStbTooltipElement: {
+    prototype: HTMLStbTooltipElement;
+    new (): HTMLStbTooltipElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-tooltip": HTMLStbTooltipElement;
+  }
+  interface ElementTagNameMap {
+    "stb-tooltip": HTMLStbTooltipElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-tooltip": JSXElements.StbTooltipAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbTooltipAttributes extends HTMLAttributes {
+      action?: string;
+      disabled?: boolean;
+      modifiers?: Modifiers;
+      onlyOneOpen?: boolean;
+      positionFixed?: boolean;
+      target?: string;
+    }
+  }
+}
+
+
+import {
   StbPageAlerts as StbPageAlerts
 } from './pages/components/alerts/alerts';
 
@@ -597,6 +632,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageProgressBarsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbTooltips as StbPageTooltips
+} from './pages/components/tooltips/tooltips';
+
+declare global {
+  interface HTMLStbPageTooltipsElement extends StbPageTooltips, HTMLStencilElement {
+  }
+  var HTMLStbPageTooltipsElement: {
+    prototype: HTMLStbPageTooltipsElement;
+    new (): HTMLStbPageTooltipsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-tooltips": HTMLStbPageTooltipsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-tooltips": HTMLStbPageTooltipsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-tooltips": JSXElements.StbPageTooltipsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageTooltipsAttributes extends HTMLAttributes {
       
     }
   }

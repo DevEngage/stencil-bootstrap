@@ -23,12 +23,6 @@ export class StbCollapse {
   private activeDiv;
   private collapseElements;
 
-  @Method()
-  public toggle() {
-    // this.isVisible = !this.isVisible;
-    // return this.isVisible ? this.hide() : this.show()
-  }
-
   componentDidLoad(): void {
     this.getCollapseElements();
     this.addClickListener();
@@ -95,14 +89,20 @@ export class StbCollapse {
       }, 500);
   }
 
-
   @Method()
-  public show(): void {
-
+  public show(element): void {
+    this.showCollapsible(element);
+    this.showEvent.emit({
+      element: element
+    });
   }
 
   @Method()
-  public hide(): void {
+  public hide(element): void {
+    this.showCollapsible(element);
+    this.showEvent.emit({
+      element: element
+    });
   }
 
   componentDidUnload(): void {
