@@ -1,8 +1,8 @@
 {
   "name": "@dev-engage/stencil-bootstrap",
   "private": false,
-  "version": "0.1.0",
-  "description": "Stencil App Starter",
+  "version": "0.1.1",
+  "description": "Stencil's very own Bootstrap implementation",
   "main": "dist/stb.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
