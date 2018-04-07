@@ -1,7 +1,7 @@
 {
   "name": "@dev-engage/stencil-bootstrap",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Stencil's very own Bootstrap implementation",
   "main": "dist/stb.js",
   "types": "dist/types/components.d.ts",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
+    "url": "git+https://github.com/DevEngage/stencil-bootstrap.git"
   },
   "author": "DevEngage",
   "license": "MIT",
