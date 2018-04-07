@@ -21,6 +21,7 @@ export class StbTooltip {
   @Prop() modifiers: Modifiers = {};
   @Prop() onlyOneOpen: boolean = false;
   @State() placement: any = 'top';
+  @State() tooltipTitle: any = 'this is a tooltip';
   buttonListener;
   documentListener;
   button;
@@ -31,18 +32,26 @@ export class StbTooltip {
     this.tooltip = this.element.querySelector(this.target);
     this.getPlacement();
     this.addClickListener();
+    this.getTitle();
     new Popper(this.button, this.tooltip, {
       placement: this.placement,
       positionFixed: this.positionFixed,
       modifiers: this.modifiers
     });
     this.managePlacement();
+    this.tooltip.style.zIndex = -10;
   }
 
   componentDidUnload(): void {
     if (this.buttonListener) {
       this.removeClickListener();
     }
+  }
+
+  getTitle() {
+    this.tooltipTitle = this.button.getAttribute('title');
+    console.log('this.tooltipTitle', this.tooltipTitle);
+    this.element.querySelector('.tooltip-inner').innerHTML = this.tooltipTitle
   }
 
   getPlacement() {
@@ -98,11 +107,13 @@ export class StbTooltip {
 
   showTarget() {
     this.tooltip.classList.add('show');
+    this.tooltip.style.zIndex = 1060;
     this.isVisible = true;
   }
 
   hideTarget() {
     this.tooltip.classList.remove('show');
+    this.tooltip.style.zIndex = -10;
     this.isVisible = false;
   }
 
@@ -131,8 +142,8 @@ export class StbTooltip {
     return (
     <div class="tooltip fade" role="tooltip">
             <div class="arrow"></div>
-            <div class="tooltip-inner">
-              Some tooltip text!
+            <div class="tooltip-inner" >
+
             </div>
           </div>
     )

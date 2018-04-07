@@ -21,6 +21,8 @@ export class StbPopover {
   @Prop() modifiers: Modifiers = {};
   @Prop() onlyOneOpen: boolean = false;
   @State() placement: any = 'right';
+  @State() popoverTitle: any = 'popover title';
+  @State() popoverBody: any = 'popover body';
   buttonListener;
   documentListener;
   button;
@@ -30,6 +32,7 @@ export class StbPopover {
     this.button = this.element.querySelector(this.action);
     this.popover = this.element.querySelector(this.target);
     this.getPlacement();
+    this.getContent();
     this.addClickListener();
     new Popper(this.button, this.popover, {
       placement: this.placement,
@@ -37,6 +40,7 @@ export class StbPopover {
       modifiers: this.modifiers
     });
     this.managePlacement();
+    this.popover.style.zIndex = -10;
   }
 
   componentDidUnload(): void {
@@ -50,6 +54,13 @@ export class StbPopover {
 
   getPlacement() {
     this.placement = this.button.getAttribute('data-placement');
+  }
+
+  getContent() {
+    this.popoverTitle = this.button.getAttribute('title');
+    this.element.querySelector('.popover-header').innerHTML = this.popoverTitle;
+    this.popoverBody = this.button.getAttribute('data-content');
+    this.element.querySelector('.popover-body').innerHTML = this.popoverBody;
   }
 
   hideAllPopovers() {
@@ -110,11 +121,13 @@ export class StbPopover {
 
   showTarget() {
     this.popover.classList.add('show');
+    this.popover.style.zIndex = 1060;
     this.isVisible = true;
   }
 
   hideTarget() {
     this.popover.classList.remove('show');
+    this.popover.style.zIndex = -10;
     this.isVisible = false;
   }
 
@@ -145,8 +158,8 @@ export class StbPopover {
     return (
       <div class="popover fade" role="tooltip">
         <div class="arrow"></div>
-        <h3 class="popover-header">Some popover text!!!</h3>
-        <div class="popover-body">Some popover text!</div>
+        <h3 class="popover-header"></h3>
+        <div class="popover-body"></div>
       </div>
     )
   }

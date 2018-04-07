@@ -32,8 +32,6 @@ export class StbPopovers {
 
         <br/>
         <br/>
-        <br/>
-        <br/>
 
         <stb-popover>
           <button class="btn btn-secondary" type="button" data-toggle="popover" data-placement="right" data-content="Popover on right" aria-haspopup="true" aria-expanded="false">
