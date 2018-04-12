@@ -1,7 +1,7 @@
 # stencil-bootstrap
-Bootstrap in stencil for extending into vary customized themes
+Bootstrap in stencil. Bootstrap meets web components. No JQuery.
 
-#### Warning: currently experimental
+#### Warning: experimental
 
 ----
 ## Progress
@@ -30,4 +30,17 @@ Bootstrap components:
 
 ## Getting Started
 
-To get a taste of what's been completed so far, clone this repo and serve it locally:
+Reference via unpkg in the head of your index.html
+```text
+<script src='https://unpkg.com/@dev-engage/stencil-bootstrap@<current_version>/dist/stb.js'></script>
+```
+#### OR
+Install via NPM
+```text
+npm install @dev-engage/stencil-bootstrap --save
+```
+Put a script tag in the head of your index.html
+```html
+<script src='node_modules/@dev-engage/stencil-bootstrap/dist/stb.js'></script>
+```
+
