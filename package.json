@@ -16,7 +16,8 @@
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "npm run build && npm publish --access public",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@stencil/core": "0.6.18",

@@ -44,9 +44,6 @@ export class MyApp {
                                                                              role="tab" aria-controls="v-pills-home"
                                                                              aria-selected="true">Home</a>
             </stencil-route-link>
-            <stencil-route-link url='/components' onClick={() => this.setPage('/components')}><a
-              class={`nav-link ${this.isActive('/components')}`} id="v-pills-profile-tab" data-toggle="pill" role="tab"
-              aria-controls="v-pills-profile" aria-selected="false">Components</a></stencil-route-link>
             <stencil-route-link url='/dropdowns' onClick={() => this.setPage('/dropdowns')}><a
               class={`nav-link ${this.isActive('/dropdowns')}`} id="v-pills-profile-tab" data-toggle="pill" role="tab"
               aria-controls="v-pills-profile" aria-selected="false">Dropdowns</a></stencil-route-link>
@@ -89,9 +86,6 @@ export class MyApp {
             <br/>
             <stencil-router>
               <stencil-route url='/' component='app-home' exact={true}>
-              </stencil-route>
-
-              <stencil-route url='/components' component='stb-page-components'>
               </stencil-route>
 
               <stencil-route url='/cards' component='stb-page-card'>
