@@ -2,10 +2,10 @@ import { Component } from '@stencil/core';
 
 
 @Component({
-  tag: 'stb-page-alerts',
-  styleUrl: 'alerts.scss'
+  tag: 'stb-page-card',
+  styleUrl: 'card.scss'
 })
-export class StbPageAlerts {
+export class StbPageCards {
 
   render() {
     return (

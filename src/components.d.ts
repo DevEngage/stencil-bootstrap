@@ -434,6 +434,70 @@ declare global {
 
 
 import {
+  EngageDocumentationApi as EngDocumentationApi
+} from './documentation/api/api';
+
+declare global {
+  interface HTMLEngDocumentationApiElement extends EngDocumentationApi, HTMLStencilElement {
+  }
+  var HTMLEngDocumentationApiElement: {
+    prototype: HTMLEngDocumentationApiElement;
+    new (): HTMLEngDocumentationApiElement;
+  };
+  interface HTMLElementTagNameMap {
+    "eng-documentation-api": HTMLEngDocumentationApiElement;
+  }
+  interface ElementTagNameMap {
+    "eng-documentation-api": HTMLEngDocumentationApiElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "eng-documentation-api": JSXElements.EngDocumentationApiAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface EngDocumentationApiAttributes extends HTMLAttributes {
+      api?: any;
+      details?: string;
+      language?: string;
+      title?: string;
+      type?: string;
+    }
+  }
+}
+
+
+import {
+  EngageCode as EngCode
+} from './documentation/code/code';
+
+declare global {
+  interface HTMLEngCodeElement extends EngCode, HTMLStencilElement {
+  }
+  var HTMLEngCodeElement: {
+    prototype: HTMLEngCodeElement;
+    new (): HTMLEngCodeElement;
+  };
+  interface HTMLElementTagNameMap {
+    "eng-code": HTMLEngCodeElement;
+  }
+  interface ElementTagNameMap {
+    "eng-code": HTMLEngCodeElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "eng-code": JSXElements.EngCodeAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface EngCodeAttributes extends HTMLAttributes {
+      language?: string;
+    }
+  }
+}
+
+
+import {
   StbPageAlerts as StbPageAlerts
 } from './pages/components/alerts/alerts';
 
@@ -457,6 +521,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageAlertsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageCards as StbPageCard
+} from './pages/components/card/card';
+
+declare global {
+  interface HTMLStbPageCardElement extends StbPageCard, HTMLStencilElement {
+  }
+  var HTMLStbPageCardElement: {
+    prototype: HTMLStbPageCardElement;
+    new (): HTMLStbPageCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-card": HTMLStbPageCardElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-card": HTMLStbPageCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-card": JSXElements.StbPageCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageCardAttributes extends HTMLAttributes {
       
     }
   }
@@ -584,6 +678,36 @@ declare global {
 
 
 import {
+  StbPageModals as StbPageModals
+} from './pages/components/modals/modals';
+
+declare global {
+  interface HTMLStbPageModalsElement extends StbPageModals, HTMLStencilElement {
+  }
+  var HTMLStbPageModalsElement: {
+    prototype: HTMLStbPageModalsElement;
+    new (): HTMLStbPageModalsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-modals": HTMLStbPageModalsElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-modals": HTMLStbPageModalsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-modals": JSXElements.StbPageModalsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageModalsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   StbPageNavs as StbPageNavs
 } from './pages/components/navs/navs';
 
@@ -697,6 +821,36 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageProgressBarsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  StbPageToggles as StbPageToggles
+} from './pages/components/toggles/toggles';
+
+declare global {
+  interface HTMLStbPageTogglesElement extends StbPageToggles, HTMLStencilElement {
+  }
+  var HTMLStbPageTogglesElement: {
+    prototype: HTMLStbPageTogglesElement;
+    new (): HTMLStbPageTogglesElement;
+  };
+  interface HTMLElementTagNameMap {
+    "stb-page-toggles": HTMLStbPageTogglesElement;
+  }
+  interface ElementTagNameMap {
+    "stb-page-toggles": HTMLStbPageTogglesElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "stb-page-toggles": JSXElements.StbPageTogglesAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageTogglesAttributes extends HTMLAttributes {
       
     }
   }

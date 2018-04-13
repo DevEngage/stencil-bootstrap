@@ -4,7 +4,10 @@ const sass = require('@stencil/sass');
 exports.config = {
   namespace: 'stb',
   generateDistribution: true,
-  generateWWW: false,
+  outputTargets: [
+    { type: 'www' },
+    { type: 'dist' }
+  ],
   plugins: [
     sass()
   ]

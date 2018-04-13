@@ -36,16 +36,19 @@ export class MyApp {
 
           <div class="nav flex-column nav-pills col-md-3 pt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class={`nav-link ${this.isActive('/')}`} id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class={`nav-link ${this.isActive('/components')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/components" role="tab" aria-controls="v-pills-profile" aria-selected="false">Components</a>
-            <a class={`nav-link ${this.isActive('/dropdowns')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/dropdowns" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dropdowns</a>
-            <a class={`nav-link ${this.isActive('/navs')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/navs" role="tab" aria-controls="v-pills-profile" aria-selected="false">Navs</a>
-            <a class={`nav-link ${this.isActive('/carousels')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/carousels" role="tab" aria-controls="v-pills-profile" aria-selected="false">Carousels</a>
-            <a class={`nav-link ${this.isActive('/paginations')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/paginations" role="tab" aria-controls="v-pills-profile" aria-selected="false">Pagination</a>
-            <a class={`nav-link ${this.isActive('/progress-bars')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/progress-bars" role="tab" aria-controls="v-pills-profile" aria-selected="false">Progress</a>
-            <a class={`nav-link ${this.isActive('/alerts')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/alerts" role="tab" aria-controls="v-pills-profile" aria-selected="false">Alerts</a>
-            <a class={`nav-link ${this.isActive('/collapses')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/collapses" role="tab" aria-controls="v-pills-profile" aria-selected="false">Collapses</a>
-            <a class={`nav-link ${this.isActive('/tooltips')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/tooltips" role="tab" aria-controls="v-pills-profile" aria-selected="false">Tooltips</a>
-            <a class={`nav-link ${this.isActive('/popovers')}`} id="v-pills-profile-tab" data-toggle="pill"  href="/popovers" role="tab" aria-controls="v-pills-profile" aria-selected="false">Popovers</a>
+            <stencil-route-link url='/components'><a class={`nav-link ${this.isActive('/components')}`} id="v-pills-profile-tab" data-toggle="pill" role="tab" aria-controls="v-pills-profile" aria-selected="false">Components</a></stencil-route-link>
+            <stencil-route-link url='/dropdowns'><a class={`nav-link ${this.isActive('/dropdowns')}`} id="v-pills-profile-tab" data-toggle="pill" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dropdowns</a></stencil-route-link>
+            <stencil-route-link url='/navs'><a class={`nav-link ${this.isActive('/navs')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Navs</a></stencil-route-link>
+            <stencil-route-link url='/modals'><a class={`nav-link ${this.isActive('/modals')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Modals</a></stencil-route-link>
+            <stencil-route-link url='/carousels'><a class={`nav-link ${this.isActive('/carousels')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Carousels</a></stencil-route-link>
+            <stencil-route-link url='/paginations'><a class={`nav-link ${this.isActive('/paginations')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Pagination</a></stencil-route-link>
+            <stencil-route-link url='/progress-bars'><a class={`nav-link ${this.isActive('/progress-bars')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Progress</a></stencil-route-link>
+            <stencil-route-link url='/alerts'><a class={`nav-link ${this.isActive('/alerts')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Alerts</a></stencil-route-link>
+            <stencil-route-link url='/cards'><a class={`nav-link ${this.isActive('/cards')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Cards</a></stencil-route-link>
+            <stencil-route-link url='/collapses'><a class={`nav-link ${this.isActive('/collapses')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Collapses</a></stencil-route-link>
+            <stencil-route-link url='/tooltips'><a class={`nav-link ${this.isActive('/tooltips')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Tooltips</a></stencil-route-link>
+            <stencil-route-link url='/popovers'><a class={`nav-link ${this.isActive('/popovers')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Popovers</a></stencil-route-link>
+            <stencil-route-link url='/toggles'><a class={`nav-link ${this.isActive('/toggles')}`} id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile" aria-selected="false">Toggles</a></stencil-route-link>
           </div>
 
           <div class="col">
@@ -56,10 +59,16 @@ export class MyApp {
               <stencil-route url='/components' component='stb-page-components'>
               </stencil-route>
 
+              <stencil-route url='/cards' component='stb-page-card'>
+              </stencil-route>
+
               <stencil-route url='/dropdowns' component='stb-page-dropdowns'>
               </stencil-route>
 
               <stencil-route url='/navs' component='stb-page-navs'>
+              </stencil-route>
+
+              <stencil-route url='/modals' component='stb-page-modals'>
               </stencil-route>
 
               <stencil-route url='/carousels' component='stb-page-carousels'>
@@ -81,6 +90,9 @@ export class MyApp {
               </stencil-route>
 
               <stencil-route url='/popovers' component='stb-page-popovers'>
+              </stencil-route>
+
+              <stencil-route url='/toggles' component='stb-page-toggles'>
               </stencil-route>
             </stencil-router>
           </div>
