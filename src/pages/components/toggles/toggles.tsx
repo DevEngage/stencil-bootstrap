@@ -10,28 +10,30 @@ export class StbPageToggles {
   render() {
     return (
       <div class="pb-4">
-        <h1>Alerts</h1>
-
-        <eng-documentation-api></eng-documentation-api>
-
-        <br/>
-        <br/>
-
-        <stb-alert context="success"> Test this now! </stb-alert>
-
-        <br/>
-        <br/>
-
-        <stb-alert class="alert-warning alert-dismissible fade show" role="alert">
-          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </stb-alert>
+        <stb-toggle>
+          <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="checkbox" checked autocomplete="off" /> Checked
+            </label>
+          </div>
+        </stb-toggle>
 
         <br/>
         <br/>
 
+        <stb-toggle selected={1}>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked /> Active
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off" /> Radio
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off" /> Radio
+            </label>
+          </div>
+        </stb-toggle>
 
       </div>
     );

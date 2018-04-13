@@ -40,7 +40,7 @@ export class EngageCode {
     <div>
       <div class="language-title" style={{backgroundColor: 'purple', color: 'white'}}>
         <span>{this.language.toUpperCase()}</span>
-        <button class='btn pull-right clip-code'>Copy to clipboard</button>
+        <button class='btn clip-code'>Copy to clipboard</button>
       </div>
       <pre><code class={`${this.language}`}>
         <slot/>

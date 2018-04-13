@@ -17,17 +17,13 @@ export class StbPageCards {
         <br/>
         <br/>
 
-        <stb-alert context="success"> Test this now! </stb-alert>
-
-        <br/>
-        <br/>
-
-        <stb-alert class="alert-warning alert-dismissible fade show" role="alert">
-          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </stb-alert>
+        <stb-card>
+          <div class="card-body">
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </stb-card>
 
         <br/>
         <br/>
