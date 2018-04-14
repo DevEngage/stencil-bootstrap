@@ -14,13 +14,18 @@ export class StbPageAlerts {
 
         <eng-documentation-api></eng-documentation-api>
 
-        <stb-alert context="success"> Test this now! </stb-alert>
+        <stb-alert context="success"> A simple primary alert—check it out! </stb-alert>
+        <br/>
+        <br/>
+        <stb-alert context="secondary"> A simple secondary alert—check it out! </stb-alert>
 
         <br/>
         <br/>
 
         <eng-code>
-          {`<stb-alert context="success"> Test this now! </stb-alert>`}
+          {`<stb-alert context="success"> A simple primary alert—check it out! </stb-alert>
+<stb-alert context="secondary"> A simple secondary alert—check it out! </stb-alert>
+`}
         </eng-code>
 
         <eng-code>

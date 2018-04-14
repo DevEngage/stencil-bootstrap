@@ -35,24 +35,24 @@ export class StbPageDropdowns {
         <br/>
 
         <eng-code>
-          {`<div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown link
-            </button>
+          {`<stb-dropdown>
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    id="dropdownMenuLink"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Dropdown link
+  </button>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>`}
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</stb-dropdown>`}
         </eng-code>
 
         <br/>
@@ -79,24 +79,24 @@ export class StbPageDropdowns {
 
         <eng-code>
           {`<div class="dropdown">
-            <a
-              class="btn btn-secondary dropdown-toggle"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown link
-            </a>
+  <a
+    class="btn btn-secondary dropdown-toggle"
+    href="#"
+    role="button"
+    id="dropdownMenuLink"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Dropdown link
+  </a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>`}
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>`}
         </eng-code>
 
         <br/>
@@ -186,24 +186,24 @@ export class StbPageDropdowns {
 
         <eng-code>
           {`<!-- Example single danger button -->
-            <div class="btn-group">
-              <button
-                type="button"
-                class="btn btn-danger dropdown-toggle"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Action
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </div>`}
+<div class="btn-group">
+  <button
+    type="button"
+    class="btn btn-danger dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>`}
         </eng-code>
 
         <br/>
@@ -311,44 +311,333 @@ export class StbPageDropdowns {
 
         <eng-code>
           {`<!-- Example split danger button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-danger">Action</button>
-              <button
-                type="button"
-                class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </div>`}
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button
+    type="button"
+    class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>`}
         </eng-code>
 
         <br/>
         <br/>
 
+        <h2>Sizing</h2>
+
+        <stb-dropdown class="btn-group m-2">
+          <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Large Button
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <stb-dropdown class="btn-group m-2">
+          <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Small Button
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <eng-code>
+          {`<!-- Large button-->
+<stb-dropdown class="btn-group m-2">
+  <button
+    type="button"
+    class="btn btn-secondary btn-lg dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Large Button
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</stb-dropdown>
+
+<!-- Small button-->
+<stb-dropdown class="btn-group m-2">
+  <button
+    type="button"
+    class="btn btn-secondary btn-sm dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Small Button
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</stb-dropdown>`}
+        </eng-code>
+
+        <br/>
+        <br/>
+
+        <h2>Directions</h2>
+        <h3>Dropup</h3>
+        <p>Trigger dropdown menus above elements by adding .dropup to the parent element.</p>
+
+        <stb-dropdown placement="top-start" class="btn-group dropup m-2">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropup
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <stb-dropdown placement="top-start" class="btn-group dropup m-2">
+          <button type="button" class="btn btn-secondary">
+            Split dropup
+          </button>
+          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <eng-code>
+          {`<!-- Default dropup button -->
+<stb-dropdown placement="top-start" class="btn-group dropup">
+  <button
+    type="button"
+    class="btn btn-secondary dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Dropup
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</stb-dropdown>
+
+<!-- Split dropup button -->
+<stb-dropdown placement="top-start" class="btn-group dropup">
+  <button type="button" class="btn btn-secondary">
+    Split dropup
+  </button>
+  <button
+    type="button"
+    class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</stb-dropdown>`}
+        </eng-code>
+        <br/>
+        <br/>
+
+        <h3>Dropright</h3>
+        <p>Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.</p>
+
+        <stb-dropdown placement="right-start" class="btn-group dropright m-2">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropright
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <stb-dropdown placement="right-start" class="btn-group dropright m-2">
+          <button type="button" class="btn btn-secondary">
+            Split dropright
+          </button>
+          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <eng-code>
+          {`<!-- Default dropright button -->
+<stb-dropdown placement="right-start" class="btn-group dropright">
+  <button
+    type="button"
+    class="btn btn-secondary dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Dropright
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</stb-dropdown>
+
+<!-- Split dropright button -->
+<stb-dropdown placement="right-start" class="btn-group dropright">
+  <button type="button" class="btn btn-secondary">
+    Split dropright
+  </button>
+  <button
+    type="button"
+    class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</stb-dropdown>`}
+        </eng-code>
         <br/>
         <br/>
 
 
-        {/*<stb-dropdown placement="top-start" class="btn-group dropup">*/}
-          {/*<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
-            {/*Dropup*/}
-          {/*</button>*/}
-          {/*<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">*/}
-            {/*<a class="dropdown-item" href="#">Action</a>*/}
-            {/*<a class="dropdown-item" href="#">Another action</a>*/}
-            {/*<a class="dropdown-item" href="#">Something else here</a>*/}
-          {/*</div>*/}
-        {/*</stb-dropdown>*/}
+        <h3>Dropleft</h3>
+        <p>Trigger dropdown menus at the left of the elements by adding .dropleft to the parent element.</p>
+
+        <stb-dropdown placement="left-start" class="btn-group dropleft m-2">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropleft
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </stb-dropdown>
+
+        <stb-dropdown placement="left-start" class="btn-group m-2">
+          <div class="btn-group dropleft" role="group">
+            <button
+              type="button"
+              class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary">
+            Split dropleft
+          </button>
+        </stb-dropdown>
+
+        <eng-code>
+          {`<!-- Default dropleft button -->
+<stb-dropdown placement="left-start" class="btn-group dropleft">
+  <button
+    type="button"
+    class="btn btn-secondary dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Dropleft
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</stb-dropdown>
+
+<!-- Split dropleft button -->
+<stb-dropdown placement="left-start" class="btn-group m-2">
+  <div class="btn-group dropleft" role="group">
+    <button
+      type="button"
+      class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+  <button type="button" class="btn btn-secondary">
+    Split dropleft
+  </button>
+</stb-dropdown>`}
+        </eng-code>
+        <br/>
+        <br/>
+
+
       </div>
     );
   }
