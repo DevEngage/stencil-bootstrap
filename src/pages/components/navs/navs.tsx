@@ -135,6 +135,54 @@ export class StbPageNavs {
 
         {/*<br/>*/}
         <br/>
+        <br/>
+        <br/>
+
+        <h3>Methods</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">document.querySelector('element | class | id').toggle()</code></td>*/}
+            {/*<td>Toggles the nav page given.</td>*/}
+          {/*</tr>*/}
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').show(1)</code></td>
+            <td>Shows the nav page that was passed via parameters as 0-index.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').hide(1)</code></td>
+            <td>hides the nav page that was passed via parameters as 0-index.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <h3>Events</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">onShow</code></td>
+            <td>This event fires immediately when the show instance method is called.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">onHide</code></td>
+            <td>This event is fired when a nav page has finished being hidden.</td>
+          </tr>
+          </tbody>
+        </table>
 
       </div>
     );

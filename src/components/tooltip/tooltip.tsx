@@ -141,11 +141,11 @@ export class StbTooltip {
   render() {
     return (
     <div class="tooltip fade" role="tooltip">
-            <div class="arrow"></div>
-            <div class="tooltip-inner" >
+      <div class="arrow"></div>
+      <div class="tooltip-inner" >
 
-            </div>
-          </div>
+      </div>
+    </div>
     )
   }
 

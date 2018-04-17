@@ -9,25 +9,21 @@ export class StbPageModals {
 
   openModal() {
     const modal: any = document.querySelector('stb-modal');
-    console.log(modal);
     modal.show();
   }
 
   closeModal() {
     const modal: any = document.querySelector('stb-modal');
-    console.log(modal);
     modal.hide();
   }
 
   openLongModal() {
     const modal: any = document.querySelector('#long-modal');
-    console.log(modal);
     modal.show();
   }
 
   closeLongModal() {
     const modal: any = document.querySelector('#long-modal');
-    console.log(modal);
     modal.hide();
   }
 
@@ -36,7 +32,9 @@ export class StbPageModals {
       <div class="pb-4">
         <h2>Modals</h2>
 
-        <button class="btn" onClick={this.openModal}>Open Modal</button>
+        <button class="btn m-1" onClick={this.openModal}>Open Modal</button>
+        <button class="btn m-1" onClick={this.openLongModal}>Open Long Modal</button>
+
         <br/>
         <eng-code language='typescript'>
           {`import {Component} from '@stencil/core';
@@ -48,13 +46,11 @@ class Page {
 
  openLongModal() {
     const modal: any = document.querySelector('stb-modal');
-    console.log(modal);
     modal.show();
   }
 
   closeLongModal() {
     const modal: any = document.querySelector('stb-modal');
-    console.log(modal);
     modal.hide();
   }
 
@@ -81,9 +77,6 @@ class Page {
   }
 }`}
         </eng-code>
-
-        <button class="btn mt-2" onClick={this.openLongModal}>Open Long Modal</button>
-
 
 
 
@@ -162,7 +155,54 @@ class Page {
           </div>
         </stb-modal>
 
+        <br/>
+        <br/>
 
+        <h3>Methods</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').toggle()</code></td>
+            <td>Toggles the modal.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').show()</code></td>
+            <td>Shows the modal.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').hide()</code></td>
+            <td>hides the modal.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <h3>Events</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">onShow</code></td>
+            <td>This event fires immediately when the show instance method is called.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">onHide</code></td>
+            <td>This event is fired when a modal page has finished being hidden.</td>
+          </tr>
+          </tbody>
+        </table>
 
       </div>
     );

@@ -22,6 +22,17 @@ export class AppHome {
           We designed the stencil bootstrap (stb) components to work with existing bootstrap examples where the inner portions of code should just work from the bootstrap documentation page.
           We did add examples and references on how to use stb. Good luck and have fun!
         </p>
+
+        <br/>
+
+        <h2><a href="https://github.com/DevEngage/stencil-bootstrap" target='_blank'>Github Repo</a></h2>
+
+        <br/>
+
+        <h2>Schedule</h2>
+        <h5>Status: Experimental</h5>
+        <h5>Alpha: End of April</h5>
+        <h5>Beta: End of May</h5>
       </div>
     );
   }

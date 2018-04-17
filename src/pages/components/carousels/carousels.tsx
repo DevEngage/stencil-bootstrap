@@ -68,6 +68,83 @@ export class StbPageCarousels {
         <br/>
         <br/>
 
+        <eng-code>
+          {`<stb-carousel>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={this.testImage} alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={this.testImage2} alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={this.testImage3} alt="Third slide" />
+    </div>
+  </div>
+</stb-carousel>`}
+        </eng-code>
+
+        <br/>
+        <br/>
+
+        <h3>Methods</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').show(1)</code></td>
+            <td>Shows the carousel page that was passed via parameters as 0-index.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').hide(1)</code></td>
+            <td>Hides the carousel page that was passed via parameters as 0-index.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').next()</code></td>
+            <td>Shows the next page in the array gathered from top down priority of the carousel-item.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').prev()</code></td>
+            <td>Shows the previous page in the array gathered from top down priority of the carousel-item.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').pause()</code></td>
+            <td>Stops the slide show from cycling every X amount of time.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').play()</code></td>
+            <td>Starts the cycling of the slide show every X amount of time.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <h3>Events</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">onShow</code></td>
+            <td>This event fires immediately when the show instance method is called.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">onHide</code></td>
+            <td>This event is fired when a carousel page has finished being hidden.</td>
+          </tr>
+          </tbody>
+        </table>
+
       </div>
     );
   }

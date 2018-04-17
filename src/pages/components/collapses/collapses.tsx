@@ -106,6 +106,51 @@ export class StbPageCollapses {
             </div>
           </div>
         </stb-collapse>
+
+        <br/>
+        <br/>
+
+        <h3>Methods</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').show()</code></td>
+            <td>Shows the page that was passed via parameters as element.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">document.querySelector('element | class | id').hide()</code></td>
+            <td>Hides the page that was passed via parameters as element.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <h3>Events</h3>
+        <table class='table'>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><code class="highlighter-rouge">onShow</code></td>
+            <td>This event fires immediately when the show instance method is called.</td>
+          </tr>
+          <tr>
+            <td><code class="highlighter-rouge">onHide</code></td>
+            <td>This event is fired when a carousel page has finished being hidden.</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     );
   }

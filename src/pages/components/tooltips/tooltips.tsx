@@ -43,10 +43,44 @@ export class StbTooltips {
         <br/>
 
         <stb-tooltip>
-          <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="right" title="Tooltip on right" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="right"
+            title="Tooltip on right" aria-haspopup="true" aria-expanded="false">
             Tooltip on Right
           </button>
         </stb-tooltip>
+
+        <br/>
+        <br/>
+
+        <eng-code>
+          {`<stb-tooltip>
+  <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="top"
+    title="Tooltip on top" aria-haspopup="true" aria-expanded="false">
+   Tooltip on Top
+  </button>
+</stb-tooltip>
+
+<stb-tooltip>
+  <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="bottom"
+    title="Tooltip on bottom" aria-haspopup="true" aria-expanded="false">
+    Tooltip on Bottom
+  </button>
+</stb-tooltip>
+
+<stb-tooltip>
+  <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="left"
+    title="Tooltip on left" aria-haspopup="true" aria-expanded="false">
+    Tooltip on Left
+  </button>
+</stb-tooltip>
+
+<stb-tooltip>
+  <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="right"
+    title="Tooltip on right" aria-haspopup="true" aria-expanded="false">
+    Tooltip on Right
+  </button>
+</stb-tooltip>`}
+        </eng-code>
       </div>
     );
   }
