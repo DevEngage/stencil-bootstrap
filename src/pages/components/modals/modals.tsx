@@ -37,8 +37,50 @@ export class StbPageModals {
         <h2>Modals</h2>
 
         <button class="btn" onClick={this.openModal}>Open Modal</button>
+        <br/>
+        <eng-code language='typescript'>
+          {`import {Component} from '@stencil/core';
 
-        <script async src="//jsfiddle.net/devengage/yw72Lmaa/15/embed/js/"></script>
+@Component({
+  tag: 'page'
+})
+class Page {
+
+ openLongModal() {
+    const modal: any = document.querySelector('stb-modal');
+    console.log(modal);
+    modal.show();
+  }
+
+  closeLongModal() {
+    const modal: any = document.querySelector('stb-modal');
+    console.log(modal);
+    modal.hide();
+  }
+
+  render() {
+    return (
+      <stb-modal>
+        <div slot="modal-dialog" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" onClick={this.closeModal}>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onClick={this.closeModal}>Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </stb-modal>
+    );
+  }
+}`}
+        </eng-code>
 
         <button class="btn mt-2" onClick={this.openLongModal}>Open Long Modal</button>
 

@@ -52,9 +52,12 @@ export class StbPageNavs {
       href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
   </div>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">tab page 1</div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">tab page 2</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">tab page 3</div>
+    <div class="tab-pane fade show active" id="nav-home"
+      role="tabpanel" aria-labelledby="nav-home-tab">tab page 1</div>
+    <div class="tab-pane fade" id="nav-profile"
+      role="tabpanel" aria-labelledby="nav-profile-tab">tab page 2</div>
+    <div class="tab-pane fade" id="nav-contact"
+      role="tabpanel" aria-labelledby="nav-contact-tab">tab page 3</div>
   </div>
 </stb-nav>`}
         </eng-code>
@@ -115,22 +118,22 @@ export class StbPageNavs {
         <br/>
         <br/>
 
-        <stb-nav>
-          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-          </div>
-          <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">side tab pill 1</div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">side tab pill 2</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">side tab pill 3</div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">side tab pill 4</div>
-          </div>
-        </stb-nav>
+        {/*<stb-nav>*/}
+          {/*<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">*/}
+            {/*<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>*/}
+            {/*<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>*/}
+            {/*<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>*/}
+            {/*<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>*/}
+          {/*</div>*/}
+          {/*<div class="tab-content" id="v-pills-tabContent">*/}
+            {/*<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">side tab pill 1</div>*/}
+            {/*<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">side tab pill 2</div>*/}
+            {/*<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">side tab pill 3</div>*/}
+            {/*<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">side tab pill 4</div>*/}
+          {/*</div>*/}
+        {/*</stb-nav>*/}
 
-        <br/>
+        {/*<br/>*/}
         <br/>
 
       </div>
