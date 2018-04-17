@@ -637,6 +637,79 @@ export class StbPageDropdowns {
         <br/>
         <br/>
 
+        <h2>Dropdown options</h2>
+        <br/>
+        <h3>Options</h3>
+        <table>
+          <thead>
+            <th>Name</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>offset (coming soon)</td>
+            </tr>
+            <tr>
+              <td>data-reference (coming soon)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br/>
+
+        <h3>Methods</h3>
+        <p>Coming soon</p>
+        {/*<table>*/}
+          {/*<thead>*/}
+          {/*<tr>*/}
+            {/*<th>Method</th>*/}
+            {/*<th>Description</th>*/}
+          {/*</tr>*/}
+          {/*</thead>*/}
+          {/*<tbody>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">$().dropdown('toggle')</code></td>*/}
+            {/*<td>Toggles the dropdown menu of a given navbar or tabbed navigation.</td>*/}
+          {/*</tr>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">$().dropdown('update')</code></td>*/}
+            {/*<td>Updates the position of an element’s dropdown.</td>*/}
+          {/*</tr>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">$().dropdown('dispose')</code></td>*/}
+            {/*<td>Destroys an element’s dropdown.</td>*/}
+          {/*</tr>*/}
+          {/*</tbody>*/}
+        {/*</table>*/}
+
+        <h3>Events</h3>
+        <p>Coming soon</p>
+
+        {/*<table>*/}
+          {/*<thead>*/}
+          {/*<tr>*/}
+            {/*<th>Event</th>*/}
+            {/*<th>Description</th>*/}
+          {/*</tr>*/}
+          {/*</thead>*/}
+          {/*<tbody>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">show.bs.dropdown</code></td>*/}
+            {/*<td>This event fires immediately when the show instance method is called.</td>*/}
+          {/*</tr>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">shown.bs.dropdown</code></td>*/}
+            {/*<td>This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete).</td>*/}
+          {/*</tr>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">hide.bs.dropdown</code></td>*/}
+            {/*<td>This event is fired immediately when the hide instance method has been called.</td>*/}
+          {/*</tr>*/}
+          {/*<tr>*/}
+            {/*<td><code class="highlighter-rouge">hidden.bs.dropdown</code></td>*/}
+            {/*<td>This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete).</td>*/}
+          {/*</tr>*/}
+          {/*</tbody>*/}
+        {/*</table>*/}
 
       </div>
     );
