@@ -41,7 +41,7 @@ export class StbPageNavs {
 
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
@@ -60,7 +60,7 @@ export class StbPageNavs {
       role="tabpanel" aria-labelledby="nav-contact-tab">tab page 3</div>
   </div>
 </stb-nav>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -88,7 +88,7 @@ export class StbPageNavs {
 
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-nav>
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
@@ -113,7 +113,7 @@ export class StbPageNavs {
       role="tabpanel" aria-labelledby="pills-contact-tab">tab pill 3</div>
   </div>
 </stb-nav>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>

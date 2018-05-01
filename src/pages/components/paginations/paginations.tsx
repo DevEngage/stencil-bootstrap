@@ -47,7 +47,7 @@ export class StbPagePaginations {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-pagination selected={1}>
   <ul class="pagination">
     <li class="page-item" stb-prev><a class="page-link">Previous</a></li>
@@ -57,7 +57,7 @@ export class StbPagePaginations {
     <li class="page-item" stb-next><a class="page-link">Next</a></li>
   </ul>
 </stb-pagination>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>

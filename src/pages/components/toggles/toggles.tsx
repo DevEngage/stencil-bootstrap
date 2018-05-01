@@ -38,7 +38,7 @@ export class StbPageToggles {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-toggle selected={1}>
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
     <label class="btn btn-secondary active">
@@ -52,7 +52,7 @@ export class StbPageToggles {
     </label>
   </div>
 </stb-toggle>`}
-        </eng-code>
+        </stb-code>
 
       </div>
     );

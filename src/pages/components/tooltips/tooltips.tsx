@@ -52,7 +52,7 @@ export class StbTooltips {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-tooltip>
   <button class="btn btn-secondary" type="button" data-toggle="tooltip" data-placement="top"
     title="Tooltip on top" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@ export class StbTooltips {
     Tooltip on Right
   </button>
 </stb-tooltip>`}
-        </eng-code>
+        </stb-code>
       </div>
     );
   }

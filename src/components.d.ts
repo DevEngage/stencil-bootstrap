@@ -434,33 +434,33 @@ declare global {
 
 
 import {
-  EngageDocumentationApi as EngDocumentationApi
+  StbDocumentationApi as StbDocumentationApi
 } from './documentation/api/api';
 
 declare global {
-  interface HTMLEngDocumentationApiElement extends EngDocumentationApi, HTMLStencilElement {
+  interface HTMLStbDocumentationApiElement extends StbDocumentationApi, HTMLStencilElement {
   }
-  var HTMLEngDocumentationApiElement: {
-    prototype: HTMLEngDocumentationApiElement;
-    new (): HTMLEngDocumentationApiElement;
+  var HTMLStbDocumentationApiElement: {
+    prototype: HTMLStbDocumentationApiElement;
+    new (): HTMLStbDocumentationApiElement;
   };
   interface HTMLElementTagNameMap {
-    "eng-documentation-api": HTMLEngDocumentationApiElement;
+    "stb-documentation-api": HTMLStbDocumentationApiElement;
   }
   interface ElementTagNameMap {
-    "eng-documentation-api": HTMLEngDocumentationApiElement;
+    "stb-documentation-api": HTMLStbDocumentationApiElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "eng-documentation-api": JSXElements.EngDocumentationApiAttributes;
+      "stb-documentation-api": JSXElements.StbDocumentationApiAttributes;
     }
   }
   namespace JSXElements {
-    export interface EngDocumentationApiAttributes extends HTMLAttributes {
+    export interface StbDocumentationApiAttributes extends HTMLAttributes {
       api?: any;
       details?: string;
       language?: string;
-      title?: string;
+      stbTitle?: string;
       type?: string;
     }
   }
@@ -468,29 +468,29 @@ declare global {
 
 
 import {
-  EngageCode as EngCode
+  StbCode as StbCode
 } from './documentation/code/code';
 
 declare global {
-  interface HTMLEngCodeElement extends EngCode, HTMLStencilElement {
+  interface HTMLStbCodeElement extends StbCode, HTMLStencilElement {
   }
-  var HTMLEngCodeElement: {
-    prototype: HTMLEngCodeElement;
-    new (): HTMLEngCodeElement;
+  var HTMLStbCodeElement: {
+    prototype: HTMLStbCodeElement;
+    new (): HTMLStbCodeElement;
   };
   interface HTMLElementTagNameMap {
-    "eng-code": HTMLEngCodeElement;
+    "stb-code": HTMLStbCodeElement;
   }
   interface ElementTagNameMap {
-    "eng-code": HTMLEngCodeElement;
+    "stb-code": HTMLStbCodeElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "eng-code": JSXElements.EngCodeAttributes;
+      "stb-code": JSXElements.StbCodeAttributes;
     }
   }
   namespace JSXElements {
-    export interface EngCodeAttributes extends HTMLAttributes {
+    export interface StbCodeAttributes extends HTMLAttributes {
       language?: string;
     }
   }

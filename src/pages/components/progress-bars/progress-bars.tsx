@@ -26,10 +26,10 @@ export class StbPageProgressBars {
         <br/>
 
 
-        <eng-code>
+        <stb-code>
           {`<stb-progress current={20} />
 <stb-progress current={[{current: 40, classes: 'bg-success' },{current: 10, }]} />`}
-        </eng-code>
+        </stb-code>
 
 
       </div>

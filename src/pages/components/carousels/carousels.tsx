@@ -68,7 +68,7 @@ export class StbPageCarousels {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-carousel>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -82,7 +82,7 @@ export class StbPageCarousels {
     </div>
   </div>
 </stb-carousel>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>

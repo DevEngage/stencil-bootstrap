@@ -4,10 +4,10 @@ declare var hljs;
 declare var ClipboardJS;
 
 @Component({
-  tag: 'eng-code',
+  tag: 'stb-code',
   styleUrl: 'code.scss'
 })
-export class EngageCode {
+export class StbCode {
 
   @Element() element: HTMLElement;
   @Prop() language = 'html';

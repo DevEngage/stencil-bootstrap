@@ -51,7 +51,7 @@ export class StbPopovers {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-popover>
   <button class="btn btn-secondary" type="button" data-toggle="popover" data-placement="top"
     title="Popover on top" data-content="And here's some amazing content. It's very engaging. Right?"
@@ -80,7 +80,7 @@ export class StbPopovers {
     Popover on Left
   </button>
 </stb-popover>`}
-        </eng-code>
+        </stb-code>
       </div>
     );
   }

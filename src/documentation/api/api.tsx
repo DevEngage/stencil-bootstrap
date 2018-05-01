@@ -2,13 +2,13 @@ import {Component, Prop, Element} from '@stencil/core';
 
 
 @Component({
-  tag: 'eng-documentation-api',
+  tag: 'stb-documentation-api',
   styleUrl: 'api.scss'
 })
-export class EngageDocumentationApi {
+export class StbDocumentationApi {
 
   @Element() element: HTMLElement;
-  @Prop() title = '';
+  @Prop() stbTitle = '';
   @Prop() details = '';
   @Prop() api = [];
   @Prop() type = '';
@@ -17,7 +17,7 @@ export class EngageDocumentationApi {
   render() {
     return (
     <div>
-      <h2>{this.title}</h2>
+      <h2>{this.stbTitle}</h2>
 
       <slot name='details'>
         <p>{this.details}</p>

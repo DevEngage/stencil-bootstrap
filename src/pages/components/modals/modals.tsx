@@ -36,7 +36,7 @@ export class StbPageModals {
         <button class="btn m-1" onClick={this.openLongModal}>Open Long Modal</button>
 
         <br/>
-        <eng-code language='typescript'>
+        <stb-code language='typescript'>
           {`import {Component} from '@stencil/core';
 
 @Component({
@@ -76,7 +76,7 @@ class Page {
     );
   }
 }`}
-        </eng-code>
+        </stb-code>
 
 
 

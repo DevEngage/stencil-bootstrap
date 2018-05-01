@@ -34,7 +34,7 @@ export class StbPageDropdowns {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-dropdown>
   <button
     class="btn btn-secondary dropdown-toggle"
@@ -53,7 +53,7 @@ export class StbPageDropdowns {
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </stb-dropdown>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -77,7 +77,7 @@ export class StbPageDropdowns {
 
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<div class="dropdown">
   <a
     class="btn btn-secondary dropdown-toggle"
@@ -97,7 +97,7 @@ export class StbPageDropdowns {
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -184,7 +184,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
 
-        <eng-code>
+        <stb-code>
           {`<!-- Example single danger button -->
 <div class="btn-group">
   <button
@@ -204,7 +204,7 @@ export class StbPageDropdowns {
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -309,7 +309,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
 
-        <eng-code>
+        <stb-code>
           {`<!-- Example split danger button -->
 <div class="btn-group">
   <button type="button" class="btn btn-danger">Action</button>
@@ -330,7 +330,7 @@ export class StbPageDropdowns {
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -363,7 +363,7 @@ export class StbPageDropdowns {
           </div>
         </stb-dropdown>
 
-        <eng-code>
+        <stb-code>
           {`<!-- Large button-->
 <stb-dropdown class="btn-group m-2">
   <button
@@ -403,7 +403,7 @@ export class StbPageDropdowns {
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </stb-dropdown>`}
-        </eng-code>
+        </stb-code>
 
         <br/>
         <br/>
@@ -441,7 +441,7 @@ export class StbPageDropdowns {
           </div>
         </stb-dropdown>
 
-        <eng-code>
+        <stb-code>
           {`<!-- Default dropup button -->
 <stb-dropdown placement="top-start" class="btn-group dropup">
   <button
@@ -476,7 +476,7 @@ export class StbPageDropdowns {
     <!-- Dropdown menu links -->
   </div>
 </stb-dropdown>`}
-        </eng-code>
+        </stb-code>
         <br/>
         <br/>
 
@@ -512,7 +512,7 @@ export class StbPageDropdowns {
           </div>
         </stb-dropdown>
 
-        <eng-code>
+        <stb-code>
           {`<!-- Default dropright button -->
 <stb-dropdown placement="right-start" class="btn-group dropright">
   <button
@@ -547,7 +547,7 @@ export class StbPageDropdowns {
     <!-- Dropdown menu links -->
   </div>
 </stb-dropdown>`}
-        </eng-code>
+        </stb-code>
         <br/>
         <br/>
 
@@ -592,7 +592,7 @@ export class StbPageDropdowns {
           </button>
         </stb-dropdown>
 
-        <eng-code>
+        <stb-code>
           {`<!-- Default dropleft button -->
 <stb-dropdown placement="left-start" class="btn-group dropleft">
   <button
@@ -633,7 +633,7 @@ export class StbPageDropdowns {
     Split dropleft
   </button>
 </stb-dropdown>`}
-        </eng-code>
+        </stb-code>
         <br/>
         <br/>
 

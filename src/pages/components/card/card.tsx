@@ -28,7 +28,7 @@ export class StbPageCards {
         <br/>
         <br/>
 
-        <eng-code>
+        <stb-code>
           {`<stb-card>
   <div class="card-body">
     <h5 class="card-title">Card Title</h5>
@@ -38,7 +38,7 @@ export class StbPageCards {
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </stb-card>`}
-        </eng-code>
+        </stb-code>
 
 
       </div>
