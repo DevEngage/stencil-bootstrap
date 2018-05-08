@@ -30,11 +30,11 @@ export class StbCollapse {
       collapse.classList.add('coll-div');
       const collapsible = this.getCollapsible(collapse);
       this.addCollapsibleClass(collapsible);
-      collapse.addEventListener("click",() =>  {
+      collapse.addEventListener("click", () =>  {
         if (collapsible.classList.contains('show')) {
-          this.hideCollapsible(collapse)
+          this.hideCollapsible(collapse);
         } else {
-          this.showCollapsible(collapse)
+          this.showCollapsible(collapse);
         }
       });
     });
@@ -52,6 +52,8 @@ export class StbCollapse {
   }
 
   getCollapsible(element) {
+    const disabled = element.getAttribute('disabled=[true]');
+    if (disabled) return null;
     let target;
     if (element.getAttribute('data-target')) target = element.getAttribute('data-target');
     if (element.getAttribute('href')) target = element.getAttribute('href');
@@ -60,6 +62,9 @@ export class StbCollapse {
 
   showCollapsible(element) {
     const collapsible = this.getCollapsible(element);
+    if (!collapsible) {
+      return;
+    }
     if (this.accordion && this.activeDiv && this.activeDiv !== collapsible) {
       this.activeDiv.style.height = 0;
       setTimeout(() => {
