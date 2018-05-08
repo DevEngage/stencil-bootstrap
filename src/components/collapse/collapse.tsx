@@ -52,8 +52,7 @@ export class StbCollapse {
   }
 
   getCollapsible(element) {
-    const disabled = element.getAttribute('disabled=[true]');
-    if (disabled) return null;
+    // if (element.classList.contains('stb-item-disabled')) return null;
     let target;
     if (element.getAttribute('data-target')) target = element.getAttribute('data-target');
     if (element.getAttribute('href')) target = element.getAttribute('href');
