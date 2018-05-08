@@ -154,7 +154,7 @@ declare global {
   }
   namespace JSXElements {
     export interface StbCollapseAttributes extends HTMLAttributes {
-      accordian?: boolean;
+      accordion?: boolean;
       active?: boolean;
       activeClass?: string;
       disabled?: boolean;

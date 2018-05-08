@@ -26,7 +26,7 @@ export class StbPageCollapses {
         <br/>
         <br/>
 
-        <stb-collapse accordian={false}>
+        <stb-collapse accordion={false}>
           <div>
             <p>
               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -59,7 +59,7 @@ export class StbPageCollapses {
         </div>
 
 
-        <stb-collapse accordian={true}>
+        <stb-collapse accordion={true}>
           <div id="accordion">
             <div class="card">
               <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">

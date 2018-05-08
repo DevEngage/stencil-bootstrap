@@ -1,25 +1,17 @@
 import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 
 @Component({
-  styleUrl: 'collapse.scss',
   tag: 'stb-collapse',
-  host: {
-    theme: '',
-  }
+  styleUrl: 'collapse.scss',
 })
 export class StbCollapse {
-
-
-  body: HTMLElement = document.body;
 
   @Element() element: HTMLElement;
   @Event() showEvent: EventEmitter;
   @Event() hideEvent: EventEmitter;
-  @Prop() disabled: boolean = false;
-  @Prop() type = ''; // btn-primary | btn-secondary
   @Prop() active = false;
   @Prop() activeClass = 'show';
-  @Prop() accordian = false;
+  @Prop() accordion = false;
   private activeDiv;
   private collapseElements;
 
@@ -45,7 +37,7 @@ export class StbCollapse {
           this.showCollapsible(collapse)
         }
       });
-    })
+    });
   }
 
   checkForActiveElement() {
@@ -68,7 +60,7 @@ export class StbCollapse {
 
   showCollapsible(element) {
     const collapsible = this.getCollapsible(element);
-    if (this.accordian && this.activeDiv && this.activeDiv !== collapsible) {
+    if (this.accordion && this.activeDiv && this.activeDiv !== collapsible) {
       this.activeDiv.style.height = 0;
       setTimeout(() => {
         this.activeDiv.classList.remove('show');
@@ -82,11 +74,11 @@ export class StbCollapse {
   }
 
   hideCollapsible(element) {
-      const collapsible = this.getCollapsible(element);
-      collapsible.style.height = 0;
-      setTimeout(() => {
-        collapsible.classList.remove(this.activeClass);
-      }, 500);
+    const collapsible = this.getCollapsible(element);
+    collapsible.style.height = 0;
+    setTimeout(() => {
+      collapsible.classList.remove(this.activeClass);
+    }, 500);
   }
 
   @Method()
@@ -100,7 +92,7 @@ export class StbCollapse {
   @Method()
   public hide(element): void {
     this.showCollapsible(element);
-    this.showEvent.emit({
+    this.hideEvent.emit({
       element: element
     });
   }
