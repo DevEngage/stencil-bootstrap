@@ -157,8 +157,6 @@ declare global {
       accordion?: boolean;
       active?: boolean;
       activeClass?: string;
-      disabled?: boolean;
-      type?: string;
     }
   }
 }
