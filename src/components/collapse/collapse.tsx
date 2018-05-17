@@ -81,6 +81,9 @@ export class StbCollapse {
     setTimeout(() => {
       collapsible.style.height = collapsible.children[0].offsetHeight + 'px';
     }, 50);
+    if (!this.activeDiv) {
+      this.activeDiv = collapsible;
+    }
   }
 
   hideCollapsible(element) {
