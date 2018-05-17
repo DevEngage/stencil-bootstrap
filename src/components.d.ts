@@ -3,6 +3,9 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
+
+import '@stencil/core';
+
 declare global {
   namespace JSX {
     interface Element {}
@@ -13,6 +16,8 @@ declare global {
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
     componentOnReady(done: (ele?: this) => void): void;
+
+    forceUpdate(): void;
   }
 
   interface HTMLAttributes {}
@@ -31,917 +36,1022 @@ import {
   RouterHistory,
 } from '@stencil/router';
 
-import {
-  StbAlert as StbAlert
-} from './components/alert/alert';
-
 declare global {
-  interface HTMLStbAlertElement extends StbAlert, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbAlert {
+      'closeSelector': string;
+      'context': string;
+    }
   }
+
+  interface HTMLStbAlertElement extends StencilComponents.StbAlert, HTMLStencilElement {}
+
   var HTMLStbAlertElement: {
     prototype: HTMLStbAlertElement;
     new (): HTMLStbAlertElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-alert": HTMLStbAlertElement;
+    'stb-alert': HTMLStbAlertElement;
   }
   interface ElementTagNameMap {
-    "stb-alert": HTMLStbAlertElement;
+    'stb-alert': HTMLStbAlertElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-alert": JSXElements.StbAlertAttributes;
+      'stb-alert': JSXElements.StbAlertAttributes;
     }
   }
   namespace JSXElements {
     export interface StbAlertAttributes extends HTMLAttributes {
-      closeSelector?: string;
-      context?: string;
+      'closeSelector'?: string;
+      'context'?: string;
     }
   }
 }
 
 
-import {
-  StbCard as StbCard
-} from './components/card/card';
-
 declare global {
-  interface HTMLStbCardElement extends StbCard, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbCard {
+
+    }
   }
+
+  interface HTMLStbCardElement extends StencilComponents.StbCard, HTMLStencilElement {}
+
   var HTMLStbCardElement: {
     prototype: HTMLStbCardElement;
     new (): HTMLStbCardElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-card": HTMLStbCardElement;
+    'stb-card': HTMLStbCardElement;
   }
   interface ElementTagNameMap {
-    "stb-card": HTMLStbCardElement;
+    'stb-card': HTMLStbCardElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-card": JSXElements.StbCardAttributes;
+      'stb-card': JSXElements.StbCardAttributes;
     }
   }
   namespace JSXElements {
     export interface StbCardAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbCarousel as StbCarousel
-} from './components/carousel/carousel';
-
 declare global {
-  interface HTMLStbCarouselElement extends StbCarousel, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbCarousel {
+      'cycleType': string | boolean;
+      'hide': (index?: number) => void;
+      'indicatorSelector': string;
+      'interval': number;
+      'next': () => void;
+      'nextSelector': string;
+      'pause': () => void;
+      'play': () => void;
+      'prev': () => void;
+      'prevSelector': string;
+      'ride': boolean;
+      'selected': number;
+      'show': (index?: number) => void;
+      'slideSelector': string;
+      'wrap': boolean;
+    }
   }
+
+  interface HTMLStbCarouselElement extends StencilComponents.StbCarousel, HTMLStencilElement {}
+
   var HTMLStbCarouselElement: {
     prototype: HTMLStbCarouselElement;
     new (): HTMLStbCarouselElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-carousel": HTMLStbCarouselElement;
+    'stb-carousel': HTMLStbCarouselElement;
   }
   interface ElementTagNameMap {
-    "stb-carousel": HTMLStbCarouselElement;
+    'stb-carousel': HTMLStbCarouselElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-carousel": JSXElements.StbCarouselAttributes;
+      'stb-carousel': JSXElements.StbCarouselAttributes;
     }
   }
   namespace JSXElements {
     export interface StbCarouselAttributes extends HTMLAttributes {
-      cycleType?: string | boolean;
-      indicatorSelector?: string;
-      interval?: number;
-      nextSelector?: string;
-      prevSelector?: string;
-      ride?: boolean;
-      selected?: number;
-      slideSelector?: string;
-      wrap?: boolean;
+      'cycleType'?: string | boolean;
+      'indicatorSelector'?: string;
+      'interval'?: number;
+      'nextSelector'?: string;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'prevSelector'?: string;
+      'ride'?: boolean;
+      'selected'?: number;
+      'slideSelector'?: string;
+      'wrap'?: boolean;
     }
   }
 }
 
 
-import {
-  StbCollapse as StbCollapse
-} from './components/collapse/collapse';
-
 declare global {
-  interface HTMLStbCollapseElement extends StbCollapse, HTMLStencilElement {
-  }
-  var HTMLStbCollapseElement: {
-    prototype: HTMLStbCollapseElement;
-    new (): HTMLStbCollapseElement;
-  };
-  interface HTMLElementTagNameMap {
-    "stb-collapse": HTMLStbCollapseElement;
-  }
-  interface ElementTagNameMap {
-    "stb-collapse": HTMLStbCollapseElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "stb-collapse": JSXElements.StbCollapseAttributes;
+
+  namespace StencilComponents {
+    interface StbDropdown {
+      'action': string;
+      'disabled': boolean;
+      'hide': () => void;
+      'modifiers': Modifiers;
+      'onlyOneOpen': boolean;
+      'placement': Placement;
+      'positionFixed': boolean;
+      'show': () => void;
+      'target': string;
+      'toggle': () => void;
     }
   }
-  namespace JSXElements {
-    export interface StbCollapseAttributes extends HTMLAttributes {
-      accordion?: boolean;
-      active?: boolean;
-      activeClass?: string;
-    }
-  }
-}
 
+  interface HTMLStbDropdownElement extends StencilComponents.StbDropdown, HTMLStencilElement {}
 
-import {
-  StbDropdown as StbDropdown
-} from './components/dropdown/dropdown';
-
-declare global {
-  interface HTMLStbDropdownElement extends StbDropdown, HTMLStencilElement {
-  }
   var HTMLStbDropdownElement: {
     prototype: HTMLStbDropdownElement;
     new (): HTMLStbDropdownElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-dropdown": HTMLStbDropdownElement;
+    'stb-dropdown': HTMLStbDropdownElement;
   }
   interface ElementTagNameMap {
-    "stb-dropdown": HTMLStbDropdownElement;
+    'stb-dropdown': HTMLStbDropdownElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-dropdown": JSXElements.StbDropdownAttributes;
+      'stb-dropdown': JSXElements.StbDropdownAttributes;
     }
   }
   namespace JSXElements {
     export interface StbDropdownAttributes extends HTMLAttributes {
-      action?: string;
-      disabled?: boolean;
-      modifiers?: Modifiers;
-      onlyOneOpen?: boolean;
-      placement?: Placement;
-      positionFixed?: boolean;
-      target?: string;
+      'action'?: string;
+      'disabled'?: boolean;
+      'modifiers'?: Modifiers;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'onlyOneOpen'?: boolean;
+      'placement'?: Placement;
+      'positionFixed'?: boolean;
+      'target'?: string;
     }
   }
 }
 
 
-import {
-  StbModal as StbModal
-} from './components/modal/stb-modal';
-
 declare global {
-  interface HTMLStbModalElement extends StbModal, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbModal {
+      'animation': any;
+      'hide': (reason?: any) => void;
+      'ignoreBackdropClick': boolean;
+      'keyboard': boolean;
+      'options': any;
+      'show': (relatedTarget?: any) => void;
+      'toggle': (relatedTarget: any) => void;
+    }
   }
+
+  interface HTMLStbModalElement extends StencilComponents.StbModal, HTMLStencilElement {}
+
   var HTMLStbModalElement: {
     prototype: HTMLStbModalElement;
     new (): HTMLStbModalElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-modal": HTMLStbModalElement;
+    'stb-modal': HTMLStbModalElement;
   }
   interface ElementTagNameMap {
-    "stb-modal": HTMLStbModalElement;
+    'stb-modal': HTMLStbModalElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-modal": JSXElements.StbModalAttributes;
+      'stb-modal': JSXElements.StbModalAttributes;
     }
   }
   namespace JSXElements {
     export interface StbModalAttributes extends HTMLAttributes {
-      animation?: any;
-      ignoreBackdropClick?: boolean;
-      keyboard?: boolean;
-      options?: any;
+      'animation'?: any;
+      'ignoreBackdropClick'?: boolean;
+      'keyboard'?: boolean;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'options'?: any;
     }
   }
 }
 
 
-import {
-  StbNav as StbNav
-} from './components/nav/nav';
-
 declare global {
-  interface HTMLStbNavElement extends StbNav, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbNav {
+      'hide': (index?: number) => void;
+      'panelSelector': string;
+      'selected': number;
+      'show': (index?: number) => void;
+      'tabSelector': string;
+      'toggle': () => void;
+    }
   }
+
+  interface HTMLStbNavElement extends StencilComponents.StbNav, HTMLStencilElement {}
+
   var HTMLStbNavElement: {
     prototype: HTMLStbNavElement;
     new (): HTMLStbNavElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-nav": HTMLStbNavElement;
+    'stb-nav': HTMLStbNavElement;
   }
   interface ElementTagNameMap {
-    "stb-nav": HTMLStbNavElement;
+    'stb-nav': HTMLStbNavElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-nav": JSXElements.StbNavAttributes;
+      'stb-nav': JSXElements.StbNavAttributes;
     }
   }
   namespace JSXElements {
     export interface StbNavAttributes extends HTMLAttributes {
-      panelSelector?: string;
-      selected?: number;
-      tabSelector?: string;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'panelSelector'?: string;
+      'selected'?: number;
+      'tabSelector'?: string;
     }
   }
 }
 
 
-import {
-  StbPagination as StbPagination
-} from './components/pagination/pagination';
-
 declare global {
-  interface HTMLStbPaginationElement extends StbPagination, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPagination {
+      'next': () => void;
+      'nextSelector': string;
+      'pagesSelector': string;
+      'prev': () => void;
+      'prevSelector': string;
+      'select': (index?: number) => void;
+      'selected': number;
+    }
   }
+
+  interface HTMLStbPaginationElement extends StencilComponents.StbPagination, HTMLStencilElement {}
+
   var HTMLStbPaginationElement: {
     prototype: HTMLStbPaginationElement;
     new (): HTMLStbPaginationElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-pagination": HTMLStbPaginationElement;
+    'stb-pagination': HTMLStbPaginationElement;
   }
   interface ElementTagNameMap {
-    "stb-pagination": HTMLStbPaginationElement;
+    'stb-pagination': HTMLStbPaginationElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-pagination": JSXElements.StbPaginationAttributes;
+      'stb-pagination': JSXElements.StbPaginationAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPaginationAttributes extends HTMLAttributes {
-      nextSelector?: string;
-      pagesSelector?: string;
-      prevSelector?: string;
-      selected?: number;
+      'nextSelector'?: string;
+      'onOnSelect'?: (event: CustomEvent) => void;
+      'pagesSelector'?: string;
+      'prevSelector'?: string;
+      'selected'?: number;
     }
   }
 }
 
 
-import {
-  StbPopover as StbPopover
-} from './components/popover/popover';
-
 declare global {
-  interface HTMLStbPopoverElement extends StbPopover, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPopover {
+      'action': string;
+      'disabled': boolean;
+      'hide': () => void;
+      'modifiers': Modifiers;
+      'onlyOneOpen': boolean;
+      'positionFixed': boolean;
+      'show': () => void;
+      'target': string;
+      'toggle': () => void;
+    }
   }
+
+  interface HTMLStbPopoverElement extends StencilComponents.StbPopover, HTMLStencilElement {}
+
   var HTMLStbPopoverElement: {
     prototype: HTMLStbPopoverElement;
     new (): HTMLStbPopoverElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-popover": HTMLStbPopoverElement;
+    'stb-popover': HTMLStbPopoverElement;
   }
   interface ElementTagNameMap {
-    "stb-popover": HTMLStbPopoverElement;
+    'stb-popover': HTMLStbPopoverElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-popover": JSXElements.StbPopoverAttributes;
+      'stb-popover': JSXElements.StbPopoverAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPopoverAttributes extends HTMLAttributes {
-      action?: string;
-      disabled?: boolean;
-      modifiers?: Modifiers;
-      onlyOneOpen?: boolean;
-      positionFixed?: boolean;
-      target?: string;
+      'action'?: string;
+      'disabled'?: boolean;
+      'modifiers'?: Modifiers;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'onlyOneOpen'?: boolean;
+      'positionFixed'?: boolean;
+      'target'?: string;
     }
   }
 }
 
 
-import {
-  StbProgress as StbProgress
-} from './components/progress/progress';
-
 declare global {
-  interface HTMLStbProgressElement extends StbProgress, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbProgress {
+      'classes': string;
+      'current': number | ISTBProgress | ISTBProgress[];
+      'max': number;
+      'min': number;
+      'title': string;
+    }
   }
+
+  interface HTMLStbProgressElement extends StencilComponents.StbProgress, HTMLStencilElement {}
+
   var HTMLStbProgressElement: {
     prototype: HTMLStbProgressElement;
     new (): HTMLStbProgressElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-progress": HTMLStbProgressElement;
+    'stb-progress': HTMLStbProgressElement;
   }
   interface ElementTagNameMap {
-    "stb-progress": HTMLStbProgressElement;
+    'stb-progress': HTMLStbProgressElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-progress": JSXElements.StbProgressAttributes;
+      'stb-progress': JSXElements.StbProgressAttributes;
     }
   }
   namespace JSXElements {
     export interface StbProgressAttributes extends HTMLAttributes {
-      classes?: string;
-      current?: number | ISTBProgress | ISTBProgress[];
-      max?: number;
-      min?: number;
-      title?: string;
+      'classes'?: string;
+      'current'?: number | ISTBProgress | ISTBProgress[];
+      'max'?: number;
+      'min'?: number;
+      'title'?: string;
     }
   }
 }
 
 
-import {
-  StbToggle as StbToggle
-} from './components/toggle/toggle';
-
 declare global {
-  interface HTMLStbToggleElement extends StbToggle, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbToggle {
+      'activate': (index?: number) => void;
+      'deactivate': (index?: number) => void;
+      'selected': number;
+      'target': string;
+      'toggle': () => void;
+    }
   }
+
+  interface HTMLStbToggleElement extends StencilComponents.StbToggle, HTMLStencilElement {}
+
   var HTMLStbToggleElement: {
     prototype: HTMLStbToggleElement;
     new (): HTMLStbToggleElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-toggle": HTMLStbToggleElement;
+    'stb-toggle': HTMLStbToggleElement;
   }
   interface ElementTagNameMap {
-    "stb-toggle": HTMLStbToggleElement;
+    'stb-toggle': HTMLStbToggleElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-toggle": JSXElements.StbToggleAttributes;
+      'stb-toggle': JSXElements.StbToggleAttributes;
     }
   }
   namespace JSXElements {
     export interface StbToggleAttributes extends HTMLAttributes {
-      selected?: number;
-      target?: string;
+      'onOnActivate'?: (event: CustomEvent) => void;
+      'onOnDeactivate'?: (event: CustomEvent) => void;
+      'selected'?: number;
+      'target'?: string;
     }
   }
 }
 
 
-import {
-  StbTooltip as StbTooltip
-} from './components/tooltip/tooltip';
-
 declare global {
-  interface HTMLStbTooltipElement extends StbTooltip, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbTooltip {
+      'action': string;
+      'disabled': boolean;
+      'hide': () => void;
+      'modifiers': Modifiers;
+      'onlyOneOpen': boolean;
+      'positionFixed': boolean;
+      'show': () => void;
+      'target': string;
+      'toggle': () => void;
+    }
   }
+
+  interface HTMLStbTooltipElement extends StencilComponents.StbTooltip, HTMLStencilElement {}
+
   var HTMLStbTooltipElement: {
     prototype: HTMLStbTooltipElement;
     new (): HTMLStbTooltipElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-tooltip": HTMLStbTooltipElement;
+    'stb-tooltip': HTMLStbTooltipElement;
   }
   interface ElementTagNameMap {
-    "stb-tooltip": HTMLStbTooltipElement;
+    'stb-tooltip': HTMLStbTooltipElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-tooltip": JSXElements.StbTooltipAttributes;
+      'stb-tooltip': JSXElements.StbTooltipAttributes;
     }
   }
   namespace JSXElements {
     export interface StbTooltipAttributes extends HTMLAttributes {
-      action?: string;
-      disabled?: boolean;
-      modifiers?: Modifiers;
-      onlyOneOpen?: boolean;
-      positionFixed?: boolean;
-      target?: string;
+      'action'?: string;
+      'disabled'?: boolean;
+      'modifiers'?: Modifiers;
+      'onOnHide'?: (event: CustomEvent) => void;
+      'onOnShow'?: (event: CustomEvent) => void;
+      'onlyOneOpen'?: boolean;
+      'positionFixed'?: boolean;
+      'target'?: string;
     }
   }
 }
 
 
-import {
-  StbDocumentationApi as StbDocumentationApi
-} from './documentation/api/api';
-
 declare global {
-  interface HTMLStbDocumentationApiElement extends StbDocumentationApi, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbDocumentationApi {
+      'api': any;
+      'details': string;
+      'language': string;
+      'stbTitle': string;
+      'type': string;
+    }
   }
+
+  interface HTMLStbDocumentationApiElement extends StencilComponents.StbDocumentationApi, HTMLStencilElement {}
+
   var HTMLStbDocumentationApiElement: {
     prototype: HTMLStbDocumentationApiElement;
     new (): HTMLStbDocumentationApiElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-documentation-api": HTMLStbDocumentationApiElement;
+    'stb-documentation-api': HTMLStbDocumentationApiElement;
   }
   interface ElementTagNameMap {
-    "stb-documentation-api": HTMLStbDocumentationApiElement;
+    'stb-documentation-api': HTMLStbDocumentationApiElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-documentation-api": JSXElements.StbDocumentationApiAttributes;
+      'stb-documentation-api': JSXElements.StbDocumentationApiAttributes;
     }
   }
   namespace JSXElements {
     export interface StbDocumentationApiAttributes extends HTMLAttributes {
-      api?: any;
-      details?: string;
-      language?: string;
-      stbTitle?: string;
-      type?: string;
+      'api'?: any;
+      'details'?: string;
+      'language'?: string;
+      'stbTitle'?: string;
+      'type'?: string;
     }
   }
 }
 
 
-import {
-  StbCode as StbCode
-} from './documentation/code/code';
-
 declare global {
-  interface HTMLStbCodeElement extends StbCode, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbCode {
+      'language': string;
+    }
   }
+
+  interface HTMLStbCodeElement extends StencilComponents.StbCode, HTMLStencilElement {}
+
   var HTMLStbCodeElement: {
     prototype: HTMLStbCodeElement;
     new (): HTMLStbCodeElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-code": HTMLStbCodeElement;
+    'stb-code': HTMLStbCodeElement;
   }
   interface ElementTagNameMap {
-    "stb-code": HTMLStbCodeElement;
+    'stb-code': HTMLStbCodeElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-code": JSXElements.StbCodeAttributes;
+      'stb-code': JSXElements.StbCodeAttributes;
     }
   }
   namespace JSXElements {
     export interface StbCodeAttributes extends HTMLAttributes {
-      language?: string;
+      'language'?: string;
     }
   }
 }
 
 
-import {
-  StbPageAlerts as StbPageAlerts
-} from './pages/components/alerts/alerts';
-
 declare global {
-  interface HTMLStbPageAlertsElement extends StbPageAlerts, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageAlerts {
+
+    }
   }
+
+  interface HTMLStbPageAlertsElement extends StencilComponents.StbPageAlerts, HTMLStencilElement {}
+
   var HTMLStbPageAlertsElement: {
     prototype: HTMLStbPageAlertsElement;
     new (): HTMLStbPageAlertsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-alerts": HTMLStbPageAlertsElement;
+    'stb-page-alerts': HTMLStbPageAlertsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-alerts": HTMLStbPageAlertsElement;
+    'stb-page-alerts': HTMLStbPageAlertsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-alerts": JSXElements.StbPageAlertsAttributes;
+      'stb-page-alerts': JSXElements.StbPageAlertsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageAlertsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageCards as StbPageCard
-} from './pages/components/card/card';
-
 declare global {
-  interface HTMLStbPageCardElement extends StbPageCard, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageCard {
+
+    }
   }
+
+  interface HTMLStbPageCardElement extends StencilComponents.StbPageCard, HTMLStencilElement {}
+
   var HTMLStbPageCardElement: {
     prototype: HTMLStbPageCardElement;
     new (): HTMLStbPageCardElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-card": HTMLStbPageCardElement;
+    'stb-page-card': HTMLStbPageCardElement;
   }
   interface ElementTagNameMap {
-    "stb-page-card": HTMLStbPageCardElement;
+    'stb-page-card': HTMLStbPageCardElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-card": JSXElements.StbPageCardAttributes;
+      'stb-page-card': JSXElements.StbPageCardAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageCardAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageCarousels as StbPageCarousels
-} from './pages/components/carousels/carousels';
-
 declare global {
-  interface HTMLStbPageCarouselsElement extends StbPageCarousels, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageCarousels {
+
+    }
   }
+
+  interface HTMLStbPageCarouselsElement extends StencilComponents.StbPageCarousels, HTMLStencilElement {}
+
   var HTMLStbPageCarouselsElement: {
     prototype: HTMLStbPageCarouselsElement;
     new (): HTMLStbPageCarouselsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-carousels": HTMLStbPageCarouselsElement;
+    'stb-page-carousels': HTMLStbPageCarouselsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-carousels": HTMLStbPageCarouselsElement;
+    'stb-page-carousels': HTMLStbPageCarouselsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-carousels": JSXElements.StbPageCarouselsAttributes;
+      'stb-page-carousels': JSXElements.StbPageCarouselsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageCarouselsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageCollapses as StbPageCollapses
-} from './pages/components/collapses/collapses';
-
 declare global {
-  interface HTMLStbPageCollapsesElement extends StbPageCollapses, HTMLStencilElement {
-  }
-  var HTMLStbPageCollapsesElement: {
-    prototype: HTMLStbPageCollapsesElement;
-    new (): HTMLStbPageCollapsesElement;
-  };
-  interface HTMLElementTagNameMap {
-    "stb-page-collapses": HTMLStbPageCollapsesElement;
-  }
-  interface ElementTagNameMap {
-    "stb-page-collapses": HTMLStbPageCollapsesElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "stb-page-collapses": JSXElements.StbPageCollapsesAttributes;
+
+  namespace StencilComponents {
+    interface StbPageComponents {
+
     }
   }
-  namespace JSXElements {
-    export interface StbPageCollapsesAttributes extends HTMLAttributes {
-      
-    }
-  }
-}
 
+  interface HTMLStbPageComponentsElement extends StencilComponents.StbPageComponents, HTMLStencilElement {}
 
-import {
-  StbPageComponents as StbPageComponents
-} from './pages/components/components';
-
-declare global {
-  interface HTMLStbPageComponentsElement extends StbPageComponents, HTMLStencilElement {
-  }
   var HTMLStbPageComponentsElement: {
     prototype: HTMLStbPageComponentsElement;
     new (): HTMLStbPageComponentsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-components": HTMLStbPageComponentsElement;
+    'stb-page-components': HTMLStbPageComponentsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-components": HTMLStbPageComponentsElement;
+    'stb-page-components': HTMLStbPageComponentsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-components": JSXElements.StbPageComponentsAttributes;
+      'stb-page-components': JSXElements.StbPageComponentsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageComponentsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageDropdowns as StbPageDropdowns
-} from './pages/components/dropdowns/dropdowns';
-
 declare global {
-  interface HTMLStbPageDropdownsElement extends StbPageDropdowns, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageDropdowns {
+
+    }
   }
+
+  interface HTMLStbPageDropdownsElement extends StencilComponents.StbPageDropdowns, HTMLStencilElement {}
+
   var HTMLStbPageDropdownsElement: {
     prototype: HTMLStbPageDropdownsElement;
     new (): HTMLStbPageDropdownsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-dropdowns": HTMLStbPageDropdownsElement;
+    'stb-page-dropdowns': HTMLStbPageDropdownsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-dropdowns": HTMLStbPageDropdownsElement;
+    'stb-page-dropdowns': HTMLStbPageDropdownsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-dropdowns": JSXElements.StbPageDropdownsAttributes;
+      'stb-page-dropdowns': JSXElements.StbPageDropdownsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageDropdownsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageModals as StbPageModals
-} from './pages/components/modals/modals';
-
 declare global {
-  interface HTMLStbPageModalsElement extends StbPageModals, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageModals {
+
+    }
   }
+
+  interface HTMLStbPageModalsElement extends StencilComponents.StbPageModals, HTMLStencilElement {}
+
   var HTMLStbPageModalsElement: {
     prototype: HTMLStbPageModalsElement;
     new (): HTMLStbPageModalsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-modals": HTMLStbPageModalsElement;
+    'stb-page-modals': HTMLStbPageModalsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-modals": HTMLStbPageModalsElement;
+    'stb-page-modals': HTMLStbPageModalsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-modals": JSXElements.StbPageModalsAttributes;
+      'stb-page-modals': JSXElements.StbPageModalsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageModalsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageNavs as StbPageNavs
-} from './pages/components/navs/navs';
-
 declare global {
-  interface HTMLStbPageNavsElement extends StbPageNavs, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageNavs {
+
+    }
   }
+
+  interface HTMLStbPageNavsElement extends StencilComponents.StbPageNavs, HTMLStencilElement {}
+
   var HTMLStbPageNavsElement: {
     prototype: HTMLStbPageNavsElement;
     new (): HTMLStbPageNavsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-navs": HTMLStbPageNavsElement;
+    'stb-page-navs': HTMLStbPageNavsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-navs": HTMLStbPageNavsElement;
+    'stb-page-navs': HTMLStbPageNavsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-navs": JSXElements.StbPageNavsAttributes;
+      'stb-page-navs': JSXElements.StbPageNavsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageNavsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPagePaginations as StbPagePaginations
-} from './pages/components/paginations/paginations';
-
 declare global {
-  interface HTMLStbPagePaginationsElement extends StbPagePaginations, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPagePaginations {
+
+    }
   }
+
+  interface HTMLStbPagePaginationsElement extends StencilComponents.StbPagePaginations, HTMLStencilElement {}
+
   var HTMLStbPagePaginationsElement: {
     prototype: HTMLStbPagePaginationsElement;
     new (): HTMLStbPagePaginationsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-paginations": HTMLStbPagePaginationsElement;
+    'stb-page-paginations': HTMLStbPagePaginationsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-paginations": HTMLStbPagePaginationsElement;
+    'stb-page-paginations': HTMLStbPagePaginationsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-paginations": JSXElements.StbPagePaginationsAttributes;
+      'stb-page-paginations': JSXElements.StbPagePaginationsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPagePaginationsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPopovers as StbPagePopovers
-} from './pages/components/popovers/popovers';
-
 declare global {
-  interface HTMLStbPagePopoversElement extends StbPagePopovers, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPagePopovers {
+
+    }
   }
+
+  interface HTMLStbPagePopoversElement extends StencilComponents.StbPagePopovers, HTMLStencilElement {}
+
   var HTMLStbPagePopoversElement: {
     prototype: HTMLStbPagePopoversElement;
     new (): HTMLStbPagePopoversElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-popovers": HTMLStbPagePopoversElement;
+    'stb-page-popovers': HTMLStbPagePopoversElement;
   }
   interface ElementTagNameMap {
-    "stb-page-popovers": HTMLStbPagePopoversElement;
+    'stb-page-popovers': HTMLStbPagePopoversElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-popovers": JSXElements.StbPagePopoversAttributes;
+      'stb-page-popovers': JSXElements.StbPagePopoversAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPagePopoversAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageProgressBars as StbPageProgressBars
-} from './pages/components/progress-bars/progress-bars';
-
 declare global {
-  interface HTMLStbPageProgressBarsElement extends StbPageProgressBars, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageProgressBars {
+
+    }
   }
+
+  interface HTMLStbPageProgressBarsElement extends StencilComponents.StbPageProgressBars, HTMLStencilElement {}
+
   var HTMLStbPageProgressBarsElement: {
     prototype: HTMLStbPageProgressBarsElement;
     new (): HTMLStbPageProgressBarsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-progress-bars": HTMLStbPageProgressBarsElement;
+    'stb-page-progress-bars': HTMLStbPageProgressBarsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-progress-bars": HTMLStbPageProgressBarsElement;
+    'stb-page-progress-bars': HTMLStbPageProgressBarsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-progress-bars": JSXElements.StbPageProgressBarsAttributes;
+      'stb-page-progress-bars': JSXElements.StbPageProgressBarsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageProgressBarsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbPageToggles as StbPageToggles
-} from './pages/components/toggles/toggles';
-
 declare global {
-  interface HTMLStbPageTogglesElement extends StbPageToggles, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageToggles {
+
+    }
   }
+
+  interface HTMLStbPageTogglesElement extends StencilComponents.StbPageToggles, HTMLStencilElement {}
+
   var HTMLStbPageTogglesElement: {
     prototype: HTMLStbPageTogglesElement;
     new (): HTMLStbPageTogglesElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-toggles": HTMLStbPageTogglesElement;
+    'stb-page-toggles': HTMLStbPageTogglesElement;
   }
   interface ElementTagNameMap {
-    "stb-page-toggles": HTMLStbPageTogglesElement;
+    'stb-page-toggles': HTMLStbPageTogglesElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-toggles": JSXElements.StbPageTogglesAttributes;
+      'stb-page-toggles': JSXElements.StbPageTogglesAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageTogglesAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  StbTooltips as StbPageTooltips
-} from './pages/components/tooltips/tooltips';
-
 declare global {
-  interface HTMLStbPageTooltipsElement extends StbPageTooltips, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface StbPageTooltips {
+
+    }
   }
+
+  interface HTMLStbPageTooltipsElement extends StencilComponents.StbPageTooltips, HTMLStencilElement {}
+
   var HTMLStbPageTooltipsElement: {
     prototype: HTMLStbPageTooltipsElement;
     new (): HTMLStbPageTooltipsElement;
   };
   interface HTMLElementTagNameMap {
-    "stb-page-tooltips": HTMLStbPageTooltipsElement;
+    'stb-page-tooltips': HTMLStbPageTooltipsElement;
   }
   interface ElementTagNameMap {
-    "stb-page-tooltips": HTMLStbPageTooltipsElement;
+    'stb-page-tooltips': HTMLStbPageTooltipsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "stb-page-tooltips": JSXElements.StbPageTooltipsAttributes;
+      'stb-page-tooltips': JSXElements.StbPageTooltipsAttributes;
     }
   }
   namespace JSXElements {
     export interface StbPageTooltipsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  AppHome as AppHome
-} from './pages/home/app-home';
-
 declare global {
-  interface HTMLAppHomeElement extends AppHome, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface AppHome {
+
+    }
   }
+
+  interface HTMLAppHomeElement extends StencilComponents.AppHome, HTMLStencilElement {}
+
   var HTMLAppHomeElement: {
     prototype: HTMLAppHomeElement;
     new (): HTMLAppHomeElement;
   };
   interface HTMLElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    'app-home': HTMLAppHomeElement;
   }
   interface ElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    'app-home': HTMLAppHomeElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-home": JSXElements.AppHomeAttributes;
+      'app-home': JSXElements.AppHomeAttributes;
     }
   }
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
 
 
-import {
-  MyApp as MyApp
-} from './pages/my-app/my-app';
-
 declare global {
-  interface HTMLMyAppElement extends MyApp, HTMLStencilElement {
+
+  namespace StencilComponents {
+    interface MyApp {
+      'history': RouterHistory;
+    }
   }
+
+  interface HTMLMyAppElement extends StencilComponents.MyApp, HTMLStencilElement {}
+
   var HTMLMyAppElement: {
     prototype: HTMLMyAppElement;
     new (): HTMLMyAppElement;
   };
   interface HTMLElementTagNameMap {
-    "my-app": HTMLMyAppElement;
+    'my-app': HTMLMyAppElement;
   }
   interface ElementTagNameMap {
-    "my-app": HTMLMyAppElement;
+    'my-app': HTMLMyAppElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-app": JSXElements.MyAppAttributes;
+      'my-app': JSXElements.MyAppAttributes;
     }
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
-      history?: RouterHistory;
+      'history'?: RouterHistory;
     }
   }
 }
 
 declare global { namespace JSX { interface StencilJSX {} } }
+
+export declare function defineCustomElements(window: any): void;

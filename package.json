@@ -1,7 +1,7 @@
 {
   "name": "@dev-engage/stencil-bootstrap",
   "private": false,
-  "version": "0.5.9",
+  "version": "0.6.0",
   "description": "Stencil's very own Bootstrap implementation",
   "main": "dist/stb.js",
   "types": "dist/types/components.d.ts",
@@ -20,8 +20,8 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "@stencil/core": "0.6.18",
-    "@stencil/router": "0.0.27",
+    "@stencil/core": "0.9.1",
+    "@stencil/router": "latest",
     "@stencil/sass": "latest",
     "bootstrap": "^4.0.0",
     "popper.js": "^1.14.1"
