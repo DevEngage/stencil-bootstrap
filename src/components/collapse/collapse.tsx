@@ -13,6 +13,7 @@ export class StbCollapse {
   @Prop() activeClass = 'show';
   @Prop() accordion = false;
   private activeDiv;
+  private activeParentDiv;
   private collapseElements;
 
   componentDidLoad(): void {
@@ -44,6 +45,8 @@ export class StbCollapse {
     this.activeDiv = document.querySelector('.show');
     if (this.activeDiv) {
       this.activeDiv.style.height = this.activeDiv.children[0].offsetHeight + 'px';
+      this.activeParentDiv = this.activeDiv.parentElement;
+      this.activeParentDiv.classList.add('activeCard');
     }
   }
 
@@ -66,11 +69,14 @@ export class StbCollapse {
     }
     if (this.accordion && this.activeDiv && this.activeDiv !== collapsible) {
       this.activeDiv.style.height = 0;
+      this.activeParentDiv = this.activeDiv.parentElement;
+      this.activeParentDiv.classList.remove('activeCard');
       setTimeout(() => {
         this.activeDiv.classList.remove('show');
         this.activeDiv = collapsible;
       }, 500);
     }
+    collapsible.parentElement.classList.add('activeCard');
     collapsible.classList.add('show');
     setTimeout(() => {
       collapsible.style.height = collapsible.children[0].offsetHeight + 'px';
@@ -80,6 +86,7 @@ export class StbCollapse {
   hideCollapsible(element) {
     const collapsible = this.getCollapsible(element);
     collapsible.style.height = 0;
+    collapsible.parentElement.classList.remove('activeCard');
     setTimeout(() => {
       collapsible.classList.remove(this.activeClass);
     }, 500);

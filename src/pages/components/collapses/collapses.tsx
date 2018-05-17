@@ -60,7 +60,7 @@ export class StbPageCollapses {
 
 
         <stb-collapse accordion={true}>
-          <div id="accordion">
+          <div id="accordion" class="accordion">
             <div class="card">
               <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne">
                 <h5 class="mb-0">
