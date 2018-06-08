@@ -164,6 +164,47 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface StbCollapse {
+      'accordion': boolean;
+      'active': boolean;
+      'activeClass': string;
+      'hide': (element: any) => void;
+      'show': (element: any) => void;
+    }
+  }
+
+  interface HTMLStbCollapseElement extends StencilComponents.StbCollapse, HTMLStencilElement {}
+
+  var HTMLStbCollapseElement: {
+    prototype: HTMLStbCollapseElement;
+    new (): HTMLStbCollapseElement;
+  };
+  interface HTMLElementTagNameMap {
+    'stb-collapse': HTMLStbCollapseElement;
+  }
+  interface ElementTagNameMap {
+    'stb-collapse': HTMLStbCollapseElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'stb-collapse': JSXElements.StbCollapseAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbCollapseAttributes extends HTMLAttributes {
+      'accordion'?: boolean;
+      'active'?: boolean;
+      'activeClass'?: string;
+      'onHideEvent'?: (event: CustomEvent) => void;
+      'onShowEvent'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface StbDropdown {
       'action': string;
       'disabled': boolean;
@@ -684,6 +725,39 @@ declare global {
   }
   namespace JSXElements {
     export interface StbPageCarouselsAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface StbPageCollapses {
+
+    }
+  }
+
+  interface HTMLStbPageCollapsesElement extends StencilComponents.StbPageCollapses, HTMLStencilElement {}
+
+  var HTMLStbPageCollapsesElement: {
+    prototype: HTMLStbPageCollapsesElement;
+    new (): HTMLStbPageCollapsesElement;
+  };
+  interface HTMLElementTagNameMap {
+    'stb-page-collapses': HTMLStbPageCollapsesElement;
+  }
+  interface ElementTagNameMap {
+    'stb-page-collapses': HTMLStbPageCollapsesElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'stb-page-collapses': JSXElements.StbPageCollapsesAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface StbPageCollapsesAttributes extends HTMLAttributes {
 
     }
   }
