@@ -6,6 +6,17 @@ export const TOGGLE_CLASSES = {
   inactive: ''
 };
 
+const CLASS_NAME = {
+  carousel: 'carousel',
+  active: 'active',
+  slide: 'slide',
+  right: 'carousel-item-right',
+  left: 'carousel-item-left',
+  next: 'carousel-item-next',
+  prev: 'carousel-item-prev',
+  item: 'carousel-item'
+};
+
 @Component({
   tag: 'stb-carousel',
   host: {
@@ -104,29 +115,68 @@ export class StbCarousel {
     this.listeners[index] = eventHandler;
   }
 
+  animateSlide(current: HTMLElement, next: HTMLElement, direction = 'next') {
+    const currentDir = CLASS_NAME[direction === 'next' ? 'left' : 'right'];
+    const nextDir = CLASS_NAME[direction === 'next' ? 'right' : 'left'];
+
+    next.classList.add(CLASS_NAME[direction]);
+    current.classList.add(currentDir);
+    next.classList.add(nextDir);
+
+    setTimeout(() => {
+      current.classList.remove(currentDir);
+      next.classList.remove(nextDir);
+      next.classList.remove(CLASS_NAME[direction]);
+
+      next.classList.add(TOGGLE_CLASSES.active);
+      current.classList.remove(TOGGLE_CLASSES.active);
+    }, 600);
+  }
+
   addActiveClass(element) {
     element.classList.add(TOGGLE_CLASSES.active);
     if (TOGGLE_CLASSES.inactive) {
       element.classList.remove(TOGGLE_CLASSES.inactive);
     }
   }
-  removeActiveClass(elements = this.slideElements) {
-    elements.forEach(item => {
+
+  removeActiveClass(ignoreElement?: HTMLElement) {
+    this.slideElements.forEach(item => {
+      if (item === ignoreElement) return;
       item.classList.remove(TOGGLE_CLASSES.active);
       if (TOGGLE_CLASSES.inactive) {
         item.classList.add(TOGGLE_CLASSES.inactive);
       }
     });
+    this.removeActiveIndicatorClass();
+  }
+
+  removeActiveIndicatorClass(elements = this.indicatorElements) {
+    if (this.indicatorElements && this.indicatorElements.length) {
+      elements.forEach(item => {
+        item.classList.remove(TOGGLE_CLASSES.active);
+        if (TOGGLE_CLASSES.inactive) {
+          item.classList.add(TOGGLE_CLASSES.inactive);
+        }
+      });
+    }
   }
 
   @Method()
-  public show(index = 0): void {
-    this.removeActiveClass();
-    if (this.indicatorElements && this.indicatorElements.length) {
-      this.removeActiveClass(this.indicatorElements);
+  public show(index = 0, direction = 'next'): void {
+    console.log(direction)
+    let activeElement = this.slideElements[index-1];
+    let nextElement = this.slideElements[index];
+    if (direction === 'prev') {
+      activeElement = this.slideElements[index + 1];
+    } else if (!activeElement) {
+      activeElement = this.slideElements[this.slideElements.length - 1];
     }
-    this.indicatorClickHandler(this.slideElements[index], index);
-    this.addActiveClass(this.slideElements[index]);
+    this.removeActiveClass(activeElement);
+    this.indicatorClickHandler(nextElement, index);
+    console.log(nextElement)
+    this.animateSlide(activeElement, nextElement, direction);
+    // this.addActiveClass(this.slideElements[index]);
     this.currentSlide = index;
     this.pause();
     this.play();
@@ -139,9 +189,6 @@ export class StbCarousel {
   @Method()
   public hide(index = 0): void {
     this.removeActiveClass();
-    if (this.indicatorElements && this.indicatorElements.length) {
-      this.removeActiveClass(this.indicatorElements);
-    }
     this.onHide.emit({
       current: this.currentSlide,
       element: this.slideElements[index]
@@ -152,18 +199,18 @@ export class StbCarousel {
   @Method()
   next() {
     if (this.slideElements && this.slideElements.length - 1 <= this.currentSlide) {
-      this.show(0);
+      this.show(0, 'next');
     } else {
-      this.show(this.currentSlide + 1);
+      this.show(this.currentSlide + 1, 'next');
     }
   }
 
   @Method()
   prev() {
     if (this.currentSlide <= 0) {
-      this.show(this.slideElements.length - 1);
+      this.show(this.slideElements.length - 1, 'prev');
     } else {
-      this.show(this.currentSlide - 1);
+      this.show(this.currentSlide - 1, 'prev');
     }
   }
 
