@@ -40,13 +40,13 @@ export class StbModal {
   @Prop() keyboard?: boolean = true;
   @Prop() options: any;
   @Prop() ignoreBackdropClick: boolean = false;
-  @Prop() animation = {
-    prefix: 'animated',
-    showDuration: 'duration-500ms',
-    show: 'fadeInDown',
-    hideDuration: 'duration-500ms',
-    hide: 'fadeOut'
-  };
+  // @Prop() animation = {
+  //   prefix: 'animated',
+  //   showDuration: 'duration-500ms',
+  //   show: 'fadeInDown',
+  //   hideDuration: 'duration-500ms',
+  //   hide: 'fadeOut'
+  // };
   documentBackDropClickHandler;
 
   componentWillLoad(): void {
@@ -66,13 +66,13 @@ export class StbModal {
 
   @Method()
   public show(relatedTarget?): void {
-    const modalDialogElement = this.element.getElementsByClassName('modal-dialog')[0];
+    // const modalDialogElement = this.element.getElementsByClassName('modal-dialog')[0];
     this.element.style.display = 'block';
     this.element.style.overflow = 'auto';
     this.body.classList.add('model-open');
-    modalDialogElement.classList.add(this.animation.showDuration);
-    modalDialogElement.classList.add(this.animation.prefix);
-    modalDialogElement.classList.add(this.animation.show);
+    // modalDialogElement.classList.add(this.animation.showDuration);
+    // modalDialogElement.classList.add(this.animation.prefix);
+    // modalDialogElement.classList.add(this.animation.show);
     this.element.classList.add('show');
     this.onShow.emit(relatedTarget);
     this.isVisible = true;
@@ -86,9 +86,9 @@ export class StbModal {
     if (this.isTransitioning || !this.isVisible) {
       return
     }
-    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.showDuration);
-    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
-    this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
+    // this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.showDuration);
+    // this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.prefix);
+    // this.element.getElementsByClassName('modal-dialog')[0].classList.remove(this.animation.show);
     this.element.classList.remove(ClassName.SHOW);
     this.body.classList.remove('model-open');
     this.onHide.emit(reason);
