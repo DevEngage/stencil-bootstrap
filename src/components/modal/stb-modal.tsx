@@ -1,4 +1,4 @@
-import {Component, Prop, Element, Event, EventEmitter, Listen, Method} from '@stencil/core';
+import {Component, Prop, Element, Event, EventEmitter, Method} from '@stencil/core';
 
 const ClassName = {
   SCROLLBAR_MEASURER : 'modal-scrollbar-measure',
@@ -48,6 +48,7 @@ export class StbModal {
   //   hide: 'fadeOut'
   // };
   documentBackDropClickHandler;
+  documentEscHandler;
 
   componentWillLoad(): void {
   }
@@ -79,6 +80,8 @@ export class StbModal {
     this.adjustDialog();
     this.checkScrollbar();
     this.showBackdrop(() => this.showElement());
+    this.documentEscHandler = this.escKey();
+    document.addEventListener('keyup', this.documentEscHandler);
   }
 
   @Method()
@@ -94,6 +97,8 @@ export class StbModal {
     this.onHide.emit(reason);
     this.isVisible = false;
     this.hideModal();
+    if (this.documentEscHandler) document.addEventListener('keyup', this.documentEscHandler);
+    this.documentEscHandler = undefined;
   }
 
   private hideModal() {
@@ -111,10 +116,13 @@ export class StbModal {
     }
   }
 
-  @Listen('keyup.escape')
-  escKey($event): void {
-    if (this.keyboard && !$event.defaultPrevented) {
-      this.hide('esc');
+  // @Listen('keyup.escape')
+  escKey() {
+    return ($event) => {
+      if (this.keyboard && !$event.defaultPrevented && $event.key === 'Escape') {
+        console.log($event.key)
+        this.hide('esc');
+      }
     }
   }
 
