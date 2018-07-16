@@ -16,7 +16,7 @@ export class StbPageCollapses {
         <br/>
 
         <stb-collapse >
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#outsideBox" aria-expanded="false" aria-controls="collapseExample">
+          <button class="btn btn-primary" data-toggle="collapse" data-target="#outsideBox" aria-expanded="false" aria-controls="collapseExample">
             Button with outside collapsible
           </button>
         </stb-collapse>
@@ -29,10 +29,10 @@ export class StbPageCollapses {
         <stb-collapse accordion={false}>
           <div>
             <p>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Link with href
               </button>
-              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
                 Button with data-target
               </button>
             </p>

@@ -21,7 +21,7 @@ export class StbPageDropdowns {
         </p>
 
         <stb-dropdown>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -38,7 +38,7 @@ export class StbPageDropdowns {
           {`<stb-dropdown>
   <button
     class="btn btn-secondary dropdown-toggle"
-    type="button"
+
     id="dropdownMenuLink"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -106,7 +106,7 @@ export class StbPageDropdowns {
         <br/>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Primary
           </button>
           <div class="dropdown-menu">
@@ -119,7 +119,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Secondary
           </button>
           <div class="dropdown-menu">
@@ -132,7 +132,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Success
           </button>
           <div class="dropdown-menu">
@@ -145,7 +145,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Info
           </button>
           <div class="dropdown-menu">
@@ -158,7 +158,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Warning
           </button>
           <div class="dropdown-menu">
@@ -171,7 +171,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Danger
           </button>
           <div class="dropdown-menu">
@@ -188,7 +188,7 @@ export class StbPageDropdowns {
           {`<!-- Example single danger button -->
 <div class="btn-group">
   <button
-    type="button"
+
     class="btn btn-danger dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -225,8 +225,8 @@ export class StbPageDropdowns {
         <br/>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-primary">Primary</button>
-          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -239,8 +239,8 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-secondary">Secondary</button>
-          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -253,8 +253,8 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-success">Success</button>
-          <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -267,8 +267,8 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-info">Info</button>
-          <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-info">Info</button>
+          <button class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -281,8 +281,8 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-warning">Warning</button>
-          <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-warning">Warning</button>
+          <button class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -295,8 +295,8 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-danger">Danger</button>
-          <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-danger">Danger</button>
+          <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -312,9 +312,9 @@ export class StbPageDropdowns {
         <stb-code>
           {`<!-- Example split danger button -->
 <div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
+  <button class="btn btn-danger">Action</button>
   <button
-    type="button"
+
     class="btn btn-danger dropdown-toggle dropdown-toggle-split"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -338,7 +338,7 @@ export class StbPageDropdowns {
         <h2>Sizing</h2>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Large Button
           </button>
           <div class="dropdown-menu">
@@ -351,7 +351,7 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown class="btn-group m-2">
-          <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Small Button
           </button>
           <div class="dropdown-menu">
@@ -367,7 +367,7 @@ export class StbPageDropdowns {
           {`<!-- Large button-->
 <stb-dropdown class="btn-group m-2">
   <button
-    type="button"
+
     class="btn btn-secondary btn-lg dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -387,7 +387,7 @@ export class StbPageDropdowns {
 <!-- Small button-->
 <stb-dropdown class="btn-group m-2">
   <button
-    type="button"
+
     class="btn btn-secondary btn-sm dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -413,7 +413,7 @@ export class StbPageDropdowns {
         <p>Trigger dropdown menus above elements by adding .dropup to the parent element.</p>
 
         <stb-dropdown placement="top-start" class="btn-group dropup m-2">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropup
           </button>
           <div class="dropdown-menu">
@@ -426,10 +426,10 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown placement="top-start" class="btn-group dropup m-2">
-          <button type="button" class="btn btn-secondary">
+          <button class="btn btn-secondary">
             Split dropup
           </button>
-          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -445,7 +445,7 @@ export class StbPageDropdowns {
           {`<!-- Default dropup button -->
 <stb-dropdown placement="top-start" class="btn-group dropup">
   <button
-    type="button"
+
     class="btn btn-secondary dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -460,11 +460,11 @@ export class StbPageDropdowns {
 
 <!-- Split dropup button -->
 <stb-dropdown placement="top-start" class="btn-group dropup">
-  <button type="button" class="btn btn-secondary">
+  <button class="btn btn-secondary">
     Split dropup
   </button>
   <button
-    type="button"
+
     class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -484,7 +484,7 @@ export class StbPageDropdowns {
         <p>Trigger dropdown menus at the right of the elements by adding .dropright to the parent element.</p>
 
         <stb-dropdown placement="right-start" class="btn-group dropright m-2">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropright
           </button>
           <div class="dropdown-menu">
@@ -497,10 +497,10 @@ export class StbPageDropdowns {
         </stb-dropdown>
 
         <stb-dropdown placement="right-start" class="btn-group dropright m-2">
-          <button type="button" class="btn btn-secondary">
+          <button class="btn btn-secondary">
             Split dropright
           </button>
-          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu">
@@ -516,7 +516,7 @@ export class StbPageDropdowns {
           {`<!-- Default dropright button -->
 <stb-dropdown placement="right-start" class="btn-group dropright">
   <button
-    type="button"
+
     class="btn btn-secondary dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -531,11 +531,11 @@ export class StbPageDropdowns {
 
 <!-- Split dropright button -->
 <stb-dropdown placement="right-start" class="btn-group dropright">
-  <button type="button" class="btn btn-secondary">
+  <button class="btn btn-secondary">
     Split dropright
   </button>
   <button
-    type="button"
+
     class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -556,7 +556,7 @@ export class StbPageDropdowns {
         <p>Trigger dropdown menus at the left of the elements by adding .dropleft to the parent element.</p>
 
         <stb-dropdown placement="left-start" class="btn-group dropleft m-2">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropleft
           </button>
           <div class="dropdown-menu">
@@ -571,7 +571,7 @@ export class StbPageDropdowns {
         <stb-dropdown placement="left-start" class="btn-group m-2">
           <div class="btn-group dropleft" role="group">
             <button
-              type="button"
+
               class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -587,7 +587,7 @@ export class StbPageDropdowns {
               <a class="dropdown-item" href="#">Separated link</a>
             </div>
           </div>
-          <button type="button" class="btn btn-secondary">
+          <button class="btn btn-secondary">
             Split dropleft
           </button>
         </stb-dropdown>
@@ -596,7 +596,7 @@ export class StbPageDropdowns {
           {`<!-- Default dropleft button -->
 <stb-dropdown placement="left-start" class="btn-group dropleft">
   <button
-    type="button"
+
     class="btn btn-secondary dropdown-toggle"
     data-toggle="dropdown"
     aria-haspopup="true"
@@ -613,7 +613,7 @@ export class StbPageDropdowns {
 <stb-dropdown placement="left-start" class="btn-group m-2">
   <div class="btn-group dropleft" role="group">
     <button
-      type="button"
+
       class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
       data-toggle="dropdown"
       aria-haspopup="true"
@@ -629,7 +629,7 @@ export class StbPageDropdowns {
       <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div>
-  <button type="button" class="btn btn-secondary">
+  <button class="btn btn-secondary">
     Split dropleft
   </button>
 </stb-dropdown>`}

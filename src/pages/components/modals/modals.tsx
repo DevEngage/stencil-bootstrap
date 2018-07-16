@@ -60,7 +60,7 @@ class Page {
         <div slot="modal-dialog" class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" onClick={this.closeModal}>
+            <button class="close" onClick={this.closeModal}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -68,8 +68,8 @@ class Page {
             ...
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onClick={this.closeModal}>Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button class="btn btn-secondary" onClick={this.closeModal}>Close</button>
+            <button class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </stb-modal>
@@ -85,7 +85,7 @@ class Page {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" onClick={this.closeModal}>
+                <button class="close" onClick={this.closeModal}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -93,8 +93,8 @@ class Page {
                 ...
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onClick={this.closeModal}>Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button class="btn btn-secondary" onClick={this.closeModal}>Close</button>
+                <button class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ class Page {
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title 2</h5>
-                <button type="button" class="close" onClick={this.closeLongModal}>
+                <button class="close" onClick={this.closeLongModal}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -148,8 +148,8 @@ class Page {
                 Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onClick={this.closeLongModal}>Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button class="btn btn-secondary" onClick={this.closeLongModal}>Close</button>
+                <button class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
