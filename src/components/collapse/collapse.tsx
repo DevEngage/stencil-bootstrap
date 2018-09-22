@@ -43,6 +43,7 @@ export class StbCollapse {
 
   checkForActiveElement() {
     this.activeDiv = document.querySelector('.show');
+    console.log('this.activeDiv', this.activeDiv.children[0].offsetHeight);
     if (this.activeDiv) {
       this.activeDiv.style.height = this.activeDiv.children[0].offsetHeight + 'px';
       this.activeParentDiv = this.activeDiv.parentElement;
